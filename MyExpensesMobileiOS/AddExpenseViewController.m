@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Leandro Loureiro. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "AddExpenseViewController.h"
 
-@interface FirstViewController ()
+@interface AddExpenseViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation AddExpenseViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

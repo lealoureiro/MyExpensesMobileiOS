@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		2F0A40DE1A60552800631D42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40DD1A60552800631D42 /* main.m */; };
 		2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E01A60552800631D42 /* AppDelegate.m */; };
-		2F0A40E41A60552800631D42 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E31A60552800631D42 /* FirstViewController.m */; };
-		2F0A40E71A60552800631D42 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E61A60552800631D42 /* SecondViewController.m */; };
+		2F0A40E41A60552800631D42 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E31A60552800631D42 /* AddExpenseViewController.m */; };
+		2F0A40E71A60552800631D42 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E61A60552800631D42 /* TransactionsViewController.m */; };
 		2F0A40EA1A60552800631D42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40E81A60552800631D42 /* Main.storyboard */; };
 		2F0A40EC1A60552800631D42 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40EB1A60552800631D42 /* Images.xcassets */; };
 		2F0A40EF1A60552800631D42 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40ED1A60552800631D42 /* LaunchScreen.xib */; };
 		2F0A40FB1A60552800631D42 /* MyExpensesMobileiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40FA1A60552800631D42 /* MyExpensesMobileiOSTests.m */; };
+		2F0A41061A6058AB00631D42 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41051A6058AB00631D42 /* AccountsViewController.m */; };
+		2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41081A605C7A00631D42 /* ExpensesCoreServerAPI.m */; };
+		2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A410D1A65A8EB00631D42 /* LoginViewController.m */; };
+		2F0A41111A65A97300631D42 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41101A65A97300631D42 /* MainViewController.m */; };
+		2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,16 +38,27 @@
 		2F0A40DD1A60552800631D42 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F0A40DF1A60552800631D42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2F0A40E01A60552800631D42 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2F0A40E21A60552800631D42 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		2F0A40E31A60552800631D42 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		2F0A40E51A60552800631D42 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		2F0A40E61A60552800631D42 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		2F0A40E21A60552800631D42 /* AddExpenseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddExpenseViewController.h; sourceTree = "<group>"; };
+		2F0A40E31A60552800631D42 /* AddExpenseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddExpenseViewController.m; sourceTree = "<group>"; };
+		2F0A40E51A60552800631D42 /* TransactionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionsViewController.h; sourceTree = "<group>"; };
+		2F0A40E61A60552800631D42 /* TransactionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionsViewController.m; sourceTree = "<group>"; };
 		2F0A40E91A60552800631D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F0A40EB1A60552800631D42 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2F0A40EE1A60552800631D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2F0A40F41A60552800631D42 /* MyExpensesMobileiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyExpensesMobileiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0A40F91A60552800631D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F0A40FA1A60552800631D42 /* MyExpensesMobileiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyExpensesMobileiOSTests.m; sourceTree = "<group>"; };
+		2F0A41041A6058AB00631D42 /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsViewController.h; sourceTree = "<group>"; };
+		2F0A41051A6058AB00631D42 /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
+		2F0A41081A605C7A00631D42 /* ExpensesCoreServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpensesCoreServerAPI.m; sourceTree = "<group>"; };
+		2F0A410A1A605CF500631D42 /* ExpensesCoreServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpensesCoreServerAPI.h; sourceTree = "<group>"; };
+		2F0A410B1A64816300631D42 /* GlobalSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalSettings.h; sourceTree = "<group>"; };
+		2F0A410C1A65A8EB00631D42 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2F0A410D1A65A8EB00631D42 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2F0A410F1A65A97300631D42 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2F0A41101A65A97300631D42 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2F5BD5931A6733C80009401D /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
+		2F5BD5941A6733C80009401D /* ApplicationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationState.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,16 +100,26 @@
 		2F0A40DA1A60552800631D42 /* MyExpensesMobileiOS */ = {
 			isa = PBXGroup;
 			children = (
+				2F0A41071A605C3300631D42 /* Connectors */,
 				2F0A40DF1A60552800631D42 /* AppDelegate.h */,
 				2F0A40E01A60552800631D42 /* AppDelegate.m */,
-				2F0A40E21A60552800631D42 /* FirstViewController.h */,
-				2F0A40E31A60552800631D42 /* FirstViewController.m */,
-				2F0A40E51A60552800631D42 /* SecondViewController.h */,
-				2F0A40E61A60552800631D42 /* SecondViewController.m */,
+				2F0A40E21A60552800631D42 /* AddExpenseViewController.h */,
+				2F0A40E31A60552800631D42 /* AddExpenseViewController.m */,
+				2F0A40E51A60552800631D42 /* TransactionsViewController.h */,
+				2F0A40E61A60552800631D42 /* TransactionsViewController.m */,
 				2F0A40E81A60552800631D42 /* Main.storyboard */,
 				2F0A40EB1A60552800631D42 /* Images.xcassets */,
 				2F0A40ED1A60552800631D42 /* LaunchScreen.xib */,
 				2F0A40DB1A60552800631D42 /* Supporting Files */,
+				2F0A41041A6058AB00631D42 /* AccountsViewController.h */,
+				2F0A41051A6058AB00631D42 /* AccountsViewController.m */,
+				2F0A410B1A64816300631D42 /* GlobalSettings.h */,
+				2F0A410C1A65A8EB00631D42 /* LoginViewController.h */,
+				2F0A410D1A65A8EB00631D42 /* LoginViewController.m */,
+				2F0A410F1A65A97300631D42 /* MainViewController.h */,
+				2F0A41101A65A97300631D42 /* MainViewController.m */,
+				2F5BD5931A6733C80009401D /* ApplicationState.h */,
+				2F5BD5941A6733C80009401D /* ApplicationState.m */,
 			);
 			path = MyExpensesMobileiOS;
 			sourceTree = "<group>";
@@ -122,6 +148,15 @@
 				2F0A40F91A60552800631D42 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F0A41071A605C3300631D42 /* Connectors */ = {
+			isa = PBXGroup;
+			children = (
+				2F0A41081A605C7A00631D42 /* ExpensesCoreServerAPI.m */,
+				2F0A410A1A605CF500631D42 /* ExpensesCoreServerAPI.h */,
+			);
+			name = Connectors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,10 +259,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F0A40E71A60552800631D42 /* SecondViewController.m in Sources */,
+				2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */,
+				2F0A40E71A60552800631D42 /* TransactionsViewController.m in Sources */,
+				2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */,
 				2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */,
-				2F0A40E41A60552800631D42 /* FirstViewController.m in Sources */,
+				2F0A41111A65A97300631D42 /* MainViewController.m in Sources */,
+				2F0A40E41A60552800631D42 /* AddExpenseViewController.m in Sources */,
+				2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */,
 				2F0A40DE1A60552800631D42 /* main.m in Sources */,
+				2F0A41061A6058AB00631D42 /* AccountsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +458,7 @@
 				2F0A41001A60552800631D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F0A41011A60552800631D42 /* Build configuration list for PBXNativeTarget "MyExpensesMobileiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +467,7 @@
 				2F0A41031A60552800631D42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

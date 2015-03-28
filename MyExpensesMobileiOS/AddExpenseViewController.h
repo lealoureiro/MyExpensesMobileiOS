@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  MyExpensesMobileiOS
 //
 //  Created by Leandro Loureiro on 09/01/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface AddExpenseViewController : UIViewController
 
 
 @end

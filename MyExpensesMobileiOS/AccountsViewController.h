@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  AccountsViewController.h
 //  MyExpensesMobileiOS
 //
 //  Created by Leandro Loureiro on 09/01/15.
@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
-
+@interface AccountsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end
-
