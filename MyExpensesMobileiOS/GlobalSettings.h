@@ -10,6 +10,6 @@
 #define MyExpensesMobileiOS_GlobalSettings_h
 
 
-#define WEBSERVICE_ADDRESS @"http://ams01.leandroloureiro.com:8081/"
+#define WEBSERVICE_ADDRESS @"http://expenses-dev.leandroloureiro.com/"
 
 #endif

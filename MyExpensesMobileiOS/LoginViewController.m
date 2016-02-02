@@ -14,6 +14,9 @@
 
 - (void)viewDidLoad {
     [self.errorLabel setText:@""];
+    [self.usernameBox setCenter:CGPointMake(self.view.center.x, self.usernameBox.center.y)];
+    [self.passwordBox setCenter:CGPointMake(self.view.center.x, self.passwordBox.center.y)];
+    [self.errorLabel setCenter:CGPointMake(self.view.center.x, self.errorLabel.center.y)];
 }
 
 - (IBAction)login:(id)sender {
