@@ -24,6 +24,11 @@ NSArray *tableData;
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidLoad];
+    tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].authToken];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

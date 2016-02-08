@@ -30,16 +30,17 @@ NSArray *accountList;
     // Dispose of any resources that can be recreated.
 }
 
-- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
 
-- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     return accountList.count;
 }
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return @"Leandro";
+    NSDictionary *account = [accountList objectAtIndex:row];
+    return account[@"name"];
 }
 
 @end

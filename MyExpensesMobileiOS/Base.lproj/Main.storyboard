@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" id="B52-LA-gGT">
-                                <rect key="frame" x="5" y="-49" width="364" height="162"/>
+                                <rect key="frame" x="5" y="0.0" width="370" height="163"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540.5333333333333" y="487.06"/>
+            <point key="canvasLocation" x="540.5" y="486.5"/>
         </scene>
         <!--Accounts-->
         <scene sceneID="Cls-Nn-5FS">

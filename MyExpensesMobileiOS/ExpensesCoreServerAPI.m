@@ -38,7 +38,7 @@
     
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
     if ([httpResponse statusCode] != 200) {
-        NSLog(@"Invalid response from the server %d", [httpResponse statusCode]);
+        NSLog(@"Invalid response from the server %ld", (long)[httpResponse statusCode]);
     }
     
     error = nil;
@@ -47,7 +47,7 @@
     return object;
 }
 
-+ (NSString *)loginWithUsername:(NSString *)username withPassword:(NSString *) password andError:(NSError**) error{
++ (NSString *)loginWithUsername:(NSString *)username andPassword:(NSString *) password andError:(NSError**) error{
     
     NSString *params = [[NSString alloc] initWithFormat:@"username=%@&password=%@", username, password];
     NSMutableString *webserviceAddress = [[NSMutableString alloc] init];
@@ -70,7 +70,7 @@
     
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
     if ([httpResponse statusCode] != 200) {
-        NSLog(@"Invalid response from the server %d", [httpResponse statusCode]);
+        NSLog(@"Invalid response from the server %ld", (long)[httpResponse statusCode]);
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"Invalid credentials!" forKey:NSLocalizedDescriptionKey];
         *error = [NSError errorWithDomain:@"serverRequest" code:1 userInfo:details];

@@ -21,18 +21,28 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *authToken = [defaults objectForKey:@"authToken"];
+    NSLog(@"Loaded token from user defaults: %@", authToken);
     
-    if ([ApplicationState getInstance].logged) {
-    
+    if (authToken == nil) {
+        [self showLoginMenu];
     } else {
-        NSLog(@"Showing Login Screen...");
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
-        loginViewController.view.frame = self.view.frame;
-        [self presentViewController:loginViewController animated:YES completion:nil];
+        // token should validated first...
+        ApplicationState *application = [ApplicationState getInstance];
+        application.logged = YES;
+        application.authToken = authToken;
     }
-        
-    
 }
+
+- (void)showLoginMenu
+{
+    NSLog(@"Showing Login Screen...");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
+    loginViewController.view.frame = self.view.frame;
+    [self presentViewController:loginViewController animated:YES completion:nil];
+}
+
 
 @end

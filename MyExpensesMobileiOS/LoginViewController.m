@@ -23,7 +23,7 @@
     NSError *error;
     [self.errorLabel setText:@""];
     NSLog(@"Login %@ %@", self.usernameBox.text, self.passwordBox.text);
-    NSString *authToken = [ExpensesCoreServerAPI loginWithUsername:self.usernameBox.text withPassword:self.passwordBox.text andError:&error];
+    NSString *authToken = [ExpensesCoreServerAPI loginWithUsername:self.usernameBox.text andPassword:self.passwordBox.text andError:&error];
     
     if (error != nil) {
         [self.errorLabel  setNumberOfLines:0];
@@ -33,6 +33,12 @@
         ApplicationState *application = [ApplicationState getInstance];
         application.logged = YES;
         application.authToken = authToken;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:authToken forKey:@"authToken"];
+        [defaults synchronize];
+        NSLog(@"Saved token %@ in user defaults", authToken);
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
