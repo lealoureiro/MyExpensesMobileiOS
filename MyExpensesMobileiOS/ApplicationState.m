@@ -12,7 +12,7 @@
 
 
 @synthesize logged;
-@synthesize authToken;
+@synthesize apiKey;
 
 static ApplicationState *instance = nil;
 

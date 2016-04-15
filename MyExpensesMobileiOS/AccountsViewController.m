@@ -20,13 +20,13 @@ NSArray *tableData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].authToken];
+    tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidLoad];
-    tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].authToken];
+    tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
 }
 
 - (void)didReceiveMemoryWarning {

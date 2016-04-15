@@ -22,7 +22,7 @@ NSArray *accountList;
     [super viewDidLoad];
     self.accountChooser.dataSource = self;
     self.accountChooser.delegate = self;
-    accountList = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].authToken];
+    accountList = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
 }
 
 - (void)didReceiveMemoryWarning {

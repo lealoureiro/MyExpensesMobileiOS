@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "LoginViewController.h"
 #import "ApplicationState.h"
+#import "ExpensesCoreServerAPI.h"
 
 @implementation MainViewController
 
@@ -22,16 +23,22 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *authToken = [defaults objectForKey:@"authToken"];
-    NSLog(@"Loaded token from user defaults: %@", authToken);
+    NSString *key = [defaults objectForKey:@"apiKey"];
+    NSLog(@"Loaded API Key from user defaults: %@", key);
     
-    if (authToken == nil) {
+    if (key == nil) {
         [self showLoginMenu];
     } else {
-        // token should validated first...
-        ApplicationState *application = [ApplicationState getInstance];
-        application.logged = YES;
-        application.authToken = authToken;
+        NSError *error;
+        NSString *clientId = [ExpensesCoreServerAPI checkApiKey:key andError:&error];
+        if (error == nil) {
+            ApplicationState *application = [ApplicationState getInstance];
+            application.logged = YES;
+            application.apiKey = key;
+        } else {
+            [self showLoginMenu];
+        }
+        
     }
 }
 

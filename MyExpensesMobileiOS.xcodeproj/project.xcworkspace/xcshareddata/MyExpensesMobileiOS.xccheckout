@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9FBCFE2A-55F4-4906-8AF2-88C5C8EB0A58</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MyExpensesMobileiOS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E7287AC4455828D1822A01DF8E337B6A6B087BDE</key>
+		<string>https://github.com/lealoureiro/MyExpensesMobileiOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MyExpensesMobileiOS.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E7287AC4455828D1822A01DF8E337B6A6B087BDE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/lealoureiro/MyExpensesMobileiOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E7287AC4455828D1822A01DF8E337B6A6B087BDE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E7287AC4455828D1822A01DF8E337B6A6B087BDE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MyExpensesMobileiOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

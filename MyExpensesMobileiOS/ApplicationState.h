@@ -10,11 +10,11 @@
 
 @interface ApplicationState : NSObject {
     BOOL logged;
-    NSString *authToken;
+    NSString *apiKey;
 }
 
 @property (nonatomic) BOOL logged;
-@property (nonatomic, retain) NSString *authToken;
+@property (nonatomic, retain) NSString *apiKey;
 
 +(ApplicationState *)getInstance;
 

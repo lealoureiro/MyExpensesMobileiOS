@@ -9,79 +9,73 @@
 #import <Foundation/Foundation.h>
 #import "ExpensesCoreServerAPI.h"
 #import "GlobalSettings.h"
-
-
+#import <UNIRest.h>
 
 @implementation ExpensesCoreServerAPI
 
-+ (NSArray *)getUserAccounts:(NSString *)authToken
++ (NSArray *)getUserAccounts:(NSString *)apiKey
 {
     
-    NSString *params = [[NSString alloc] initWithFormat:@"token=%@", authToken];
-    NSMutableString *webserviceAddress = [[NSMutableString alloc] init];
-    [webserviceAddress appendString:WEBSERVICE_ADDRESS];
-    [webserviceAddress appendString:@"expenses/get_accounts"];
-    NSURL *serverUrl = [NSURL URLWithString:webserviceAddress];
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:serverUrl cachePolicy: NSURLRequestReloadIgnoringCacheData  timeoutInterval:3];
-    [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    NSDictionary *headers = @{@"accept": @"application/json", @"authkey": apiKey};
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"accounts/"];
+    UNIHTTPJsonResponse *response = [[UNIRest get:^(UNISimpleRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+    }] asJson];
     
-    
-    NSURLResponse *response = nil;
-    NSError *error = nil;
-    
-    NSData *receivedData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
-    
-    if (error != nil) {
-        NSLog(@"%@", error);
-    }
-    
-    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-    if ([httpResponse statusCode] != 200) {
-        NSLog(@"Invalid response from the server %ld", (long)[httpResponse statusCode]);
-    }
-    
-    error = nil;
-    id object = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:&error];
-    
-    return object;
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+
+
+    return response.body.array;
 }
 
 + (NSString *)loginWithUsername:(NSString *)username andPassword:(NSString *) password andError:(NSError**) error{
     
-    NSString *params = [[NSString alloc] initWithFormat:@"username=%@&password=%@", username, password];
-    NSMutableString *webserviceAddress = [[NSMutableString alloc] init];
-    [webserviceAddress appendString:WEBSERVICE_ADDRESS];
-    [webserviceAddress appendString:@"auth/login"];
-    NSURL *serverUrl = [NSURL URLWithString:webserviceAddress];
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:serverUrl cachePolicy: NSURLRequestReloadIgnoringCacheData  timeoutInterval:3];
-    [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    NSDictionary *headers = @{@"accept": @"application/json", @"Content-type": @"application/json"};
+    NSDictionary *parameters = @{@"username": username, @"password": password};
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"keys/"];
     
     
-    NSURLResponse *response = nil;
-    NSError *requestError = nil;
+    UNIHTTPJsonResponse *response = [[UNIRest postEntity:^(UNIBodyRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+        [request setBody:[NSJSONSerialization dataWithJSONObject:parameters options:0 error:error]];
+    }] asJson];
     
-    NSData *receivedData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&requestError];
-    
-    if (requestError != nil) {
-        NSLog(@"%@", requestError);
-    }
-    
-    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-    if ([httpResponse statusCode] != 200) {
-        NSLog(@"Invalid response from the server %ld", (long)[httpResponse statusCode]);
-        NSMutableDictionary* details = [NSMutableDictionary dictionary];
-        [details setValue:@"Invalid credentials!" forKey:NSLocalizedDescriptionKey];
-        *error = [NSError errorWithDomain:@"serverRequest" code:1 userInfo:details];
+    if (response.code != 200) {
+        NSLog(@"Invalid response from the server %ld", (long)response.code);
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
         return nil;
     }
     
-    requestError = nil;
-    id object = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:&requestError];
-    
-    return object[@"token"];
+    return response.body.object[@"key"];
 }
+
++ (NSString *)checkApiKey:(NSString *)apiKey andError:(NSError **) error
+{
+    *error = nil;
+    NSDictionary *headers = @{@"Accept": @"application/json", @"authkey": apiKey};
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"keys/"];
+    
+    UNIHTTPJsonResponse *response = [[UNIRest get:^(UNISimpleRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    if (response.code != 200) {
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
+    }
+    
+    return response.body.object[@"clientId"];
+}
+
 
 
 @end
