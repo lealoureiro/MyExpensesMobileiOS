@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TransactionsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface TransactionsViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate,UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *accountChooser;
+@property (weak, nonatomic) IBOutlet UITableView *transactionsTable;
+
 
 @end
 

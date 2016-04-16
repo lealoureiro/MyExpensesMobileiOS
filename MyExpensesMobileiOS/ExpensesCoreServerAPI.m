@@ -26,10 +26,32 @@
     }] asJson];
     
     NSLog(@"Server HTTP response code %ld", (long)response.code);
-
-
+    
+    
     return response.body.array;
 }
+
++ (NSArray *)getAccountTransactions:(NSString *)account withApiKey:(NSString *)key {
+    
+    NSLog(@"Getting transactions for acount %@", account);
+    
+    NSDictionary *headers = @{@"accept": @"application/json", @"authkey": key};
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"accounts/"];
+    [resource appendString:account];
+    [resource appendString:@"/transactions/"];
+    UNIHTTPJsonResponse *response = [[UNIRest get:^(UNISimpleRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    
+    
+    return response.body.array;
+}
+
 
 + (NSString *)loginWithUsername:(NSString *)username andPassword:(NSString *) password andError:(NSError**) error{
     
