@@ -9,6 +9,7 @@
 #import "TransactionsViewController.h"
 #import "ExpensesCoreServerAPI.h"
 #import "ApplicationState.h"
+#import "TransactionTableCell.h"
 
 @interface TransactionsViewController ()
 
@@ -20,9 +21,16 @@ NSArray *accountList;
 NSArray *transactionsList;
 NSMutableDictionary *cellsGroupedByDays;
 NSMutableArray *transactionsDays;
+NSNumberFormatter *formatter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setNegativeFormat:@"###0.00"];
+    [formatter setPositiveFormat:@"###0.00"];
+    
     self.accountChooser.dataSource = self;
     self.accountChooser.delegate = self;
     accountList = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
@@ -67,12 +75,12 @@ NSMutableArray *transactionsDays;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"transactionTableItem";
+    static NSString *simpleTableIdentifier = @"transactionCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    TransactionTableCell *cell = (TransactionTableCell*) [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
+        cell = [[TransactionTableCell alloc] init];
         cell.selectionStyle = UITableViewStylePlain;
     }
     
@@ -80,11 +88,21 @@ NSMutableArray *transactionsDays;
     NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
     NSDictionary *transaction = [transactionsForSection objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = transaction[@"description"];
-    NSNumber *timestamp = transaction[@"timestamp"];
-    long timestampSeconds = [timestamp longValue] / 1000;
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestampSeconds];
-    cell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+    
+    NSMutableString *category = [[NSMutableString alloc] init];
+    [category appendString:transaction[@"category"]];
+    [category appendString:@":"];
+    [category appendString:transaction[@"subCategory"]];
+    cell.description.text = transaction[@"description"];
+    cell.category.text = category;
+    NSNumber *amount = transaction[@"amount"];
+    cell.amount.text = [formatter stringFromNumber:amount];
+    if ([amount floatValue] > 0) {
+        cell.amount.textColor = [UIColor colorWithRed:0.0 green:255.0 blue:0.0 alpha:1.0];
+    } else if ([amount floatValue] < 0){
+        cell.amount.textColor = [UIColor colorWithRed:255.0 green:0.0 blue:0.0 alpha:1.0];
+
+    }
     return cell;
 }
 

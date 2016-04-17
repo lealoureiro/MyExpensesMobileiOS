@@ -21,6 +21,7 @@
 		2F0A41111A65A97300631D42 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41101A65A97300631D42 /* MainViewController.m */; };
 		2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 		2F6E0E3D1CC03FA60054CD3C /* libUnirest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */; };
+		2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */; };
 		E9C4F9EF6D62109EE5408F48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD73E4CC72294D0961C82936 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		2F5BD5931A6733C80009401D /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
 		2F5BD5941A6733C80009401D /* ApplicationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationState.m; sourceTree = "<group>"; };
 		2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUnirest.a; path = "../../../Downloads/unirest-obj-c-master/build/Debug-iphoneos/libUnirest.a"; sourceTree = "<group>"; };
+		2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableCell.h; sourceTree = "<group>"; };
+		2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableCell.m; sourceTree = "<group>"; };
 		6EBF0814084613B605612F5C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C5C7B6A9F50875F68A939167 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FD73E4CC72294D0961C82936 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +134,8 @@
 				2F0A41101A65A97300631D42 /* MainViewController.m */,
 				2F5BD5931A6733C80009401D /* ApplicationState.h */,
 				2F5BD5941A6733C80009401D /* ApplicationState.m */,
+				2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */,
+				2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */,
 			);
 			path = MyExpensesMobileiOS;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */,
 				2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */,
 				2F0A41111A65A97300631D42 /* MainViewController.m in Sources */,
+				2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */,
 				2F0A40E41A60552800631D42 /* AddExpenseViewController.m in Sources */,
 				2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */,
 				2F0A40DE1A60552800631D42 /* main.m in Sources */,
