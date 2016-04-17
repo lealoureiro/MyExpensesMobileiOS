@@ -51,10 +51,9 @@ NSArray *tableData;
     }
     
     NSDictionary *account = [tableData objectAtIndex:indexPath.row];
-    NSNumber *balance = account[@"bal"];
     
     cell.textLabel.text = account[@"name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%0.2f €", [balance floatValue]];
+    cell.detailTextLabel.text = account[@"type"];
     
     return cell;
 }

@@ -15,8 +15,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
 }
 
 
@@ -30,7 +28,7 @@
         [self showLoginMenu];
     } else {
         NSError *error;
-        NSString *clientId = [ExpensesCoreServerAPI checkApiKey:key andError:&error];
+        [ExpensesCoreServerAPI checkApiKey:key andError:&error];
         if (error == nil) {
             ApplicationState *application = [ApplicationState getInstance];
             application.logged = YES;

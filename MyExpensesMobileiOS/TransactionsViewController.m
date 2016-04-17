@@ -18,6 +18,8 @@
 
 NSArray *accountList;
 NSArray *transactionsList;
+NSMutableDictionary *cellsGroupedByDays;
+NSMutableArray *transactionsDays;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +28,7 @@ NSArray *transactionsList;
     accountList = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
     NSString *account = [accountList objectAtIndex:0][@"id"];
     transactionsList = [ExpensesCoreServerAPI getAccountTransactions:account withApiKey:[ApplicationState getInstance].apiKey];
+    [self arrangeTransactions];
     
 }
 
@@ -50,18 +53,21 @@ NSArray *transactionsList;
     NSLog(@"Selected account %ld to view transactions", row);
     NSString *account = [accountList objectAtIndex:row][@"id"];
     transactionsList = [ExpensesCoreServerAPI getAccountTransactions:account withApiKey:[ApplicationState getInstance].apiKey];
+    [self arrangeTransactions];
     [self.transactionsTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [transactionsList count];
+    id key = [transactionsDays objectAtIndex:section];
+    NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
+    return transactionsForSection.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"accountTableItem";
+    static NSString *simpleTableIdentifier = @"transactionTableItem";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -70,13 +76,54 @@ NSArray *transactionsList;
         cell.selectionStyle = UITableViewStylePlain;
     }
     
-    NSDictionary *account = [transactionsList objectAtIndex:indexPath.row];
+    id key = [transactionsDays objectAtIndex:indexPath.section];
+    NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
+    NSDictionary *transaction = [transactionsForSection objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = account[@"description"];
-    
+    cell.textLabel.text = transaction[@"description"];
+    NSNumber *timestamp = transaction[@"timestamp"];
+    long timestampSeconds = [timestamp longValue] / 1000;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestampSeconds];
+    cell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
     return cell;
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return transactionsDays.count;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [transactionsDays objectAtIndex:section];
+}
+
+- (void)arrangeTransactions{
+    cellsGroupedByDays = [NSMutableDictionary dictionaryWithCapacity:0];
+    transactionsDays = [NSMutableArray arrayWithCapacity:0];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    formater.locale = [NSLocale currentLocale];
+    formater.timeZone = calendar.timeZone;
+    [formater setDateFormat:@"dd MMMM"];
+    
+    NSString *previousGroup = @"";
+    NSMutableArray *transctionsForSection = nil;
+    
+    for (NSDictionary *transaction in transactionsList) {
+        NSNumber *timestamp = transaction[@"timestamp"];
+        long timestampSeconds = [timestamp longValue] / 1000;
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestampSeconds];
+        NSString *currentDay = [formater stringFromDate:date];
+        if (![previousGroup isEqualToString:currentDay]) {
+            [transactionsDays addObject:currentDay];
+            transctionsForSection = [NSMutableArray arrayWithCapacity:0];
+            [cellsGroupedByDays setObject:transctionsForSection forKey:currentDay];
+            previousGroup = currentDay;
+        }
+        [transctionsForSection addObject:transaction];
+    }
+}
 
 
 @end
