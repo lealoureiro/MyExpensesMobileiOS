@@ -12,6 +12,7 @@
 @interface ExpensesCoreServerAPI : NSObject
 
 + (NSString *)loginWithUsername:(NSString *)username andPassword:(NSString *) password andError:(NSError **)error;
++ (NSDictionary *)getAccountInformation:(NSString *)account withApiKey:(NSString *)key;
 + (NSString *)checkApiKey:(NSString *)apiKey andError:(NSError **) error;
 + (NSArray *)getUserAccounts:(NSString *)apiKey;
 + (NSArray *)getAccountTransactions:(NSString *)account withApiKey:(NSString *)key;

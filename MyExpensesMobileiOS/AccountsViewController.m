@@ -9,6 +9,7 @@
 #import "AccountsViewController.h"
 #import "ExpensesCoreServerAPI.h"
 #import "ApplicationState.h"
+#import "TransactionsViewController.h"
 
 @interface AccountsViewController()
 
@@ -20,13 +21,13 @@ NSArray *tableData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle:@"Accounts"];
     tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidLoad];
-    tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,7 +42,7 @@ NSArray *tableData;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"accountTableItem";
+    static NSString *simpleTableIdentifier = @"accountEntry";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -56,6 +57,19 @@ NSArray *tableData;
     cell.detailTextLabel.text = account[@"type"];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Row %ld selected", indexPath.row);
+     [self performSegueWithIdentifier:@"goToAccount" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"goToAccount"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        TransactionsViewController *destViewController = segue.destinationViewController;
+        destViewController.account = [tableData objectAtIndex:indexPath.row];
+    }
 }
 
 

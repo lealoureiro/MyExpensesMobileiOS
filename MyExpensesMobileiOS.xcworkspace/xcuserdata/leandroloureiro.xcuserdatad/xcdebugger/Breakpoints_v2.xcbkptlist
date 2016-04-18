@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyExpensesMobileiOS/ExpensesCoreServerAPI.m"
-            timestampString = "482513532.622975"
+            timestampString = "482698566.561195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "+loginWithUsername:andPassword:andError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyExpensesMobileiOS/ExpensesCoreServerAPI.m"
-            timestampString = "482513532.622975"
+            timestampString = "482698566.561195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "+loginWithUsername:andPassword:andError:"
             landmarkType = "5">
          </BreakpointContent>
