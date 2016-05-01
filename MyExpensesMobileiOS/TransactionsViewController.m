@@ -29,38 +29,23 @@ NSNumberFormatter *formatter;
 
 UILabel *amountLabel;
 UILabel *accountTypeLabel;
+UILabel *accountNameLabel;
+UITableView *transactionsTable;
+
 
 - (void)loadView {
     UIView *contentView = [[UIView alloc] init];
     contentView.backgroundColor = [UIColor whiteColor];
     self.view = contentView;
     
-    UILabel *accountName = [[UILabel alloc] init];
-    accountName.font = [UIFont boldSystemFontOfSize:20.0f];
-    accountName.textAlignment =  NSTextAlignmentLeft;
-    accountName.layer.borderColor = [UIColor blackColor].CGColor;
-    accountName.text = account[@"name"];
-    accountName.hidden = NO;
-    [accountName setTranslatesAutoresizingMaskIntoConstraints:NO];
-
-    [self.view addSubview:accountName];
-    
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:accountName
-                                                          attribute:NSLayoutAttributeLeft
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeLeftMargin
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-    
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:accountName
-                                                          attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeTopMargin
-                                                         multiplier:0.1
-                                                           constant:100.0]];
-    
+    accountNameLabel = [[UILabel alloc] init];
+    accountNameLabel.font = [UIFont boldSystemFontOfSize:20.0f];
+    accountNameLabel.textAlignment =  NSTextAlignmentLeft;
+    accountNameLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    accountNameLabel.text = account[@"name"];
+    accountNameLabel.hidden = NO;
+    [accountNameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:accountNameLabel];
     
     amountLabel = [[UILabel alloc] init];
     amountLabel.font = [UIFont boldSystemFontOfSize:20.0f];
@@ -70,23 +55,6 @@ UILabel *accountTypeLabel;
     [amountLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:amountLabel];
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:amountLabel
-                                                          attribute:NSLayoutAttributeRight
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeRightMargin
-                                                         multiplier:1.0
-                                                           constant:0.0]];
-    
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:amountLabel
-                                                          attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeTopMargin
-                                                         multiplier:0.1
-                                                           constant:100.0]];
-    
-    
     accountTypeLabel = [[UILabel alloc] init];
     accountTypeLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     accountTypeLabel.textAlignment =  NSTextAlignmentLeft;
@@ -95,22 +63,21 @@ UILabel *accountTypeLabel;
     [accountTypeLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:accountTypeLabel];
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:accountTypeLabel
-                                                          attribute:NSLayoutAttributeLeft
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeLeftMargin
-                                                         multiplier:1.0
-                                                           constant:0.0]];
+    transactionsTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    transactionsTable.delegate = self;
+    transactionsTable.dataSource = self;
+    [transactionsTable setTranslatesAutoresizingMaskIntoConstraints:NO];
+    transactionsTable.rowHeight = UITableViewAutomaticDimension;
+    transactionsTable.estimatedRowHeight = 50;
+    [self.view addSubview:transactionsTable];
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:accountTypeLabel
-                                                          attribute:NSLayoutAttributeTop
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:accountName
-                                                          attribute:NSLayoutAttributeTopMargin
-                                                         multiplier:1
-                                                           constant:40.0]];
+    NSDictionary *views = NSDictionaryOfVariableBindings(amountLabel, accountNameLabel, accountTypeLabel, transactionsTable);
     
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[accountNameLabel][amountLabel]-20-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[accountTypeLabel]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[transactionsTable]|" options:0 metrics:nil views:views]];
+     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[amountLabel]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[accountTypeLabel]-15-[transactionsTable]|" options:0 metrics:nil views:views]];
     
 }
 
@@ -125,7 +92,6 @@ UILabel *accountTypeLabel;
     
     self.title = @"Account Information";
     
-    
     accountInformation = [ExpensesCoreServerAPI getAccountInformation:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
     
     NSNumber *startBalance = accountInformation[@"startBalance"];
@@ -135,10 +101,9 @@ UILabel *accountTypeLabel;
     
     accountTypeLabel.text = account[@"type"];
     
-    /*
     transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
     [self arrangeTransactions];
-     */
+    
     
 }
 
@@ -149,9 +114,9 @@ UILabel *accountTypeLabel;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //id key = [transactionsDays objectAtIndex:section];
-    //NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
-    return 0;
+    id key = [transactionsDays objectAtIndex:section];
+    NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
+    return transactionsForSection.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,7 +130,7 @@ UILabel *accountTypeLabel;
         cell.selectionStyle = UITableViewStylePlain;
     }
     
-    /*
+    
     id key = [transactionsDays objectAtIndex:indexPath.section];
     NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
     NSDictionary *transaction = [transactionsForSection objectAtIndex:indexPath.row];
@@ -184,17 +149,18 @@ UILabel *accountTypeLabel;
     } else if ([transactionAmount floatValue] < 0){
         cell.amount.textColor = [UIColor colorWithRed:255.0 green:0.0 blue:0.0 alpha:1.0];
 
-    }*/
+    }
+    
     return cell;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return transactionsDays.count;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"test";
+    return [transactionsDays objectAtIndex:section];
 }
 
 - (void)arrangeTransactions{

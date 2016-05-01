@@ -10,5 +10,9 @@
 
 @interface TransactionTableCell : UITableViewCell
 
+@property (strong, nonatomic) UILabel *description;
+@property (strong, nonatomic) UILabel *amount;
+@property (strong, nonatomic) UILabel *category;
+
 
 @end

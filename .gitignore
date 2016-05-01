@@ -2,6 +2,7 @@
 build
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
+MyExpensesMobileiOS.xcworkspace/xcuserdata/leandroloureiro.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
 
 # Xcode
 #
