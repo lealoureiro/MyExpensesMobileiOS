@@ -10,10 +10,6 @@
 
 @implementation TransactionTableCell
 
-@synthesize description;
-@synthesize category;
-@synthesize amount;
-
 - (void)awakeFromNib {
     [super awakeFromNib];
 }

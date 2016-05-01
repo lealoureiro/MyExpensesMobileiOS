@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "AddExpenseViewController.h"
+#import "AddExpenseFormTableViewController.h"
+#import "AccountsViewController.h"
 
 @interface AppDelegate ()
 
@@ -14,8 +17,26 @@
 
 @implementation AppDelegate
 
+@synthesize mainViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.mainViewController = [[MainViewController alloc] init];
+    
+    AddExpenseFormTableViewController *vc = [[AddExpenseFormTableViewController alloc] init];
+    AddExpenseViewController *vc1 = [[AddExpenseViewController alloc]initWithRootViewController:vc];
+    
+    AccountsViewController *accountsView = [[AccountsViewController alloc] init];
+    accountsView.title = @"Accounts";
+    UINavigationController *vc2 = [[UINavigationController alloc] initWithRootViewController:accountsView];
+    
+    NSArray* controllers = [NSArray arrayWithObjects:vc1, vc2, nil];
+    self.mainViewController.viewControllers = controllers;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = self.mainViewController;
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

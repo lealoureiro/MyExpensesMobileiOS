@@ -21,7 +21,7 @@ NSArray *tableData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"Accounts"];
+    self.title = @"Accounts";
     tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
     
 }
@@ -55,21 +55,17 @@ NSArray *tableData;
     
     cell.textLabel.text = account[@"name"];
     cell.detailTextLabel.text = account[@"type"];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Row %ld selected", indexPath.row);
-     [self performSegueWithIdentifier:@"goToAccount" sender:self];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"goToAccount"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        TransactionsViewController *destViewController = segue.destinationViewController;
-        destViewController.account = [tableData objectAtIndex:indexPath.row];
-    }
+    TransactionsViewController *vc = [[TransactionsViewController alloc] init];
+    vc.account = [tableData objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 

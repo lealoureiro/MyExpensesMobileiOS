@@ -11,7 +11,6 @@
 		2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E01A60552800631D42 /* AppDelegate.m */; };
 		2F0A40E41A60552800631D42 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E31A60552800631D42 /* AddExpenseViewController.m */; };
 		2F0A40E71A60552800631D42 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E61A60552800631D42 /* TransactionsViewController.m */; };
-		2F0A40EA1A60552800631D42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40E81A60552800631D42 /* Main.storyboard */; };
 		2F0A40EC1A60552800631D42 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40EB1A60552800631D42 /* Images.xcassets */; };
 		2F0A40EF1A60552800631D42 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40ED1A60552800631D42 /* LaunchScreen.xib */; };
 		2F0A40FB1A60552800631D42 /* MyExpensesMobileiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40FA1A60552800631D42 /* MyExpensesMobileiOSTests.m */; };
@@ -22,6 +21,7 @@
 		2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 		2F6E0E3D1CC03FA60054CD3C /* libUnirest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */; };
 		2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */; };
+		2FAA351C1CD2964A00F6F99C /* AddExpenseFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA351B1CD2964A00F6F99C /* AddExpenseFormTableViewController.m */; };
 		E9C4F9EF6D62109EE5408F48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD73E4CC72294D0961C82936 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,6 @@
 		2F0A40E31A60552800631D42 /* AddExpenseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddExpenseViewController.m; sourceTree = "<group>"; };
 		2F0A40E51A60552800631D42 /* TransactionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionsViewController.h; sourceTree = "<group>"; };
 		2F0A40E61A60552800631D42 /* TransactionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionsViewController.m; sourceTree = "<group>"; };
-		2F0A40E91A60552800631D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F0A40EB1A60552800631D42 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2F0A40EE1A60552800631D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2F0A40F41A60552800631D42 /* MyExpensesMobileiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyExpensesMobileiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +64,8 @@
 		2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUnirest.a; path = "../../../Downloads/unirest-obj-c-master/build/Debug-iphoneos/libUnirest.a"; sourceTree = "<group>"; };
 		2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableCell.h; sourceTree = "<group>"; };
 		2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableCell.m; sourceTree = "<group>"; };
+		2FAA351A1CD2964A00F6F99C /* AddExpenseFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExpenseFormTableViewController.h; sourceTree = "<group>"; };
+		2FAA351B1CD2964A00F6F99C /* AddExpenseFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExpenseFormTableViewController.m; sourceTree = "<group>"; };
 		6EBF0814084613B605612F5C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C5C7B6A9F50875F68A939167 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FD73E4CC72294D0961C82936 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +122,6 @@
 				2F0A40E31A60552800631D42 /* AddExpenseViewController.m */,
 				2F0A40E51A60552800631D42 /* TransactionsViewController.h */,
 				2F0A40E61A60552800631D42 /* TransactionsViewController.m */,
-				2F0A40E81A60552800631D42 /* Main.storyboard */,
 				2F0A40EB1A60552800631D42 /* Images.xcassets */,
 				2F0A40ED1A60552800631D42 /* LaunchScreen.xib */,
 				2F0A40DB1A60552800631D42 /* Supporting Files */,
@@ -136,6 +136,8 @@
 				2F5BD5941A6733C80009401D /* ApplicationState.m */,
 				2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */,
 				2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */,
+				2FAA351A1CD2964A00F6F99C /* AddExpenseFormTableViewController.h */,
+				2FAA351B1CD2964A00F6F99C /* AddExpenseFormTableViewController.m */,
 			);
 			path = MyExpensesMobileiOS;
 			sourceTree = "<group>";
@@ -276,7 +278,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F0A40EA1A60552800631D42 /* Main.storyboard in Resources */,
 				2F0A40EF1A60552800631D42 /* LaunchScreen.xib in Resources */,
 				2F0A40EC1A60552800631D42 /* Images.xcassets in Resources */,
 			);
@@ -349,6 +350,7 @@
 				2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */,
 				2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */,
 				2F0A41111A65A97300631D42 /* MainViewController.m in Sources */,
+				2FAA351C1CD2964A00F6F99C /* AddExpenseFormTableViewController.m in Sources */,
 				2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */,
 				2F0A40E41A60552800631D42 /* AddExpenseViewController.m in Sources */,
 				2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */,
@@ -376,14 +378,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2F0A40E81A60552800631D42 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F0A40E91A60552800631D42 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2F0A40ED1A60552800631D42 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

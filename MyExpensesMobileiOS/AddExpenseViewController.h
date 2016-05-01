@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddExpenseViewController : UIViewController
+@interface AddExpenseViewController : UINavigationController
+
 
 
 @end

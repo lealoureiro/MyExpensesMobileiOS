@@ -17,10 +17,9 @@
 
 @implementation TransactionsViewController
 
-@synthesize accountName;
 @synthesize account;
-@synthesize amount;
-@synthesize accountType;
+
+
 
 NSDictionary *accountInformation;
 NSArray *transactionsList;
@@ -28,27 +27,118 @@ NSMutableDictionary *cellsGroupedByDays;
 NSMutableArray *transactionsDays;
 NSNumberFormatter *formatter;
 
+UILabel *amountLabel;
+UILabel *accountTypeLabel;
+
+- (void)loadView {
+    UIView *contentView = [[UIView alloc] init];
+    contentView.backgroundColor = [UIColor whiteColor];
+    self.view = contentView;
+    
+    UILabel *accountName = [[UILabel alloc] init];
+    accountName.font = [UIFont boldSystemFontOfSize:20.0f];
+    accountName.textAlignment =  NSTextAlignmentLeft;
+    accountName.layer.borderColor = [UIColor blackColor].CGColor;
+    accountName.text = account[@"name"];
+    accountName.hidden = NO;
+    [accountName setTranslatesAutoresizingMaskIntoConstraints:NO];
+
+    [self.view addSubview:accountName];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:accountName
+                                                          attribute:NSLayoutAttributeLeft
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeLeftMargin
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:accountName
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTopMargin
+                                                         multiplier:0.1
+                                                           constant:100.0]];
+    
+    
+    amountLabel = [[UILabel alloc] init];
+    amountLabel.font = [UIFont boldSystemFontOfSize:20.0f];
+    amountLabel.textAlignment =  NSTextAlignmentLeft;
+    amountLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    amountLabel.hidden = NO;
+    [amountLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:amountLabel];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:amountLabel
+                                                          attribute:NSLayoutAttributeRight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeRightMargin
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:amountLabel
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTopMargin
+                                                         multiplier:0.1
+                                                           constant:100.0]];
+    
+    
+    accountTypeLabel = [[UILabel alloc] init];
+    accountTypeLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+    accountTypeLabel.textAlignment =  NSTextAlignmentLeft;
+    accountTypeLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    accountTypeLabel.hidden = NO;
+    [accountTypeLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:accountTypeLabel];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:accountTypeLabel
+                                                          attribute:NSLayoutAttributeLeft
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeLeftMargin
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:accountTypeLabel
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:accountName
+                                                          attribute:NSLayoutAttributeTopMargin
+                                                         multiplier:1
+                                                           constant:40.0]];
+    
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+     NSLog(@"Loading account information screen for account %@", self.account[@"id"]);
     
     formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [formatter setNegativeFormat:@"###0.00 €"];
     [formatter setPositiveFormat:@"###0.00 €"];
     
-    [self setTitle:@"Account Information"];
-    self.accountName.text = self.account[@"name"];
-    self.accountType.text = self.account[@"type"];
+    self.title = @"Account Information";
+    
     
     accountInformation = [ExpensesCoreServerAPI getAccountInformation:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
     
     NSNumber *startBalance = accountInformation[@"startBalance"];
     NSNumber *balance = accountInformation[@"balance"];
     double total = [startBalance doubleValue] + [balance doubleValue];
-    self.amount.text =[formatter stringFromNumber:[NSNumber numberWithDouble:total]];
+    amountLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:total]];
     
+    accountTypeLabel.text = account[@"type"];
+    
+    /*
     transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
     [self arrangeTransactions];
+     */
     
 }
 
@@ -59,9 +149,9 @@ NSNumberFormatter *formatter;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id key = [transactionsDays objectAtIndex:section];
-    NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
-    return transactionsForSection.count;
+    //id key = [transactionsDays objectAtIndex:section];
+    //NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,6 +165,7 @@ NSNumberFormatter *formatter;
         cell.selectionStyle = UITableViewStylePlain;
     }
     
+    /*
     id key = [transactionsDays objectAtIndex:indexPath.section];
     NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
     NSDictionary *transaction = [transactionsForSection objectAtIndex:indexPath.row];
@@ -93,17 +184,17 @@ NSNumberFormatter *formatter;
     } else if ([transactionAmount floatValue] < 0){
         cell.amount.textColor = [UIColor colorWithRed:255.0 green:0.0 blue:0.0 alpha:1.0];
 
-    }
+    }*/
     return cell;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return transactionsDays.count;
+    return 1;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [transactionsDays objectAtIndex:section];
+    return @"test";
 }
 
 - (void)arrangeTransactions{
@@ -114,7 +205,7 @@ NSNumberFormatter *formatter;
     NSDateFormatter *formater = [[NSDateFormatter alloc] init];
     formater.locale = [NSLocale currentLocale];
     formater.timeZone = calendar.timeZone;
-    [formater setDateFormat:@"dd MMMM"];
+    [formater setDateFormat:@"dd MMMM YYYY"];
     
     NSString *previousGroup = @"";
     NSMutableArray *transctionsForSection = nil;

@@ -10,10 +10,6 @@
 
 @interface TransactionsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UILabel *accountName;
-@property (weak, nonatomic) IBOutlet UILabel *amount;
-@property (weak, nonatomic) IBOutlet UILabel *accountType;
-@property (weak, nonatomic) IBOutlet UITableView *transactionsTable;
 @property NSDictionary *account;
 
 

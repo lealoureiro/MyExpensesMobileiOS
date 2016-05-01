@@ -10,9 +10,5 @@
 
 @interface TransactionTableCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UILabel *description;
-@property (nonatomic, weak) IBOutlet UILabel *category;
-@property (nonatomic, weak) IBOutlet UILabel *amount;
-
 
 @end

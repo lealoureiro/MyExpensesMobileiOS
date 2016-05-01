@@ -20,6 +20,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *key = [defaults objectForKey:@"apiKey"];
     NSLog(@"Loaded API Key from user defaults: %@", key);

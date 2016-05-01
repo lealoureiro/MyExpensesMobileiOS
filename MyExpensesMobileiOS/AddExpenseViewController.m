@@ -7,6 +7,8 @@
 //
 
 #import "AddExpenseViewController.h"
+#import "ExpensesCoreServerAPI.h"
+#import "ApplicationState.h"
 
 @interface AddExpenseViewController ()
 
@@ -14,12 +16,24 @@
 
 @implementation AddExpenseViewController
 
-- (void)viewDidLoad {
+
+-(void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"New Expense";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewDidLoad];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+
+
+
+
 
 @end
