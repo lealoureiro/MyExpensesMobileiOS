@@ -32,6 +32,7 @@
     NSArray* controllers = [NSArray arrayWithObjects:vc1, vc2, nil];
     self.mainViewController.viewControllers = controllers;
     
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.mainViewController;

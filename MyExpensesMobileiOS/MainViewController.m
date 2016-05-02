@@ -18,8 +18,7 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *key = [defaults objectForKey:@"apiKey"];
@@ -41,12 +40,9 @@
     }
 }
 
-- (void)showLoginMenu
-{
+- (void)showLoginMenu {
     NSLog(@"Showing Login Screen...");
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
-    loginViewController.view.frame = self.view.frame;
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
     [self presentViewController:loginViewController animated:YES completion:nil];
 }
 

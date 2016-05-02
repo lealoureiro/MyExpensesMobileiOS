@@ -20,6 +20,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     self.description = [[UILabel alloc] init];
+    self.description.font = [UIFont boldSystemFontOfSize:18.0f];;
     [self.description setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.description];
     
@@ -28,6 +29,7 @@
     [self.contentView addSubview:self.amount];
     
     self.category = [[UILabel alloc] init];
+    self.category.font = [UIFont systemFontOfSize:14.0f];;
     [self.category setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.category];
     

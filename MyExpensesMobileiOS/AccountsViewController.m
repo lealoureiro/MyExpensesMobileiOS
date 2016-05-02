@@ -23,7 +23,6 @@ NSArray *tableData;
     [super viewDidLoad];
     self.title = @"Accounts";
     tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -32,11 +31,9 @@ NSArray *tableData;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [tableData count];
 }
 
@@ -48,14 +45,13 @@ NSArray *tableData;
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
     
     NSDictionary *account = [tableData objectAtIndex:indexPath.row];
     
     cell.textLabel.text = account[@"name"];
     cell.detailTextLabel.text = account[@"type"];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
     
     return cell;
 }
@@ -65,7 +61,6 @@ NSArray *tableData;
     TransactionsViewController *vc = [[TransactionsViewController alloc] init];
     vc.account = [tableData objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
 
 

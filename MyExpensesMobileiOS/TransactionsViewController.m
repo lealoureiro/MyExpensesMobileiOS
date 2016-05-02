@@ -35,7 +35,7 @@ UITableView *transactionsTable;
 
 - (void)loadView {
     UIView *contentView = [[UIView alloc] init];
-    contentView.backgroundColor = [UIColor whiteColor];
+    contentView.backgroundColor = contentView.tintColor;
     self.view = contentView;
     
     accountNameLabel = [[UILabel alloc] init];
@@ -76,7 +76,7 @@ UITableView *transactionsTable;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[accountNameLabel][amountLabel]-20-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[accountTypeLabel]" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[transactionsTable]|" options:0 metrics:nil views:views]];
-     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[amountLabel]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[amountLabel]" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[accountTypeLabel]-15-[transactionsTable]|" options:0 metrics:nil views:views]];
     
 }
@@ -97,14 +97,12 @@ UITableView *transactionsTable;
     NSNumber *startBalance = accountInformation[@"startBalance"];
     NSNumber *balance = accountInformation[@"balance"];
     double total = [startBalance doubleValue] + [balance doubleValue];
-    amountLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:total]];
     
+    amountLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:total]];
     accountTypeLabel.text = account[@"type"];
     
     transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
     [self arrangeTransactions];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,8 +110,7 @@ UITableView *transactionsTable;
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id key = [transactionsDays objectAtIndex:section];
     NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
     return transactionsForSection.count;
