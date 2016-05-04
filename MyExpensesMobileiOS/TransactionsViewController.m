@@ -73,8 +73,8 @@ UITableView *transactionsTable;
     
     NSDictionary *views = NSDictionaryOfVariableBindings(amountLabel, accountNameLabel, accountTypeLabel, transactionsTable);
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[accountNameLabel][amountLabel]-20-|" options:0 metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[accountTypeLabel]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[accountNameLabel]-15-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[accountTypeLabel]-15-[amountLabel]-15-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[transactionsTable]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[amountLabel]" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[accountTypeLabel]-15-[transactionsTable]|" options:0 metrics:nil views:views]];
@@ -96,7 +96,7 @@ UITableView *transactionsTable;
     
     NSNumber *startBalance = accountInformation[@"startBalance"];
     NSNumber *balance = accountInformation[@"balance"];
-    double total = [startBalance doubleValue] + [balance doubleValue];
+    double total = ([startBalance doubleValue] + [balance doubleValue]) / 100.0;
     
     amountLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:total]];
     accountTypeLabel.text = account[@"type"];
@@ -140,7 +140,8 @@ UITableView *transactionsTable;
     cell.description.text = transaction[@"description"];
     cell.category.text = category;
     NSNumber *transactionAmount = transaction[@"amount"];
-    cell.amount.text = [formatter stringFromNumber:transactionAmount];
+    double amount = [transactionAmount doubleValue] / 100.0;
+    cell.amount.text = [formatter stringFromNumber:[NSNumber numberWithDouble:amount]];
     if ([transactionAmount floatValue] > 0) {
         cell.amount.textColor = [UIColor colorWithRed:0.0 green:255.0 blue:0.0 alpha:1.0];
     } else if ([transactionAmount floatValue] < 0){
