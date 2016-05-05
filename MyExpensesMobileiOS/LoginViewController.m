@@ -80,7 +80,6 @@ UIButton *loginButton;
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:loginButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:errorLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
     
-    
     NSDictionary *views = NSDictionaryOfVariableBindings(usernameBox, passwordBox, loginButton, errorLabel, usernameLabel, passwordLabel);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[usernameBox]-15-[passwordBox]-15-[loginButton]-15-[errorLabel]" options:0 metrics:nil views:views]];
     

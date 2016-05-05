@@ -23,15 +23,14 @@
     self.mainViewController = [[MainViewController alloc] init];
     
     AddExpenseFormTableViewController *vc = [[AddExpenseFormTableViewController alloc] init];
-    AddExpenseViewController *vc1 = [[AddExpenseViewController alloc]initWithRootViewController:vc];
+    AddExpenseViewController *vc1 = [[AddExpenseViewController alloc] initWithRootViewController:vc];
     
     AccountsViewController *accountsView = [[AccountsViewController alloc] init];
     accountsView.title = @"Accounts";
     UINavigationController *vc2 = [[UINavigationController alloc] initWithRootViewController:accountsView];
     
-    NSArray* controllers = [NSArray arrayWithObjects:vc1, vc2, nil];
+    NSArray *controllers = [NSArray arrayWithObjects:vc1, vc2, nil];
     self.mainViewController.viewControllers = controllers;
-    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

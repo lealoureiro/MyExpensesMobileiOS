@@ -18,6 +18,7 @@
 		2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41081A605C7A00631D42 /* ExpensesCoreServerAPI.m */; };
 		2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A410D1A65A8EB00631D42 /* LoginViewController.m */; };
 		2F0A41111A65A97300631D42 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41101A65A97300631D42 /* MainViewController.m */; };
+		2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
 		2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 		2F6E0E3D1CC03FA60054CD3C /* libUnirest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */; };
 		2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */; };
@@ -59,6 +60,8 @@
 		2F0A410D1A65A8EB00631D42 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2F0A410F1A65A97300631D42 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		2F0A41101A65A97300631D42 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2F4B40AB1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		2F5BD5931A6733C80009401D /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
 		2F5BD5941A6733C80009401D /* ApplicationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationState.m; sourceTree = "<group>"; };
 		2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUnirest.a; path = "../../../Downloads/unirest-obj-c-master/build/Debug-iphoneos/libUnirest.a"; sourceTree = "<group>"; };
@@ -115,11 +118,10 @@
 		2F0A40DA1A60552800631D42 /* MyExpensesMobileiOS */ = {
 			isa = PBXGroup;
 			children = (
+				2F4B40AA1CDBF735004406F7 /* AddExpense */,
 				2F0A41071A605C3300631D42 /* Connectors */,
 				2F0A40DF1A60552800631D42 /* AppDelegate.h */,
 				2F0A40E01A60552800631D42 /* AppDelegate.m */,
-				2F0A40E21A60552800631D42 /* AddExpenseViewController.h */,
-				2F0A40E31A60552800631D42 /* AddExpenseViewController.m */,
 				2F0A40E51A60552800631D42 /* TransactionsViewController.h */,
 				2F0A40E61A60552800631D42 /* TransactionsViewController.m */,
 				2F0A40EB1A60552800631D42 /* Images.xcassets */,
@@ -136,8 +138,6 @@
 				2F5BD5941A6733C80009401D /* ApplicationState.m */,
 				2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */,
 				2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */,
-				2FAA351A1CD2964A00F6F99C /* AddExpenseFormTableViewController.h */,
-				2FAA351B1CD2964A00F6F99C /* AddExpenseFormTableViewController.m */,
 			);
 			path = MyExpensesMobileiOS;
 			sourceTree = "<group>";
@@ -175,6 +175,19 @@
 				2F0A410A1A605CF500631D42 /* ExpensesCoreServerAPI.h */,
 			);
 			name = Connectors;
+			sourceTree = "<group>";
+		};
+		2F4B40AA1CDBF735004406F7 /* AddExpense */ = {
+			isa = PBXGroup;
+			children = (
+				2FAA351A1CD2964A00F6F99C /* AddExpenseFormTableViewController.h */,
+				2FAA351B1CD2964A00F6F99C /* AddExpenseFormTableViewController.m */,
+				2F0A40E21A60552800631D42 /* AddExpenseViewController.h */,
+				2F0A40E31A60552800631D42 /* AddExpenseViewController.m */,
+				2F4B40AB1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.h */,
+				2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */,
+			);
+			name = AddExpense;
 			sourceTree = "<group>";
 		};
 		42BCBB0340D37180982B4719 /* Frameworks */ = {
@@ -346,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */,
+				2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */,
 				2F0A40E71A60552800631D42 /* TransactionsViewController.m in Sources */,
 				2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */,
 				2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */,

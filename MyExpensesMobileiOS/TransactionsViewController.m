@@ -66,9 +66,9 @@ UITableView *transactionsTable;
     transactionsTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     transactionsTable.delegate = self;
     transactionsTable.dataSource = self;
-    [transactionsTable setTranslatesAutoresizingMaskIntoConstraints:NO];
     transactionsTable.rowHeight = UITableViewAutomaticDimension;
     transactionsTable.estimatedRowHeight = 50;
+    [transactionsTable setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:transactionsTable];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(amountLabel, accountNameLabel, accountTypeLabel, transactionsTable);
@@ -78,12 +78,16 @@ UITableView *transactionsTable;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[transactionsTable]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[amountLabel]" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[accountNameLabel]-15-[accountTypeLabel]-15-[transactionsTable]|" options:0 metrics:nil views:views]];
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
      NSLog(@"Loading account information screen for account %@", self.account[@"id"]);
+    
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    UIEdgeInsets adjustedInsets = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
+    transactionsTable.contentInset = adjustedInsets;
+    transactionsTable.scrollIndicatorInsets = adjustedInsets;
     
     formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -116,8 +120,7 @@ UITableView *transactionsTable;
     return transactionsForSection.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"transactionCell";
     
     TransactionTableCell *cell = (TransactionTableCell*) [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -127,11 +130,9 @@ UITableView *transactionsTable;
         cell.selectionStyle = UITableViewStylePlain;
     }
     
-    
     id key = [transactionsDays objectAtIndex:indexPath.section];
     NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
     NSDictionary *transaction = [transactionsForSection objectAtIndex:indexPath.row];
-    
     
     NSMutableString *category = [[NSMutableString alloc] init];
     [category appendString:transaction[@"category"]];
@@ -152,8 +153,7 @@ UITableView *transactionsTable;
     return cell;
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return transactionsDays.count;
 }
 
@@ -161,7 +161,7 @@ UITableView *transactionsTable;
     return [transactionsDays objectAtIndex:section];
 }
 
-- (void)arrangeTransactions{
+- (void)arrangeTransactions {
     cellsGroupedByDays = [NSMutableDictionary dictionaryWithCapacity:0];
     transactionsDays = [NSMutableArray arrayWithCapacity:0];
     

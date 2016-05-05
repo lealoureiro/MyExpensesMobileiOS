@@ -19,7 +19,6 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"New Expense";
 }
 
 - (void)viewWillAppear:(BOOL)animated {

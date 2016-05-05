@@ -20,7 +20,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     self.description = [[UILabel alloc] init];
-    self.description.font = [UIFont boldSystemFontOfSize:18.0f];;
+    self.description.font = [UIFont boldSystemFontOfSize:18.0f];
     [self.description setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.description];
     
@@ -34,15 +34,10 @@
     [self.contentView addSubview:self.category];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(description, amount, category);
-    
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[description]-15-|" options:0 metrics:nil views:views]];
-    
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[description]-5-[category]-5-|" options:0 metrics:nil views:views]];
-    
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[description]-5-[amount]-5-|" options:0 metrics:nil views:views]];
-    
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[category]" options:0 metrics:nil views:views]];
-    
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[amount]-15-|" options:0 metrics:nil views:views]];
     
     return self;
@@ -54,7 +49,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
 }
 
 @end
