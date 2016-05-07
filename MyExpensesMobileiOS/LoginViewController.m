@@ -83,7 +83,6 @@ UIButton *loginButton;
     
     NSDictionary *views = NSDictionaryOfVariableBindings(usernameBox, passwordBox, loginButton, errorLabel, usernameLabel, passwordLabel);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[usernameBox]-15-[passwordBox]-15-[loginButton]-15-[errorLabel]" options:0 metrics:nil views:views]];
-    
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[usernameLabel]-15-[usernameBox(>=200)]" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[passwordLabel]-15-[passwordBox(>=200)]" options:0 metrics:nil views:views]];
 }
@@ -94,8 +93,7 @@ UIButton *loginButton;
 }
 
 
-- (void)login
-{
+- (void)login {
     NSError *error;
     [errorLabel setText:@""];
     NSLog(@"Login %@ %@", usernameBox.text, passwordBox.text);

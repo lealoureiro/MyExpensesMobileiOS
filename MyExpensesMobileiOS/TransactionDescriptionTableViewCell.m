@@ -33,12 +33,15 @@ UILabel *descriptionLabel;
     self.descriptionBox.font = [UIFont boldSystemFontOfSize:16.0f];
     self.descriptionBox.delegate = self;
     [self.descriptionBox setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView addSubview:self.descriptionBox ];
+    [self.contentView addSubview:self.descriptionBox];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(descriptionLabel, descriptionBox);
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[descriptionLabel]-15-|" options:0 metrics:nil views:views]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[descriptionBox]-15-|" options:0 metrics:nil views:views]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[descriptionLabel]-10-[descriptionBox]-10-|" options:0 metrics:nil views:views]];
+    
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focusDescription)];
+    [self.contentView addGestureRecognizer:singleFingerTap];
     
     return self;
 }
@@ -70,6 +73,11 @@ UILabel *descriptionLabel;
     if (textField == descriptionBox) {
         descriptionLabel.textColor = [UIColor blackColor];
     }
+}
+
+- (void)focusDescription {
+    NSLog(@"Description box selected");
+    [self.descriptionBox becomeFirstResponder];
 }
 
 @end

@@ -90,9 +90,7 @@ UITableView *transactionsTable;
     transactionsTable.scrollIndicatorInsets = adjustedInsets;
     
     formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setNegativeFormat:@"###0.00 €"];
-    [formatter setPositiveFormat:@"###0.00 €"];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     
     self.title = @"Account Information";
     

@@ -8,6 +8,7 @@
 
 #import "AddExpenseFormTableViewController.h"
 #import "TransactionDescriptionTableViewCell.h"
+#import "TransactionAmountTableViewCell.h"
 
 @interface AddExpenseFormTableViewController ()
 
@@ -15,11 +16,21 @@
 
 @implementation AddExpenseFormTableViewController
 
+TransactionDescriptionTableViewCell *transactionDescriptionCell;
+TransactionAmountTableViewCell *transactionAmountCell;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"New Transaction";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    transactionDescriptionCell = [[TransactionDescriptionTableViewCell alloc] initWithIdentifier:@"descriptionCell"];
+    transactionAmountCell = [[TransactionAmountTableViewCell alloc] initWithIdentifier:@"amountCell"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,18 +42,30 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TransactionDescriptionTableViewCell *transactionCell = [[TransactionDescriptionTableViewCell alloc] initWithIdentifier:@"descriptionCell"];
+    UITableViewCell *cell;
     
-    return transactionCell;
+    switch (indexPath.row) {
+        case 0:
+            cell = transactionDescriptionCell;
+            break;
+        case 1:
+            cell = transactionAmountCell;
+        default:
+            break;
+    }
+    
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
+            return 80.0;
+        case 1:
             return 80.0;
         default:
             return 40.0;
