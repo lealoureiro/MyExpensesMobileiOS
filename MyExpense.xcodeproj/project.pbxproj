@@ -193,7 +193,8 @@
 				2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */,
 			);
 			name = AddExpense;
-			sourceTree = "<group>";
+			path = "/Users/leandroloureiro/Documents/Projects/MyExpensesMobileiOS/MyExpensesMobileiOS/Add Expense";
+			sourceTree = "<absolute>";
 		};
 		42BCBB0340D37180982B4719 /* Frameworks */ = {
 			isa = PBXGroup;
