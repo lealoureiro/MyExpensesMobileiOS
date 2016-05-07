@@ -42,6 +42,7 @@ UIButton *loginButton;
     usernameBox.keyboardType = UIKeyboardTypeDefault;
     usernameBox.returnKeyType = UIReturnKeyDone;
     usernameBox.clearButtonMode = UITextFieldViewModeWhileEditing;
+    usernameBox.autocapitalizationType = UITextAutocapitalizationTypeNone;
     usernameBox.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [usernameBox setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:usernameBox];
