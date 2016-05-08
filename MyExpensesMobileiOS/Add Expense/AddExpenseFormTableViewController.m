@@ -9,6 +9,7 @@
 #import "AddExpenseFormTableViewController.h"
 #import "TransactionDescriptionTableViewCell.h"
 #import "TransactionAmountTableViewCell.h"
+#import "TransactionCategoryTableViewCell.h"
 
 @interface AddExpenseFormTableViewController ()
 
@@ -18,6 +19,7 @@
 
 TransactionDescriptionTableViewCell *transactionDescriptionCell;
 TransactionAmountTableViewCell *transactionAmountCell;
+TransactionCategoryTableViewCell *transactionCategory;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +29,7 @@ TransactionAmountTableViewCell *transactionAmountCell;
     
     transactionDescriptionCell = [[TransactionDescriptionTableViewCell alloc] initWithIdentifier:@"descriptionCell"];
     transactionAmountCell = [[TransactionAmountTableViewCell alloc] initWithIdentifier:@"amountCell"];
+    transactionCategory = [[TransactionCategoryTableViewCell alloc] initWithIdentifier:@"categoryCrll"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -42,7 +45,7 @@ TransactionAmountTableViewCell *transactionAmountCell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -54,6 +57,10 @@ TransactionAmountTableViewCell *transactionAmountCell;
             break;
         case 1:
             cell = transactionAmountCell;
+            break;
+        case 2:
+            cell = transactionCategory;
+            break;
         default:
             break;
     }
@@ -65,10 +72,16 @@ TransactionAmountTableViewCell *transactionAmountCell;
     switch (indexPath.row) {
         case 0:
             return 80.0;
+            break;
         case 1:
             return 80.0;
+            break;
+        case 2:
+            return 100.0;
+            break;
         default:
             return 40.0;
+            break;
     }
 }
 

@@ -24,6 +24,7 @@
 		2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */; };
 		2FAA351C1CD2964A00F6F99C /* AddExpenseFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA351B1CD2964A00F6F99C /* AddExpenseFormTableViewController.m */; };
 		2FFA4A901CDE43A100D1616B /* TransactionAmountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */; };
+		2FFA4A931CDFCBA900D1616B /* TransactionCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA4A921CDFCBA900D1616B /* TransactionCategoryTableViewCell.m */; };
 		E9C4F9EF6D62109EE5408F48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD73E4CC72294D0961C82936 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		2FAA351B1CD2964A00F6F99C /* AddExpenseFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddExpenseFormTableViewController.m; path = "MyExpensesMobileiOS/Add Expense/AddExpenseFormTableViewController.m"; sourceTree = SOURCE_ROOT; };
 		2FFA4A8E1CDE43A100D1616B /* TransactionAmountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionAmountTableViewCell.h; sourceTree = "<group>"; };
 		2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionAmountTableViewCell.m; sourceTree = "<group>"; };
+		2FFA4A911CDFCBA900D1616B /* TransactionCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionCategoryTableViewCell.h; sourceTree = "<group>"; };
+		2FFA4A921CDFCBA900D1616B /* TransactionCategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionCategoryTableViewCell.m; sourceTree = "<group>"; };
 		6EBF0814084613B605612F5C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C5C7B6A9F50875F68A939167 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FD73E4CC72294D0961C82936 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +194,8 @@
 				2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */,
 				2FFA4A8E1CDE43A100D1616B /* TransactionAmountTableViewCell.h */,
 				2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */,
+				2FFA4A911CDFCBA900D1616B /* TransactionCategoryTableViewCell.h */,
+				2FFA4A921CDFCBA900D1616B /* TransactionCategoryTableViewCell.m */,
 			);
 			name = AddExpense;
 			path = "Add Expense";
@@ -364,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FFA4A931CDFCBA900D1616B /* TransactionCategoryTableViewCell.m in Sources */,
 				2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */,
 				2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */,
 				2F0A40E71A60552800631D42 /* TransactionsViewController.m in Sources */,
