@@ -19,6 +19,8 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    UITabBarItem *barItem = [self tabBarItem];
+    barItem.image = [UIImage imageNamed:@"new_transaction"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
