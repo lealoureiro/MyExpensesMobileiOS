@@ -25,10 +25,11 @@
     AddExpenseFormTableViewController *vc = [[AddExpenseFormTableViewController alloc] init];
     AddExpenseViewController *vc1 = [[AddExpenseViewController alloc] initWithRootViewController:vc];
     
-    
     AccountsViewController *accountsView = [[AccountsViewController alloc] init];
     accountsView.title = @"Accounts";
     UINavigationController *vc2 = [[UINavigationController alloc] initWithRootViewController:accountsView];
+    UITabBarItem *barItem = [vc2 tabBarItem];
+    barItem.image = [UIImage imageNamed:@"accounts"];
     
     NSArray *controllers = [NSArray arrayWithObjects:vc1, vc2, nil];
     self.mainViewController.viewControllers = controllers;
