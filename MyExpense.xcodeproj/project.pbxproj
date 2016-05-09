@@ -19,11 +19,12 @@
 		2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A410D1A65A8EB00631D42 /* LoginViewController.m */; };
 		2F0A41111A65A97300631D42 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41101A65A97300631D42 /* MainViewController.m */; };
 		2F1F41B21CE1041100C0504C /* TransactionTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41B11CE1041100C0504C /* TransactionTypeCell.m */; };
+		2F1F41C81CE1275900C0504C /* NewTransactionFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */; };
+		2F1F41CB1CE13F9C00C0504C /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41CA1CE13F9C00C0504C /* CategoryCell.m */; };
 		2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
 		2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 		2F6E0E3D1CC03FA60054CD3C /* libUnirest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */; };
 		2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */; };
-		2FAA351C1CD2964A00F6F99C /*  in Sources */ = {isa = PBXBuildFile; fileRef = 2FAA351B1CD2964A00F6F99C /*  */; };
 		2FFA4A901CDE43A100D1616B /* TransactionAmountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */; };
 		2FFA4A931CDFCBA900D1616B /* TransactionCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA4A921CDFCBA900D1616B /* TransactionCategoryTableViewCell.m */; };
 		E9C4F9EF6D62109EE5408F48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD73E4CC72294D0961C82936 /* libPods.a */; };
@@ -65,6 +66,9 @@
 		2F0A41101A65A97300631D42 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		2F1F41B01CE1041100C0504C /* TransactionTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTypeCell.h; sourceTree = "<group>"; };
 		2F1F41B11CE1041100C0504C /* TransactionTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTypeCell.m; sourceTree = "<group>"; };
+		2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTransactionFormViewController.m; sourceTree = "<group>"; };
+		2F1F41C91CE13F9C00C0504C /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		2F1F41CA1CE13F9C00C0504C /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		2F4B40AB1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDescriptionTableViewCell.h; sourceTree = "<group>"; };
 		2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		2F5BD5931A6733C80009401D /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
@@ -73,7 +77,6 @@
 		2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableCell.h; sourceTree = "<group>"; };
 		2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableCell.m; sourceTree = "<group>"; };
 		2FAA351A1CD2964A00F6F99C /* NewTransactionFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTransactionFormViewController.h; sourceTree = "<group>"; };
-		2FAA351B1CD2964A00F6F99C /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		2FFA4A8E1CDE43A100D1616B /* TransactionAmountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionAmountTableViewCell.h; sourceTree = "<group>"; };
 		2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionAmountTableViewCell.m; sourceTree = "<group>"; };
 		2FFA4A911CDFCBA900D1616B /* TransactionCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionCategoryTableViewCell.h; sourceTree = "<group>"; };
@@ -190,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				2FAA351A1CD2964A00F6F99C /* NewTransactionFormViewController.h */,
-				2FAA351B1CD2964A00F6F99C /*  */,
+				2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */,
 				2F0A40E21A60552800631D42 /* NewTransactionViewController.h */,
 				2F0A40E31A60552800631D42 /* NewTransactionViewController.m */,
 				2F4B40AB1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.h */,
@@ -201,6 +204,8 @@
 				2FFA4A921CDFCBA900D1616B /* TransactionCategoryTableViewCell.m */,
 				2F1F41B01CE1041100C0504C /* TransactionTypeCell.h */,
 				2F1F41B11CE1041100C0504C /* TransactionTypeCell.m */,
+				2F1F41C91CE13F9C00C0504C /* CategoryCell.h */,
+				2F1F41CA1CE13F9C00C0504C /* CategoryCell.m */,
 			);
 			path = NewTransaction;
 			sourceTree = "<group>";
@@ -380,13 +385,14 @@
 				2F1F41B21CE1041100C0504C /* TransactionTypeCell.m in Sources */,
 				2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */,
 				2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */,
+				2F1F41CB1CE13F9C00C0504C /* CategoryCell.m in Sources */,
 				2F0A41111A65A97300631D42 /* MainViewController.m in Sources */,
-				2FAA351C1CD2964A00F6F99C /*  in Sources */,
 				2FFA4A901CDE43A100D1616B /* TransactionAmountTableViewCell.m in Sources */,
 				2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */,
 				2F0A40E41A60552800631D42 /* NewTransactionViewController.m in Sources */,
 				2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */,
 				2F0A40DE1A60552800631D42 /* main.m in Sources */,
+				2F1F41C81CE1275900C0504C /* NewTransactionFormViewController.m in Sources */,
 				2F0A41061A6058AB00631D42 /* AccountsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

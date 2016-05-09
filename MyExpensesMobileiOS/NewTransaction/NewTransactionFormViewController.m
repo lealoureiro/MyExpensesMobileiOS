@@ -11,6 +11,7 @@
 #import "TransactionAmountTableViewCell.h"
 #import "TransactionCategoryTableViewCell.h"
 #import "TransactionTypeCell.h"
+#import "CategoryCell.h"
 
 @interface NewTransactionFormViewController ()
 
@@ -20,8 +21,9 @@
 
 TransactionDescriptionTableViewCell *transactionDescriptionCell;
 TransactionAmountTableViewCell *transactionAmountCell;
-TransactionCategoryTableViewCell *transactionCategoryCell;
 TransactionTypeCell *transactionTypeCell;
+CategoryCell *categoryCell;
+CategoryCell *subCategoryCell;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,12 +33,17 @@ TransactionTypeCell *transactionTypeCell;
     
     transactionDescriptionCell = [[TransactionDescriptionTableViewCell alloc] initWithIdentifier:@"descriptionCell"];
     transactionAmountCell = [[TransactionAmountTableViewCell alloc] initWithIdentifier:@"amountCell"];
-    transactionCategoryCell = [[TransactionCategoryTableViewCell alloc] initWithIdentifier:@"categoryCell"];
     transactionTypeCell = [[TransactionTypeCell alloc] initWithIdentifier:@"typeCell"];
+    categoryCell = [[CategoryCell alloc] initWithIdentifier:@"categoryCell"];
+    categoryCell.option.text = @"Category:";
+    categoryCell.value.text = @"Taxes";
+    subCategoryCell = [[CategoryCell alloc] initWithIdentifier:@"categoryCell"];
+    subCategoryCell.option.text = @"Sub Category:";
+    subCategoryCell.value.text = @"Local Tax";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,54 +51,77 @@ TransactionTypeCell *transactionTypeCell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    switch (section) {
+        case 0:
+            return 3;
+        case 1:
+            return 2;
+        default:
+            return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 0:
-            cell = transactionTypeCell;
+            switch (indexPath.row) {
+                case 0:
+                    cell = transactionTypeCell;
+                    break;
+                case 1:
+                    cell = transactionDescriptionCell;
+                    break;
+                case 2:
+                    cell = transactionAmountCell;
+                    break;
+                default:
+                    break;
+            }
             break;
         case 1:
-            cell = transactionDescriptionCell;
-            break;
-        case 2:
-            cell = transactionAmountCell;
-            break;
-        case 3:
-            cell = transactionCategoryCell;
-            break;
-        default:
-            break;
+            switch (indexPath.row) {
+                case 0:
+                    cell = categoryCell;
+                    break;
+                case 1:
+                    cell = subCategoryCell;
+                    break;
+            }
     }
-    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 0:
-            return 45.0;
+            switch (indexPath.row) {
+                case 0:
+                    return 45.0;
+                case 1:
+                    return 80.0;
+                case 2:
+                    return 80.0;
+                default:
+                    return 40.0;
+            }
         case 1:
-            return 80.0;
-        case 2:
-            return 80.0;
-        case 3:
-            return 100.0;
+            switch (indexPath.row) {
+                case 0:
+                    return 45.0;
+                case 1:
+                    return 45.0;
+                default:
+                    return 40.0;
+            }
         default:
-            return 40.0;
+            return 40;
     }
 }
 
-
-
-
-
-
+    
 @end
