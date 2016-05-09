@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "AddExpenseViewController.h"
-#import "AddExpenseFormTableViewController.h"
+#import "NewTransactionViewController.h"
+#import "NewTransactionFormViewController.h"
 #import "AccountsViewController.h"
 
 @interface AppDelegate ()
@@ -22,8 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.mainViewController = [[MainViewController alloc] init];
     
-    AddExpenseFormTableViewController *vc = [[AddExpenseFormTableViewController alloc] init];
-    AddExpenseViewController *vc1 = [[AddExpenseViewController alloc] initWithRootViewController:vc];
+    NewTransactionFormViewController *vc = [[NewTransactionFormViewController alloc] init];
+    NewTransactionViewController *vc1 = [[NewTransactionViewController alloc] initWithRootViewController:vc];
     
     AccountsViewController *accountsView = [[AccountsViewController alloc] init];
     accountsView.title = @"Accounts";

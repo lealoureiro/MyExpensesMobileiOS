@@ -6,15 +6,14 @@
 //  Copyright (c) 2015 Leandro Loureiro. All rights reserved.
 //
 
-#import "AddExpenseViewController.h"
+#import "NewTransactionViewController.h"
 #import "ExpensesCoreServerAPI.h"
-#import "ApplicationState.h"
 
-@interface AddExpenseViewController ()
+@interface NewTransactionViewController ()
 
 @end
 
-@implementation AddExpenseViewController
+@implementation NewTransactionViewController
 
 
 -(void)viewDidLoad {

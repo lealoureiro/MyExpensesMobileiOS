@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddExpenseFormTableViewController : UITableViewController
+@interface NewTransactionFormViewController : UITableViewController
 
 @end

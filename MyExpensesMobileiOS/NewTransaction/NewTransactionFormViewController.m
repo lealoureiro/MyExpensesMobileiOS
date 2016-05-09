@@ -6,20 +6,22 @@
 //  Copyright © 2016 Leandro Loureiro. All rights reserved.
 //
 
-#import "AddExpenseFormTableViewController.h"
+#import "NewTransactionFormViewController.h"
 #import "TransactionDescriptionTableViewCell.h"
 #import "TransactionAmountTableViewCell.h"
 #import "TransactionCategoryTableViewCell.h"
+#import "TransactionTypeCell.h"
 
-@interface AddExpenseFormTableViewController ()
+@interface NewTransactionFormViewController ()
 
 @end
 
-@implementation AddExpenseFormTableViewController
+@implementation NewTransactionFormViewController
 
 TransactionDescriptionTableViewCell *transactionDescriptionCell;
 TransactionAmountTableViewCell *transactionAmountCell;
-TransactionCategoryTableViewCell *transactionCategory;
+TransactionCategoryTableViewCell *transactionCategoryCell;
+TransactionTypeCell *transactionTypeCell;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,7 +31,8 @@ TransactionCategoryTableViewCell *transactionCategory;
     
     transactionDescriptionCell = [[TransactionDescriptionTableViewCell alloc] initWithIdentifier:@"descriptionCell"];
     transactionAmountCell = [[TransactionAmountTableViewCell alloc] initWithIdentifier:@"amountCell"];
-    transactionCategory = [[TransactionCategoryTableViewCell alloc] initWithIdentifier:@"categoryCrll"];
+    transactionCategoryCell = [[TransactionCategoryTableViewCell alloc] initWithIdentifier:@"categoryCell"];
+    transactionTypeCell = [[TransactionTypeCell alloc] initWithIdentifier:@"typeCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,7 +48,7 @@ TransactionCategoryTableViewCell *transactionCategory;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,13 +56,16 @@ TransactionCategoryTableViewCell *transactionCategory;
     
     switch (indexPath.row) {
         case 0:
-            cell = transactionDescriptionCell;
+            cell = transactionTypeCell;
             break;
         case 1:
-            cell = transactionAmountCell;
+            cell = transactionDescriptionCell;
             break;
         case 2:
-            cell = transactionCategory;
+            cell = transactionAmountCell;
+            break;
+        case 3:
+            cell = transactionCategoryCell;
             break;
         default:
             break;
@@ -71,17 +77,15 @@ TransactionCategoryTableViewCell *transactionCategory;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
-            return 80.0;
-            break;
+            return 45.0;
         case 1:
             return 80.0;
-            break;
         case 2:
+            return 80.0;
+        case 3:
             return 100.0;
-            break;
         default:
             return 40.0;
-            break;
     }
 }
 
