@@ -9,9 +9,9 @@
 #import "NewTransactionFormViewController.h"
 #import "TransactionDescriptionTableViewCell.h"
 #import "TransactionAmountTableViewCell.h"
-#import "TransactionCategoryTableViewCell.h"
 #import "TransactionTypeCell.h"
 #import "CategoryCell.h"
+#import "ListSelectorViewController.h"
 
 @interface NewTransactionFormViewController ()
 
@@ -40,10 +40,6 @@ CategoryCell *subCategoryCell;
     subCategoryCell = [[CategoryCell alloc] initWithIdentifier:@"categoryCell"];
     subCategoryCell.option.text = @"Sub Category:";
     subCategoryCell.value.text = @"Local Tax";
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,5 +119,49 @@ CategoryCell *subCategoryCell;
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [transactionAmountCell.amountBox resignFirstResponder];
+    switch (indexPath.section) {
+        case 1:
+            switch (indexPath.row) {
+                case 0:
+                    [self showCategorySelectionList];
+                    break;
+                case 1:
+                    [self showSubCategorySelectionList];
+                    break;
+            }
+            break;
+    }
+}
+
+- (void)showCategorySelectionList {
+    NSDictionary *category1 = @{@"key": @"Personal", @"value": @"Personal"};
+    NSDictionary *category2 = @{@"key": @"Taxes", @"value": @"Taxes"};
+    NSDictionary *category3 = @{@"key": @"Health", @"value": @"Health"};
+    NSArray *list = [[NSArray alloc] initWithObjects:category1,category2,category3,nil];
     
+    ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
+    vc.list = list;
+    vc.selectedKey = categoryCell.value.text;
+    vc.optionDelagate = categoryCell.value;
+    vc.title = @"Select Category";
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+- (void)showSubCategorySelectionList {
+    NSDictionary *category1 = @{@"key": @"Local Tax", @"value": @"Local Tax"};
+    NSDictionary *category2 = @{@"key": @"Clothes", @"value": @"Clothes"};
+    NSDictionary *category3 = @{@"key": @"Restaurant", @"value": @"Restaurant"};
+    NSArray *list = [[NSArray alloc] initWithObjects:category1,category2,category3,nil];
+    
+    ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
+    vc.list = list;
+    vc.selectedKey = subCategoryCell.value.text;
+    vc.optionDelagate = subCategoryCell.value;
+    vc.title = @"Select SubCategory";
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
+
 @end

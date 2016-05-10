@@ -13,8 +13,7 @@
 
 @implementation ExpensesCoreServerAPI
 
-+ (NSArray *)getUserAccounts:(NSString *)apiKey
-{
++ (NSArray *)getUserAccounts:(NSString *)apiKey {
     
     NSDictionary *headers = @{@"accept": @"application/json", @"authkey": apiKey};
     NSMutableString *resource = [[NSMutableString alloc] init];
@@ -31,8 +30,7 @@
     return response.body.array;
 }
 
-+ (NSDictionary *)getAccountInformation:(NSString *)account withApiKey:(NSString *)key
-{
++ (NSDictionary *)getAccountInformation:(NSString *)account withApiKey:(NSString *)key {
     
     NSLog(@"Getting information for account %@", account);
     NSDictionary *headers = @{@"accept": @"application/json", @"authkey": key};
@@ -97,8 +95,7 @@
     return response.body.object[@"key"];
 }
 
-+ (NSString *)checkApiKey:(NSString *)apiKey andError:(NSError **) error
-{
++ (NSString *)checkApiKey:(NSString *)apiKey andError:(NSError **) error {
     *error = nil;
     NSDictionary *headers = @{@"Accept": @"application/json", @"authkey": apiKey};
     NSMutableString *resource = [[NSMutableString alloc] init];

@@ -15,11 +15,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *key = [defaults objectForKey:@"apiKey"];
     NSLog(@"Loaded API Key from user defaults: %@", key);
@@ -36,9 +31,9 @@
         } else {
             [self showLoginMenu];
         }
-        
     }
 }
+
 
 - (void)showLoginMenu {
     NSLog(@"Showing Login Screen...");
