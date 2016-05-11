@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoryCell : UITableViewCell
+@interface SelectionCell : UITableViewCell
 
 @property (strong, nonatomic) UILabel *option;
 @property (strong, nonatomic) UILabel *value;

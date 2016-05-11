@@ -10,8 +10,10 @@
 #import "TransactionDescriptionTableViewCell.h"
 #import "TransactionAmountTableViewCell.h"
 #import "TransactionTypeCell.h"
-#import "CategoryCell.h"
+#import "SelectionCell.h"
 #import "ListSelectorViewController.h"
+#import "ExpensesCoreServerAPI.h"
+#import "ApplicationState.h"
 
 @interface NewTransactionFormViewController ()
 
@@ -22,8 +24,11 @@
 TransactionDescriptionTableViewCell *transactionDescriptionCell;
 TransactionAmountTableViewCell *transactionAmountCell;
 TransactionTypeCell *transactionTypeCell;
-CategoryCell *categoryCell;
-CategoryCell *subCategoryCell;
+SelectionCell *accountCell;
+SelectionCell *categoryCell;
+SelectionCell *subCategoryCell;
+
+NSArray *accounts;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,10 +39,18 @@ CategoryCell *subCategoryCell;
     transactionDescriptionCell = [[TransactionDescriptionTableViewCell alloc] initWithIdentifier:@"descriptionCell"];
     transactionAmountCell = [[TransactionAmountTableViewCell alloc] initWithIdentifier:@"amountCell"];
     transactionTypeCell = [[TransactionTypeCell alloc] initWithIdentifier:@"typeCell"];
-    categoryCell = [[CategoryCell alloc] initWithIdentifier:@"categoryCell"];
+    
+    accounts = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
+    
+    accountCell = [[SelectionCell alloc] initWithIdentifier:@"accountCell"];
+    NSDictionary *account = [accounts objectAtIndex:0];
+    accountCell.option.text = @"Account:";
+    accountCell.value.text = [account objectForKey:@"name"];
+    
+    categoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     categoryCell.option.text = @"Category:";
     categoryCell.value.text = @"Taxes";
-    subCategoryCell = [[CategoryCell alloc] initWithIdentifier:@"categoryCell"];
+    subCategoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     subCategoryCell.option.text = @"Sub Category:";
     subCategoryCell.value.text = @"Local Tax";
 }
@@ -55,7 +68,7 @@ CategoryCell *subCategoryCell;
         case 0:
             return 3;
         case 1:
-            return 2;
+            return 3;
         default:
             return 0;
     }
@@ -82,9 +95,12 @@ CategoryCell *subCategoryCell;
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    cell = categoryCell;
+                    cell = accountCell;
                     break;
                 case 1:
+                    cell = categoryCell;
+                    break;
+                case 2:
                     cell = subCategoryCell;
                     break;
             }
@@ -111,6 +127,8 @@ CategoryCell *subCategoryCell;
                     return 45.0;
                 case 1:
                     return 45.0;
+                case 2:
+                    return 45.0;
                 default:
                     return 40.0;
             }
@@ -125,9 +143,12 @@ CategoryCell *subCategoryCell;
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    [self showCategorySelectionList];
+                    [self showAccountSelectionList];
                     break;
                 case 1:
+                    [self showCategorySelectionList];
+                    break;
+                case 2:
                     [self showSubCategorySelectionList];
                     break;
             }
@@ -135,10 +156,19 @@ CategoryCell *subCategoryCell;
     }
 }
 
+- (void)showAccountSelectionList {
+    ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
+    vc.list = accounts;
+    vc.selectedKey = accountCell.value.text;
+    vc.optionDelagate = accountCell.value;
+    vc.title = @"Select Account";
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
 - (void)showCategorySelectionList {
-    NSDictionary *category1 = @{@"key": @"Personal", @"value": @"Personal"};
-    NSDictionary *category2 = @{@"key": @"Taxes", @"value": @"Taxes"};
-    NSDictionary *category3 = @{@"key": @"Health", @"value": @"Health"};
+    NSDictionary *category1 = @{@"name": @"Personal"};
+    NSDictionary *category2 = @{@"name": @"Taxes"};
+    NSDictionary *category3 = @{@"name": @"Health"};
     NSArray *list = [[NSArray alloc] initWithObjects:category1,category2,category3,nil];
     
     ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
@@ -150,9 +180,9 @@ CategoryCell *subCategoryCell;
 }
 
 - (void)showSubCategorySelectionList {
-    NSDictionary *category1 = @{@"key": @"Local Tax", @"value": @"Local Tax"};
-    NSDictionary *category2 = @{@"key": @"Clothes", @"value": @"Clothes"};
-    NSDictionary *category3 = @{@"key": @"Restaurant", @"value": @"Restaurant"};
+    NSDictionary *category1 = @{@"name": @"Local Tax"};
+    NSDictionary *category2 = @{@"name": @"Clothes"};
+    NSDictionary *category3 = @{@"name": @"Restaurant"};
     NSArray *list = [[NSArray alloc] initWithObjects:category1,category2,category3,nil];
     
     ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];

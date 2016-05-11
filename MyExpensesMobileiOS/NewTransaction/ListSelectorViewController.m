@@ -43,8 +43,8 @@
     }
     
     NSDictionary *option = [list objectAtIndex:indexPath.row];
-    cell.textLabel.text = [option objectForKey:@"value"];
-    if ([selectedKey isEqualToString: [option objectForKey:@"key"]]) {
+    cell.textLabel.text = [option objectForKey:@"name"];
+    if ([selectedKey isEqualToString: [option objectForKey:@"name"]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
@@ -52,7 +52,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.optionDelagate.text = [[list objectAtIndex:indexPath.row] objectForKey:@"value"];
+    self.optionDelagate.text = [[list objectAtIndex:indexPath.row] objectForKey:@"name"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

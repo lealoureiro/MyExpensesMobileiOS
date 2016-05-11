@@ -6,9 +6,9 @@
 //  Copyright © 2016 Leandro Loureiro. All rights reserved.
 //
 
-#import "CategoryCell.h"
+#import "SelectionCell.h"
 
-@implementation CategoryCell
+@implementation SelectionCell
 
 @synthesize option;
 @synthesize value;

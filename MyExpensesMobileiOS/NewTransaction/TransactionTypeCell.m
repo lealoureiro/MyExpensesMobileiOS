@@ -20,8 +20,6 @@
     NSArray *types = [NSArray arrayWithObjects:@"Expense", @"Income", nil];
     transactionType = [[UISegmentedControl alloc] initWithItems:types];
     transactionType.selectedSegmentIndex = 0;
-    [[transactionType.subviews objectAtIndex:0] setTintColor:[UIColor redColor]];
-    [[transactionType.subviews objectAtIndex:1] setTintColor:[UIColor greenColor]];
     [transactionType setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:transactionType];
     

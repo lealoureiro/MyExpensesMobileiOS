@@ -35,7 +35,7 @@ UITableView *transactionsTable;
 
 - (void)loadView {
     UIView *contentView = [[UIView alloc] init];
-    contentView.backgroundColor = contentView.tintColor;
+    contentView.backgroundColor = [UIColor whiteColor];
     self.view = contentView;
     
     accountNameLabel = [[UILabel alloc] init];
