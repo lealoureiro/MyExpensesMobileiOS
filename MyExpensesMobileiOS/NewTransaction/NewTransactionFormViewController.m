@@ -28,7 +28,9 @@ SelectionCell *accountCell;
 SelectionCell *categoryCell;
 SelectionCell *subCategoryCell;
 
+NSString *selectedAcount;
 NSArray *accounts;
+NSMutableDictionary *accountsMap;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,10 +44,16 @@ NSArray *accounts;
     
     accounts = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
     
+    accountsMap = [[NSMutableDictionary alloc] init];
+    for (NSDictionary *account in accounts) {
+        [accountsMap setObject:account[@"name"] forKey:account[@"id"]];
+    }
+    
     accountCell = [[SelectionCell alloc] initWithIdentifier:@"accountCell"];
     NSDictionary *account = [accounts objectAtIndex:0];
     accountCell.option.text = @"Account:";
     accountCell.value.text = [account objectForKey:@"name"];
+    selectedAcount = [account objectForKey:@"id"];
     
     categoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     categoryCell.option.text = @"Category:";
@@ -159,39 +167,55 @@ NSArray *accounts;
 - (void)showAccountSelectionList {
     ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
     vc.list = accounts;
-    vc.selectedKey = accountCell.value.text;
-    vc.optionDelagate = accountCell.value;
+    vc.selectedKey = selectedAcount;
+    vc.type = @"accounts";
+    vc.delegate = self;
     vc.title = @"Select Account";
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
 - (void)showCategorySelectionList {
-    NSDictionary *category1 = @{@"name": @"Personal"};
-    NSDictionary *category2 = @{@"name": @"Taxes"};
-    NSDictionary *category3 = @{@"name": @"Health"};
+    NSDictionary *category1 = @{@"name": @"Personal", @"id": @"Personal"};
+    NSDictionary *category2 = @{@"name": @"Taxes", @"id": @"Taxes"};
+    NSDictionary *category3 = @{@"name": @"Health", @"id": @"Health"};
     NSArray *list = [[NSArray alloc] initWithObjects:category1,category2,category3,nil];
     
     ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
     vc.list = list;
     vc.selectedKey = categoryCell.value.text;
-    vc.optionDelagate = categoryCell.value;
+    vc.type = @"category";
+    vc.delegate = self;
     vc.title = @"Select Category";
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
 - (void)showSubCategorySelectionList {
-    NSDictionary *category1 = @{@"name": @"Local Tax"};
-    NSDictionary *category2 = @{@"name": @"Clothes"};
-    NSDictionary *category3 = @{@"name": @"Restaurant"};
+    NSDictionary *category1 = @{@"name": @"Local Tax", @"id": @"Local Tax"};
+    NSDictionary *category2 = @{@"name": @"Clothes", @"id": @"Clothes"};
+    NSDictionary *category3 = @{@"name": @"Restaurant", @"id": @"Restaurant"};
     NSArray *list = [[NSArray alloc] initWithObjects:category1,category2,category3,nil];
     
     ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
     vc.list = list;
     vc.selectedKey = subCategoryCell.value.text;
-    vc.optionDelagate = subCategoryCell.value;
+    vc.type = @"sub_category";
+    vc.delegate = self;
     vc.title = @"Select SubCategory";
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
+
+- (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key {
+    NSLog(@"Selected %@ from the list of %@", key, selector.type);
+    
+    if ([selector.type isEqualToString:@"accounts"]) {
+        selectedAcount = key;
+        accountCell.value.text = [accountsMap objectForKey:key];
+    } else if ([selector.type isEqualToString:@"category"]){
+        categoryCell.value.text = key;
+    } else if ([selector.type isEqualToString:@"sub_category"]) {
+        subCategoryCell.value.text = key;
+    }
+}
 
 @end

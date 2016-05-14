@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class ListSelectorViewController;
+
+@protocol ListSelectorDelegate <NSObject>
+- (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key;
+@end
+
 @interface ListSelectorViewController : UITableViewController
 
 @property NSArray *list;
 @property NSString *selectedKey;
-@property (weak) UILabel *optionDelagate;
-
+@property NSString *type;
+@property (nonatomic, weak) id <ListSelectorDelegate> delegate;
 
 @end
+
+

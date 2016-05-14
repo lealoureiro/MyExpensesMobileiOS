@@ -16,12 +16,12 @@
 
 @synthesize list;
 @synthesize selectedKey;
-@synthesize optionDelagate;
+@synthesize type;
+@synthesize delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -44,15 +44,18 @@
     
     NSDictionary *option = [list objectAtIndex:indexPath.row];
     cell.textLabel.text = [option objectForKey:@"name"];
-    if ([selectedKey isEqualToString: [option objectForKey:@"name"]]) {
+    if ([selectedKey isEqualToString: [option objectForKey:@"id"]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.optionDelagate.text = [[list objectAtIndex:indexPath.row] objectForKey:@"name"];
+    NSDictionary *option = [list objectAtIndex:indexPath.row];
+    [self.delegate setSelectedItem:self didSelectKey:[option objectForKey:@"id"]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListSelectorViewController.h"
 
-@interface NewTransactionFormViewController : UITableViewController
+@interface NewTransactionFormViewController : UITableViewController <ListSelectorDelegate>
 
 @end
