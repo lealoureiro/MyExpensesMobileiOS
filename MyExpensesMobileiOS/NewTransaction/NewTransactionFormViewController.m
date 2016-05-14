@@ -11,6 +11,7 @@
 #import "TransactionAmountTableViewCell.h"
 #import "TransactionTypeCell.h"
 #import "SelectionCell.h"
+#import "SubmitButtonCell.h"
 #import "ListSelectorViewController.h"
 #import "ExpensesCoreServerAPI.h"
 #import "ApplicationState.h"
@@ -27,6 +28,7 @@ TransactionTypeCell *transactionTypeCell;
 SelectionCell *accountCell;
 SelectionCell *categoryCell;
 SelectionCell *subCategoryCell;
+SubmitButtonCell *submitCell;
 
 NSString *selectedAcount;
 NSArray *accounts;
@@ -58,9 +60,13 @@ NSMutableDictionary *accountsMap;
     categoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     categoryCell.option.text = @"Category:";
     categoryCell.value.text = @"Taxes";
+    
     subCategoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     subCategoryCell.option.text = @"Sub Category:";
     subCategoryCell.value.text = @"Local Tax";
+    
+    submitCell = [[SubmitButtonCell alloc] initWithIdentifier:@"submitCell"];
+    [submitCell.submitButton addTarget:self action:@selector(addTransaction) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,7 +82,7 @@ NSMutableDictionary *accountsMap;
         case 0:
             return 3;
         case 1:
-            return 3;
+            return 4;
         default:
             return 0;
     }
@@ -111,6 +117,9 @@ NSMutableDictionary *accountsMap;
                 case 2:
                     cell = subCategoryCell;
                     break;
+                case 3:
+                    cell = submitCell;
+                    break;
             }
     }
     return cell;
@@ -126,8 +135,6 @@ NSMutableDictionary *accountsMap;
                     return 80.0;
                 case 2:
                     return 80.0;
-                default:
-                    return 40.0;
             }
         case 1:
             switch (indexPath.row) {
@@ -137,7 +144,7 @@ NSMutableDictionary *accountsMap;
                     return 45.0;
                 case 2:
                     return 45.0;
-                default:
+                case 3:
                     return 40.0;
             }
         default:
@@ -158,6 +165,9 @@ NSMutableDictionary *accountsMap;
                     break;
                 case 2:
                     [self showSubCategorySelectionList];
+                    break;
+                case 3:
+                    [self addTransaction];
                     break;
             }
             break;
@@ -215,6 +225,10 @@ NSMutableDictionary *accountsMap;
     } else if ([selector.type isEqualToString:@"sub_category"]) {
         subCategoryCell.value.text = key;
     }
+}
+
+- (void)addTransaction {
+    NSLog(@"Adding new trasaction for account %@", selectedAcount);
 }
 
 @end

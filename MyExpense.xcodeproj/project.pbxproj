@@ -22,6 +22,7 @@
 		2F1F41B21CE1041100C0504C /* TransactionTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41B11CE1041100C0504C /* TransactionTypeCell.m */; };
 		2F1F41C81CE1275900C0504C /* NewTransactionFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */; };
 		2F1F41CB1CE13F9C00C0504C /* SelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41CA1CE13F9C00C0504C /* SelectionCell.m */; };
+		2F33919F1CE7827F00221F01 /* SubmitButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */; };
 		2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
 		2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 		2F6E0E3D1CC03FA60054CD3C /* libUnirest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */; };
@@ -71,6 +72,8 @@
 		2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTransactionFormViewController.m; sourceTree = "<group>"; };
 		2F1F41C91CE13F9C00C0504C /* SelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionCell.h; sourceTree = "<group>"; };
 		2F1F41CA1CE13F9C00C0504C /* SelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionCell.m; sourceTree = "<group>"; };
+		2F33919D1CE7827F00221F01 /* SubmitButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitButtonCell.h; sourceTree = "<group>"; };
+		2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitButtonCell.m; sourceTree = "<group>"; };
 		2F4B40AB1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDescriptionTableViewCell.h; sourceTree = "<group>"; };
 		2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		2F5BD5931A6733C80009401D /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				2F1F41CA1CE13F9C00C0504C /* SelectionCell.m */,
 				2F13301F1CE24FDB001F12DA /* ListSelectorViewController.h */,
 				2F1330201CE24FDB001F12DA /* ListSelectorViewController.m */,
+				2F33919D1CE7827F00221F01 /* SubmitButtonCell.h */,
+				2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */,
 			);
 			path = NewTransaction;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F33919F1CE7827F00221F01 /* SubmitButtonCell.m in Sources */,
 				2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */,
 				2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */,
 				2F0A40E71A60552800631D42 /* TransactionsViewController.m in Sources */,
