@@ -204,7 +204,6 @@ NSMutableDictionary *accountsMap;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
-
 - (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key {
     NSLog(@"Selected %@ from the list of %@", key, selector.type);
     

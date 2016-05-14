@@ -66,10 +66,8 @@
     
     NSLog(@"Server HTTP response code %ld", (long)response.code);
     
-    
     return response.body.array;
 }
-
 
 + (NSString *)loginWithUsername:(NSString *)username andPassword:(NSString *) password andError:(NSError**) error{
     
@@ -78,7 +76,6 @@
     NSMutableString *resource = [[NSMutableString alloc] init];
     [resource appendString:WEBSERVICE_ADDRESS];
     [resource appendString:@"keys/"];
-    
     
     UNIHTTPJsonResponse *response = [[UNIRest postEntity:^(UNIBodyRequest *request) {
         [request setUrl:resource];
@@ -113,6 +110,40 @@
     }
     
     return response.body.object[@"clientId"];
+}
+
++ (NSString *)addTransactionToAccount:(NSString *)account withDescription:(NSString *)description withAmount:(NSInteger)amountInCents withCategory:(NSString *)category withSubCategory:(NSString *)subCategory andAPIKey:(NSString *)key andError:(NSError **)error {
+    
+    double timetamp = [[NSDate date] timeIntervalSince1970] * 1000;
+    
+    NSDictionary *headers = @{@"accept": @"application/json", @"Content-type": @"application/json", @"authkey": key};
+    NSDictionary *parameters = @{@"description": description,
+                                 @"category": category,
+                                 @"subCategory": subCategory,
+                                 @"timestamp": [NSNumber numberWithDouble:timetamp],
+                                 @"amount": [NSNumber numberWithInteger:amountInCents],
+                                 @"externalReference": @"",
+                                 @"tags": @""
+                                 };
+    
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"accounts/"];
+    [resource appendString:account];
+    [resource appendString:@"/transactions/"];
+    
+    UNIHTTPJsonResponse *response = [[UNIRest postEntity:^(UNIBodyRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+        [request setBody:[NSJSONSerialization dataWithJSONObject:parameters options:0 error:error]];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    if (response.code != 200) {
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
+    }
+    
+    return response.body.object[@"id"];
 }
 
 
