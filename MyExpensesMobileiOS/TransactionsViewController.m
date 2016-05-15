@@ -134,9 +134,15 @@ UITableView *transactionsTable;
     
     NSMutableString *category = [[NSMutableString alloc] init];
     [category appendString:transaction[@"category"]];
-    [category appendString:@":"];
-    [category appendString:transaction[@"subCategory"]];
-    cell.description.text = transaction[@"description"];
+    if (![@"" isEqualToString:transaction[@"subCategory"]]) {
+        [category appendString:@":"];
+        [category appendString:transaction[@"subCategory"]];
+    }
+    if ([@"" isEqualToString:transaction[@"description"]]) {
+        cell.description.text = @"(No Description)";
+    } else {
+        cell.description.text = transaction[@"description"];
+    }
     cell.category.text = category;
     NSNumber *transactionAmount = transaction[@"amount"];
     double amount = [transactionAmount doubleValue] / 100.0;
