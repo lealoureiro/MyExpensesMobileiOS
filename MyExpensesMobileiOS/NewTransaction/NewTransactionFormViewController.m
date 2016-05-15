@@ -145,7 +145,7 @@ NSMutableDictionary *accountsMap;
                 case 2:
                     return 45.0;
                 case 3:
-                    return 40.0;
+                    return 100.0;
             }
         default:
             return 40;
@@ -165,9 +165,6 @@ NSMutableDictionary *accountsMap;
                     break;
                 case 2:
                     [self showSubCategorySelectionList];
-                    break;
-                case 3:
-                    [self addTransaction];
                     break;
             }
             break;
