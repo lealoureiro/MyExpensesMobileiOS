@@ -226,6 +226,33 @@ NSMutableDictionary *accountsMap;
 
 - (void)addTransaction {
     NSLog(@"Adding new trasaction for account %@", selectedAcount);
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    NSString *unparsedAmount = [transactionAmountCell.amountBox.text stringByReplacingOccurrencesOfString:formatter.currencySymbol withString:@""];
+    NSScanner *scanner = [NSScanner localizedScannerWithString:unparsedAmount];
+    double result;
+    [scanner scanDouble:&result];
+    result *= 100.0;
+    NSInteger amountInCents = result;
+    
+    if (transactionTypeCell.transactionType.selectedSegmentIndex == 0) {
+        amountInCents *= -1;
+    }
+    
+    NSError *error = nil;
+    NSString *newTransactionId = [ExpensesCoreServerAPI addTransactionToAccount:selectedAcount
+                                                                withDescription:transactionDescriptionCell.descriptionBox.text
+                                                                     withAmount:amountInCents
+                                                                   withCategory:categoryCell.value.text
+                                                                withSubCategory:subCategoryCell.value.text
+                                                                      andAPIKey:[ApplicationState getInstance].apiKey
+                                                                       andError:&error];
+    if (error == nil) {
+        NSLog(@"Transaction added with ID %@", newTransactionId);
+    } else {
+        NSLog(@"Error ocurred when adding new transaction: %@", error.description);
+    }
 }
 
 @end
