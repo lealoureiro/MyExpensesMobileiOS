@@ -227,15 +227,7 @@ NSMutableDictionary *accountsMap;
 - (void)addTransaction {
     NSLog(@"Adding new trasaction for account %@", selectedAcount);
     
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    NSString *unparsedAmount = [transactionAmountCell.amountBox.text stringByReplacingOccurrencesOfString:formatter.currencySymbol withString:@""];
-    NSScanner *scanner = [NSScanner localizedScannerWithString:unparsedAmount];
-    double result;
-    [scanner scanDouble:&result];
-    result *= 100.0;
-    NSInteger amountInCents = result;
-    
+    NSInteger amountInCents = transactionAmountCell.amountInCents;
     if (transactionTypeCell.transactionType.selectedSegmentIndex == 0) {
         amountInCents *= -1;
     }

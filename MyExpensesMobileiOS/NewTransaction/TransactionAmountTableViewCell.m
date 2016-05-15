@@ -11,6 +11,7 @@
 @implementation TransactionAmountTableViewCell
 
 @synthesize amountBox;
+@synthesize amountInCents;
 
 UILabel *amountLabel;
 NSNumberFormatter *formatter;
@@ -78,10 +79,12 @@ NSNumber *currentAmount;
         if ([amountBox.text isEqualToString:@""]) {
             amountBox.textColor = [UIColor colorWithRed:200.0/255.0 green:199.0/255.0 blue:205.0/255.0 alpha:1];
             amountBox.text = [formatter stringFromNumber:[NSNumber numberWithDouble:0.0]];
+            amountInCents = 0;
         } else {
             NSScanner *scanner = [NSScanner localizedScannerWithString:amountBox.text];
             double result;
             [scanner scanDouble:&result];
+            amountInCents = result * 100.0;
             amountBox.text = [formatter stringFromNumber:[NSNumber numberWithDouble:result]];
         }
     }

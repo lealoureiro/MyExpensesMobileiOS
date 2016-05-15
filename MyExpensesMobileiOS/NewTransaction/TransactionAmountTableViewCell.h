@@ -11,6 +11,8 @@
 @interface TransactionAmountTableViewCell : UITableViewCell <UITextFieldDelegate>
 
 @property (strong, nonatomic) UITextField *amountBox;
+@property NSInteger amountInCents;
+
 
 - (id)initWithIdentifier:(NSString *)reuseIdentifier;
 
