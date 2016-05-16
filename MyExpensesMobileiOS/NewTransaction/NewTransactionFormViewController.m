@@ -44,7 +44,9 @@ NSMutableDictionary *accountsMap;
     transactionAmountCell = [[TransactionAmountTableViewCell alloc] initWithIdentifier:@"amountCell"];
     transactionTypeCell = [[TransactionTypeCell alloc] initWithIdentifier:@"typeCell"];
     
-    accounts = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
+    if ([ApplicationState getInstance].logged) {
+        accounts = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
+    }
     
     accountsMap = [[NSMutableDictionary alloc] init];
     for (NSDictionary *account in accounts) {
@@ -52,10 +54,13 @@ NSMutableDictionary *accountsMap;
     }
     
     accountCell = [[SelectionCell alloc] initWithIdentifier:@"accountCell"];
-    NSDictionary *account = [accounts objectAtIndex:0];
+   
     accountCell.option.text = @"Account:";
-    accountCell.value.text = [account objectForKey:@"name"];
-    selectedAcount = [account objectForKey:@"id"];
+    if (accounts.count > 0) {
+        NSDictionary *account = [accounts objectAtIndex:0];
+        accountCell.value.text = [account objectForKey:@"name"];
+        selectedAcount = [account objectForKey:@"id"];
+    }
     
     categoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     categoryCell.option.text = @"Category:";
@@ -227,6 +232,8 @@ NSMutableDictionary *accountsMap;
 - (void)addTransaction {
     NSLog(@"Adding new trasaction for account %@", selectedAcount);
     
+    submitCell.submitButton.enabled = NO;
+    
     NSInteger amountInCents = transactionAmountCell.amountInCents;
     if (transactionTypeCell.transactionType.selectedSegmentIndex == 0) {
         amountInCents *= -1;
@@ -242,9 +249,15 @@ NSMutableDictionary *accountsMap;
                                                                        andError:&error];
     if (error == nil) {
         NSLog(@"Transaction added with ID %@", newTransactionId);
+        submitCell.resultLabel.textColor = [UIColor greenColor];
+        submitCell.resultLabel.text = @"Transaction added successfully!";
     } else {
         NSLog(@"Error ocurred when adding new transaction: %@", error.description);
+        submitCell.resultLabel.textColor = [UIColor redColor];
+        submitCell.resultLabel.text = @"An error occurred!";
     }
+    
+    submitCell.submitButton.enabled = YES;
 }
 
 @end

@@ -10,6 +10,9 @@
 #import "NewTransactionViewController.h"
 #import "NewTransactionFormViewController.h"
 #import "AccountsViewController.h"
+#import "ApplicationState.h"
+#import "ExpensesCoreServerAPI.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -38,7 +41,16 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.mainViewController;
     [self.window makeKeyAndVisible];
-
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginSuccessfull)
+                                                 name:@"loginSuccessful"
+                                               object:nil];
+    
+    if (![self checkForAuthentication]) {
+        [self showLoginMenu];
+    }
+    
     return YES;
 }
 
@@ -60,6 +72,53 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 
+}
+
+- (BOOL)checkForAuthentication {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *key = [defaults objectForKey:@"apiKey"];
+    NSLog(@"Loaded API Key from user defaults: %@", key);
+    
+    ApplicationState *application = [ApplicationState getInstance];
+    if (key == nil) {
+        application.logged = NO;
+        return NO;
+    } else {
+        NSError *error;
+        [ExpensesCoreServerAPI checkApiKey:key andError:&error];
+        if (error == nil) {
+            application.logged = YES;
+            application.apiKey = key;
+            return YES;
+        } else {
+            application.logged = NO;
+            return NO;
+        }
+    }
+}
+
+- (void)showLoginMenu {
+    NSLog(@"Showing Login Screen...");
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    [UIView transitionWithView:self.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.window.rootViewController = loginViewController;
+                    }
+                    completion:nil];
+}
+
+
+- (void)loginSuccessfull {
+    NSLog(@"Application logged successfully!");
+    [UIView transitionWithView:self.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        self.window.rootViewController = mainViewController;
+                    }
+                    completion:nil];
 }
 
 @end

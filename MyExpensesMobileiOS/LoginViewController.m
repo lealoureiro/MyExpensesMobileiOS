@@ -117,6 +117,8 @@ UIButton *loginButton;
         [defaults synchronize];
         NSLog(@"Saved token %@ in user defaults", key);
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccessful" object:self];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

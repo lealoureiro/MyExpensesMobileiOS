@@ -11,6 +11,8 @@
 @interface SubmitButtonCell : UITableViewCell
 
 @property (strong, nonatomic) UIButton *submitButton;
+@property (strong, nonatomic) UILabel *resultLabel;
+
 
 - (id)initWithIdentifier:(NSString *)reuseIdentifier;
 

@@ -15,6 +15,11 @@
 
 + (NSArray *)getUserAccounts:(NSString *)apiKey {
     
+    if (apiKey == nil) {
+        NSLog(@"Tring to call API with invalid key!");
+        return [[NSArray alloc] init];
+    }
+    
     NSDictionary *headers = @{@"accept": @"application/json", @"authkey": apiKey};
     NSMutableString *resource = [[NSMutableString alloc] init];
     [resource appendString:WEBSERVICE_ADDRESS];
