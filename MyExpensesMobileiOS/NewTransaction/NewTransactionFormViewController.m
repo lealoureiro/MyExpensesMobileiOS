@@ -71,6 +71,7 @@ NSMutableDictionary *accountsMap;
     subCategoryCell.value.text = @"Local Tax";
     
     submitCell = [[SubmitButtonCell alloc] initWithIdentifier:@"submitCell"];
+    submitCell.resultLabel.alpha = 0.0;
     [submitCell.submitButton addTarget:self action:@selector(addTransaction) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -251,13 +252,34 @@ NSMutableDictionary *accountsMap;
         NSLog(@"Transaction added with ID %@", newTransactionId);
         submitCell.resultLabel.textColor = [UIColor greenColor];
         submitCell.resultLabel.text = @"Transaction added successfully!";
+        [self animateResultLabel];
     } else {
         NSLog(@"Error ocurred when adding new transaction: %@", error.description);
         submitCell.resultLabel.textColor = [UIColor redColor];
         submitCell.resultLabel.text = @"An error occurred!";
+        [self animateResultLabel];
     }
     
     submitCell.submitButton.enabled = YES;
+}
+
+
+- (void)animateResultLabel {
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         submitCell.resultLabel.alpha = 1.0;
+                     }
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:0.5
+                                               delay:2
+                                             options:UIViewAnimationOptionCurveEaseIn
+                                          animations:^{
+                                              submitCell.resultLabel.alpha = 0.0;
+                                          }
+                                          completion:nil];
+                     }];
 }
 
 @end
