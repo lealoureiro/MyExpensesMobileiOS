@@ -15,14 +15,11 @@
 
 UILabel *amountLabel;
 NSNumberFormatter *formatter;
-NSNumber *currentAmount;
 
 - (id)initWithIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    currentAmount = [NSNumber numberWithDouble:0.0];
     
     formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
@@ -45,6 +42,8 @@ NSNumber *currentAmount;
     self.amountBox.delegate = self;
     [self.amountBox setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.amountBox];
+    
+    [self.amountBox addTarget:self action:@selector(updateAmountInCents) forControlEvents:UIControlEventEditingChanged];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(amountLabel, amountBox);
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[amountLabel]-15-|" options:0 metrics:nil views:views]];
@@ -93,6 +92,13 @@ NSNumber *currentAmount;
 - (void)focusAmount {
     NSLog(@"Amount box selected");
     [self.amountBox becomeFirstResponder];
+}
+
+- (void)updateAmountInCents {
+    NSScanner *scanner = [NSScanner localizedScannerWithString:amountBox.text];
+    double result;
+    [scanner scanDouble:&result];
+    amountInCents = result * 100.0;
 }
 
 @end
