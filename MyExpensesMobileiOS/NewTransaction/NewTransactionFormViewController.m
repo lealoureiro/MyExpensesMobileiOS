@@ -33,6 +33,8 @@ SubmitButtonCell *submitCell;
 NSString *selectedAcount;
 NSArray *accounts;
 NSMutableDictionary *accountsMap;
+NSMutableArray *categoriesList;
+NSMutableDictionary *categoriesMap;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,12 +47,30 @@ NSMutableDictionary *accountsMap;
     transactionTypeCell = [[TransactionTypeCell alloc] initWithIdentifier:@"typeCell"];
     
     if ([ApplicationState getInstance].logged) {
+        
         accounts = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
-    }
-    
-    accountsMap = [[NSMutableDictionary alloc] init];
-    for (NSDictionary *account in accounts) {
-        [accountsMap setObject:account[@"name"] forKey:account[@"id"]];
+        NSArray *categories = [ExpensesCoreServerAPI getUserCategories:[ApplicationState getInstance].apiKey];
+        
+        accountsMap = [[NSMutableDictionary alloc] init];
+        for (NSDictionary *account in accounts) {
+            [accountsMap setObject:account[@"name"] forKey:account[@"id"]];
+        }
+        
+        categoriesList = [[NSMutableArray alloc] initWithCapacity:categories.count];
+        categoriesMap = [[NSMutableDictionary alloc] init];
+        for (NSDictionary *category in categories) {
+            NSString *categoryName = [category objectForKey:@"name"];
+            NSDictionary *category1 = @{@"name": categoryName, @"id": categoryName};
+            [categoriesList addObject:category1];
+            
+            NSArray *subCategories = [category objectForKey:@"subCategories"];
+            NSMutableArray *subCategoriesList = [[NSMutableArray alloc] initWithCapacity:subCategories.count];
+            for (NSString *subCategory in subCategories) {
+                NSDictionary *subCategory1 = @{@"name": subCategory, @"id": subCategory};
+                [subCategoriesList addObject:subCategory1];
+            }
+            [categoriesMap setObject:subCategoriesList forKey:categoryName];
+        }
     }
     
     accountCell = [[SelectionCell alloc] initWithIdentifier:@"accountCell"];
@@ -64,11 +84,21 @@ NSMutableDictionary *accountsMap;
     
     categoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     categoryCell.option.text = @"Category:";
-    categoryCell.value.text = @"Taxes";
     
     subCategoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     subCategoryCell.option.text = @"Sub Category:";
-    subCategoryCell.value.text = @"Local Tax";
+    
+    if (categoriesList.count > 0) {
+        NSDictionary *category = [categoriesList objectAtIndex:0];
+        categoryCell.value.text = [category objectForKey:@"name"];
+        
+        NSArray *subCategories = [category objectForKey:@"subCategories"];
+        if (subCategories.count > 0) {
+            subCategoryCell.value.text = [subCategories objectAtIndex:0];
+        } else {
+            subCategoryCell.value.text = @"";
+        }
+    }
     
     submitCell = [[SubmitButtonCell alloc] initWithIdentifier:@"submitCell"];
     submitCell.resultLabel.alpha = 0.0;
@@ -188,13 +218,9 @@ NSMutableDictionary *accountsMap;
 }
 
 - (void)showCategorySelectionList {
-    NSDictionary *category1 = @{@"name": @"Personal", @"id": @"Personal"};
-    NSDictionary *category2 = @{@"name": @"Taxes", @"id": @"Taxes"};
-    NSDictionary *category3 = @{@"name": @"Health", @"id": @"Health"};
-    NSArray *list = [[NSArray alloc] initWithObjects:category1,category2,category3,nil];
     
     ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
-    vc.list = list;
+    vc.list = categoriesList;
     vc.selectedKey = categoryCell.value.text;
     vc.type = @"category";
     vc.delegate = self;
@@ -203,13 +229,8 @@ NSMutableDictionary *accountsMap;
 }
 
 - (void)showSubCategorySelectionList {
-    NSDictionary *category1 = @{@"name": @"Local Tax", @"id": @"Local Tax"};
-    NSDictionary *category2 = @{@"name": @"Clothes", @"id": @"Clothes"};
-    NSDictionary *category3 = @{@"name": @"Restaurant", @"id": @"Restaurant"};
-    NSArray *list = [[NSArray alloc] initWithObjects:category1,category2,category3,nil];
-    
     ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
-    vc.list = list;
+    vc.list = [categoriesMap objectForKey:categoryCell.value.text];
     vc.selectedKey = subCategoryCell.value.text;
     vc.type = @"sub_category";
     vc.delegate = self;
@@ -225,6 +246,12 @@ NSMutableDictionary *accountsMap;
         accountCell.value.text = [accountsMap objectForKey:key];
     } else if ([selector.type isEqualToString:@"category"]){
         categoryCell.value.text = key;
+        NSArray *subCategoriesList = [categoriesMap objectForKey:key];
+        if (subCategoriesList.count > 0) {
+            subCategoryCell.value.text = [[subCategoriesList objectAtIndex:0] objectForKey:@"name"];
+        } else {
+             subCategoryCell.value.text = @"";
+        }
     } else if ([selector.type isEqualToString:@"sub_category"]) {
         subCategoryCell.value.text = key;
     }

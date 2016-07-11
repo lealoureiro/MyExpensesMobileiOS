@@ -16,7 +16,7 @@
 + (NSArray *)getUserAccounts:(NSString *)apiKey {
     
     if (apiKey == nil) {
-        NSLog(@"Tring to call API with invalid key!");
+        NSLog(@"Trying to call API with invalid key!");
         return [[NSArray alloc] init];
     }
     
@@ -149,6 +149,30 @@
     }
     
     return response.body.object[@"id"];
+}
+
+
++ (NSArray *)getUserCategories:(NSString *)apiKey {
+    
+    NSLog(@"Getting user categories");
+    
+    if (apiKey == nil) {
+        NSLog(@"Trying to call API with invalid key!");
+        return [[NSArray alloc] init];
+    }
+    
+    NSDictionary *headers = @{@"accept": @"application/json", @"authkey": apiKey};
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"categories/"];
+    UNIHTTPJsonResponse *response = [[UNIRest get:^(UNISimpleRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    
+    return response.body.array;
 }
 
 
