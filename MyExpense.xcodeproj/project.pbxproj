@@ -25,7 +25,6 @@
 		2F33919F1CE7827F00221F01 /* SubmitButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */; };
 		2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
 		2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
-		2F6E0E3D1CC03FA60054CD3C /* libUnirest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */; };
 		2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */; };
 		2FFA4A901CDE43A100D1616B /* TransactionAmountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */; };
 		E9C4F9EF6D62109EE5408F48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD73E4CC72294D0961C82936 /* libPods.a */; };
@@ -78,7 +77,6 @@
 		2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		2F5BD5931A6733C80009401D /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
 		2F5BD5941A6733C80009401D /* ApplicationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationState.m; sourceTree = "<group>"; };
-		2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUnirest.a; path = "../../../Downloads/unirest-obj-c-master/build/Debug-iphoneos/libUnirest.a"; sourceTree = "<group>"; };
 		2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableCell.h; sourceTree = "<group>"; };
 		2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableCell.m; sourceTree = "<group>"; };
 		2FAA351A1CD2964A00F6F99C /* NewTransactionFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTransactionFormViewController.h; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6E0E3D1CC03FA60054CD3C /* libUnirest.a in Frameworks */,
 				E9C4F9EF6D62109EE5408F48 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +109,6 @@
 		2F0A40CF1A60552800631D42 = {
 			isa = PBXGroup;
 			children = (
-				2F6E0E3C1CC03FA60054CD3C /* libUnirest.a */,
 				2F0A40DA1A60552800631D42 /* MyExpensesMobileiOS */,
 				2F0A40F71A60552800631D42 /* MyExpensesMobileiOSTests */,
 				2F0A40D91A60552800631D42 /* Products */,
@@ -468,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -503,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -520,7 +516,12 @@
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = Unirest;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MyExpensesMobileiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = MyExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -537,7 +538,12 @@
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MyExpensesMobileiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = MyExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

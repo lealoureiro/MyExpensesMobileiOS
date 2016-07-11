@@ -265,14 +265,14 @@ NSMutableDictionary *accountsMap;
 
 
 - (void)animateResultLabel {
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.25
                           delay:0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          submitCell.resultLabel.alpha = 1.0;
                      }
                      completion:^(BOOL finished){
-                         [UIView animateWithDuration:0.5
+                         [UIView animateWithDuration:0.25
                                                delay:2
                                              options:UIViewAnimationOptionCurveEaseIn
                                           animations:^{
