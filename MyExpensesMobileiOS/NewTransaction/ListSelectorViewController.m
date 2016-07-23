@@ -21,6 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (![self.type isEqualToString:@"accounts"]){
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(addNewItem)];
+        self.navigationItem.rightBarButtonItem = addButton;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +64,39 @@
     NSDictionary *option = [list objectAtIndex:indexPath.row];
     [self.delegate setSelectedItem:self didSelectKey:[option objectForKey:@"id"]];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) addNewItem {
+    UIAlertController *alert = [UIAlertController
+                                 alertControllerWithTitle:@"Add new category"
+                                 message:@"Please enter the new category name:"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"name";
+        textField.textColor = [UIColor blueColor];
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    }];
+    
+    UIAlertAction *addButton = [UIAlertAction
+                                actionWithTitle:@"Add"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    NSArray *textfields = alert.textFields;
+                                    UITextField *name = textfields[0];
+                                    
+                                }];
+    
+    UIAlertAction *cancelButton = [UIAlertAction
+                               actionWithTitle:@"Cancel"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                               }];
+    
+    [alert addAction:addButton];
+    [alert addAction:cancelButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
