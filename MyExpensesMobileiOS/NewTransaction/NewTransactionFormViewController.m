@@ -103,6 +103,12 @@ NSMutableDictionary *categoriesMap;
     submitCell = [[SubmitButtonCell alloc] initWithIdentifier:@"submitCell"];
     submitCell.resultLabel.alpha = 0.0;
     [submitCell.submitButton addTarget:self action:@selector(addTransaction) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:nil
+                                                                     action:nil];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
 }
 
 - (void)didReceiveMemoryWarning {
