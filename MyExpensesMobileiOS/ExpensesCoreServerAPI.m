@@ -144,7 +144,7 @@
     }] asJson];
     
     NSLog(@"Server HTTP response code %ld", (long)response.code);
-    if (response.code != 200) {
+    if (response.code != 204) {
         *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
     }
     
@@ -174,6 +174,29 @@
     
     return response.body.array;
 }
+
++ (void)addNewCategory:(NSString *)newCategory andAPIKey:(NSString *)key andError:(NSError **)error {
+        
+    NSDictionary *headers = @{@"accept": @"application/json", @"Content-type": @"application/json", @"authkey": key};
+    NSDictionary *parameters = @{@"name": newCategory};
+    
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"categories/"];
+    
+    UNIHTTPJsonResponse *response = [[UNIRest postEntity:^(UNIBodyRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+        [request setBody:[NSJSONSerialization dataWithJSONObject:parameters options:0 error:error]];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    if (response.code != 204) {
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
+    }
+    
+}
+
 
 
 

@@ -7,6 +7,8 @@
 //
 
 #import "ListSelectorViewController.h"
+#import "ExpensesCoreServerAPI.h"
+#import "ApplicationState.h"
 
 @interface ListSelectorViewController ()
 
@@ -84,7 +86,9 @@
                                 handler:^(UIAlertAction * action) {
                                     NSArray *textfields = alert.textFields;
                                     UITextField *name = textfields[0];
-                                    
+                                    if ([self.type isEqualToString:@"category"]) {
+                                        [self addNewCategory:name.text];
+                                    }
                                 }];
     
     UIAlertAction *cancelButton = [UIAlertAction
@@ -97,6 +101,17 @@
     [alert addAction:cancelButton];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)addNewCategory:(NSString *)newCategory {
+    NSError *error = nil;
+    [ExpensesCoreServerAPI addNewCategory:newCategory andAPIKey:[ApplicationState getInstance].apiKey andError:&error];
+    if (error == nil) {
+        NSLog(@"Category %@ added successfully!", newCategory);
+        NSDictionary *category = @{@"name": newCategory, @"id": newCategory};
+        self.list = [self.list arrayByAddingObject:category];
+        [self.tableView reloadData];
+    }
 }
 
 @end
