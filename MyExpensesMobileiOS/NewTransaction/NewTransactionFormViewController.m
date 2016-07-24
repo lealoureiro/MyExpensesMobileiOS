@@ -49,28 +49,12 @@ NSMutableDictionary *categoriesMap;
     if ([ApplicationState getInstance].logged) {
         
         accounts = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
-        NSArray *categories = [ExpensesCoreServerAPI getUserCategories:[ApplicationState getInstance].apiKey];
         
         accountsMap = [[NSMutableDictionary alloc] init];
         for (NSDictionary *account in accounts) {
             [accountsMap setObject:account[@"name"] forKey:account[@"id"]];
         }
-        
-        categoriesList = [[NSMutableArray alloc] initWithCapacity:categories.count];
-        categoriesMap = [[NSMutableDictionary alloc] init];
-        for (NSDictionary *category in categories) {
-            NSString *categoryName = [category objectForKey:@"name"];
-            NSDictionary *category1 = @{@"name": categoryName, @"id": categoryName};
-            [categoriesList addObject:category1];
-            
-            NSArray *subCategories = [category objectForKey:@"subCategories"];
-            NSMutableArray *subCategoriesList = [[NSMutableArray alloc] initWithCapacity:subCategories.count];
-            for (NSString *subCategory in subCategories) {
-                NSDictionary *subCategory1 = @{@"name": subCategory, @"id": subCategory};
-                [subCategoriesList addObject:subCategory1];
-            }
-            [categoriesMap setObject:subCategoriesList forKey:categoryName];
-        }
+        [self refreshCategories];
     }
     
     accountCell = [[SelectionCell alloc] initWithIdentifier:@"accountCell"];
@@ -229,6 +213,7 @@ NSMutableDictionary *categoriesMap;
     vc.list = categoriesList;
     vc.selectedKey = categoryCell.value.text;
     vc.type = @"category";
+    vc.update = NO;
     vc.delegate = self;
     vc.title = @"Select Category";
     [[self navigationController] pushViewController:vc animated:YES];
@@ -244,7 +229,7 @@ NSMutableDictionary *categoriesMap;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
-- (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key {
+- (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key andIsUpdated:(BOOL)updated {
     NSLog(@"Selected %@ from the list of %@", key, selector.type);
     
     if ([selector.type isEqualToString:@"accounts"]) {
@@ -261,6 +246,11 @@ NSMutableDictionary *categoriesMap;
     } else if ([selector.type isEqualToString:@"sub_category"]) {
         subCategoryCell.value.text = key;
     }
+    
+    if (updated) {
+        [self refreshCategories];
+    }
+    
 }
 
 - (void)addTransaction {
@@ -313,6 +303,36 @@ NSMutableDictionary *categoriesMap;
                                           }
                                           completion:nil];
                      }];
+}
+
+- (void)refreshCategories {
+    NSLog(@"Fetching categories and sub categories");
+    NSArray *categories = [ExpensesCoreServerAPI getUserCategories:[ApplicationState getInstance].apiKey];
+    
+    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:nameDescriptor];
+    
+    categoriesList = [[NSMutableArray alloc] initWithCapacity:categories.count];
+    categoriesMap = [[NSMutableDictionary alloc] init];
+    for (NSDictionary *category in categories) {
+        NSString *categoryName = [category objectForKey:@"name"];
+        NSDictionary *category1 = @{@"name": categoryName, @"id": categoryName};
+        [categoriesList addObject:category1];
+        
+        NSArray *subCategories = [category objectForKey:@"subCategories"];
+        NSMutableArray *subCategoriesList = [[NSMutableArray alloc] initWithCapacity:subCategories.count];
+        for (NSString *subCategory in subCategories) {
+            NSDictionary *subCategory1 = @{@"name": subCategory, @"id": subCategory};
+            [subCategoriesList addObject:subCategory1];
+        }
+        
+        [subCategoriesList sortUsingDescriptors:sortDescriptors];
+        
+        [categoriesMap setObject:subCategoriesList forKey:categoryName];
+    }
+    
+    [categoriesList sortUsingDescriptors:sortDescriptors];
+
 }
 
 @end

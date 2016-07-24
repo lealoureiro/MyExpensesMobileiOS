@@ -11,7 +11,7 @@
 @class ListSelectorViewController;
 
 @protocol ListSelectorDelegate <NSObject>
-- (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key;
+- (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key andIsUpdated:(BOOL) updated;
 @end
 
 @interface ListSelectorViewController : UITableViewController
@@ -20,6 +20,7 @@
 @property NSString *selectedKey;
 @property NSString *type;
 @property (nonatomic, weak) id <ListSelectorDelegate> delegate;
+@property BOOL update;
 
 @end
 

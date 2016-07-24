@@ -20,6 +20,7 @@
 @synthesize selectedKey;
 @synthesize type;
 @synthesize delegate;
+@synthesize update;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,7 +65,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *option = [list objectAtIndex:indexPath.row];
-    [self.delegate setSelectedItem:self didSelectKey:[option objectForKey:@"id"]];
+    [self.delegate setSelectedItem:self didSelectKey:[option objectForKey:@"id"] andIsUpdated:self.update];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -110,8 +111,13 @@
         NSLog(@"Category %@ added successfully!", newCategory);
         NSDictionary *category = @{@"name": newCategory, @"id": newCategory};
         self.list = [self.list arrayByAddingObject:category];
+        NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:nameDescriptor];
+        self.list = [self.list sortedArrayUsingDescriptors:sortDescriptors];
         [self.tableView reloadData];
+        self.update = YES;
     }
 }
+
 
 @end
