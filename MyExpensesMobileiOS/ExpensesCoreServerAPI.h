@@ -19,5 +19,6 @@
 + (NSString *)addTransactionToAccount:(NSString *)account withDescription:(NSString *)description withAmount:(NSInteger)amountInCents withCategory:(NSString *)category withSubCategory:(NSString *)subCategory andAPIKey:(NSString *)key andError:(NSError **)error;
 + (NSArray *)getUserCategories:(NSString *)apiKey;
 + (void)addNewCategory:(NSString *)newCategory andAPIKey:(NSString *)key andError:(NSError **)error;
++ (void)deleteCategory:(NSString *)category andAPIKey:(NSString *)key andError:(NSError **)error;
 
 @end

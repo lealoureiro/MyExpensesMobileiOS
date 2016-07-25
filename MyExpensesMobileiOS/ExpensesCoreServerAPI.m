@@ -197,6 +197,29 @@
     
 }
 
++ (void)deleteCategory:(NSString *)category andAPIKey:(NSString *)key andError:(NSError **)error {
+    
+    NSLog(@"Deleting category %@", category);
+    
+    NSDictionary *headers = @{@"authkey": key};
+    
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"categories/"];
+    [resource appendString:category];
+    
+    UNIHTTPResponse *response = [[UNIRest delete:^(UNISimpleRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    if (response.code != 204) {
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
+    }
+    
+}
+
 
 
 
