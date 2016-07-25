@@ -36,6 +36,8 @@ NSMutableDictionary *accountsMap;
 NSMutableArray *categoriesList;
 NSMutableDictionary *categoriesMap;
 
+BOOL updateCategories = NO;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"New Transaction";
@@ -54,6 +56,7 @@ NSMutableDictionary *categoriesMap;
         for (NSDictionary *account in accounts) {
             [accountsMap setObject:account[@"name"] forKey:account[@"id"]];
         }
+        
         [self refreshCategories];
     }
     
@@ -93,6 +96,13 @@ NSMutableDictionary *categoriesMap;
                                                                      target:nil
                                                                      action:nil];
     [[self navigationItem] setBackBarButtonItem:newBackButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    if (updateCategories) {
+        [self refreshCategories];
+        updateCategories = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -213,7 +223,7 @@ NSMutableDictionary *categoriesMap;
     vc.list = categoriesList;
     vc.selectedKey = categoryCell.value.text;
     vc.type = @"category";
-    vc.update = NO;
+    vc.update = &updateCategories;
     vc.delegate = self;
     vc.title = @"Select Category";
     [[self navigationController] pushViewController:vc animated:YES];
@@ -229,7 +239,7 @@ NSMutableDictionary *categoriesMap;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
-- (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key andIsUpdated:(BOOL)updated {
+- (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key {
     NSLog(@"Selected %@ from the list of %@", key, selector.type);
     
     if ([selector.type isEqualToString:@"accounts"]) {
@@ -245,10 +255,6 @@ NSMutableDictionary *categoriesMap;
         }
     } else if ([selector.type isEqualToString:@"sub_category"]) {
         subCategoryCell.value.text = key;
-    }
-    
-    if (updated) {
-        [self refreshCategories];
     }
     
 }

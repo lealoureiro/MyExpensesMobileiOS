@@ -65,11 +65,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *option = [list objectAtIndex:indexPath.row];
-    [self.delegate setSelectedItem:self didSelectKey:[option objectForKey:@"id"] andIsUpdated:self.update];
+    [self.delegate setSelectedItem:self didSelectKey:[option objectForKey:@"id"]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void) addNewItem {
+- (void)addNewItem {
     UIAlertController *alert = [UIAlertController
                                  alertControllerWithTitle:@"Add new category"
                                  message:@"Please enter the new category name:"
@@ -115,7 +115,7 @@
         NSArray *sortDescriptors = [NSArray arrayWithObject:nameDescriptor];
         self.list = [self.list sortedArrayUsingDescriptors:sortDescriptors];
         [self.tableView reloadData];
-        self.update = YES;
+        *update = YES;
     }
 }
 
