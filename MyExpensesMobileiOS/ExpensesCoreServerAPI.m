@@ -144,7 +144,7 @@
     }] asJson];
     
     NSLog(@"Server HTTP response code %ld", (long)response.code);
-    if (response.code != 204) {
+    if (response.code != 200) {
         *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
     }
     
