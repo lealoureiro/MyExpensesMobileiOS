@@ -31,6 +31,7 @@
                                                                      action:@selector(addNewItem)];
         self.navigationItem.rightBarButtonItem = addButton;
     }
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +45,31 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return list.count;
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *option = [list objectAtIndex:indexPath.row];
+        NSString *value = [option objectForKey:@"id"];
+        NSLog(@"Deleting item %@", value);
+        
+        NSError *error;
+        if ([self.type isEqualToString:@"category"]) {
+            [ExpensesCoreServerAPI deleteCategory:value andAPIKey:[ApplicationState getInstance].apiKey andError:&error];
+            if (error == nil) {
+                [list removeObjectAtIndex:indexPath.row];
+                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                NSLog(@"Item %@ deleted", value);
+            } else {
+                NSLog(@"Failed to delete item %@", value);
+            }
+        }
+    }
+}
+    
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -110,10 +136,10 @@
     if (error == nil) {
         NSLog(@"Category %@ added successfully!", newCategory);
         NSDictionary *category = @{@"name": newCategory, @"id": newCategory};
-        self.list = [self.list arrayByAddingObject:category];
+        [self.list addObject:category];
         NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
         NSArray *sortDescriptors = [NSArray arrayWithObject:nameDescriptor];
-        self.list = [self.list sortedArrayUsingDescriptors:sortDescriptors];
+        [self.list sortUsingDescriptors:sortDescriptors];
         [self.tableView reloadData];
         *update = YES;
     }

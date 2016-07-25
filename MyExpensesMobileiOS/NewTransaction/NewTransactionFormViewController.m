@@ -31,7 +31,7 @@ SelectionCell *subCategoryCell;
 SubmitButtonCell *submitCell;
 
 NSString *selectedAcount;
-NSArray *accounts;
+NSMutableArray *accounts;
 NSMutableDictionary *accountsMap;
 NSMutableArray *categoriesList;
 NSMutableDictionary *categoriesMap;
@@ -50,7 +50,7 @@ BOOL updateCategories = NO;
     
     if ([ApplicationState getInstance].logged) {
         
-        accounts = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
+        accounts = [[NSMutableArray alloc] initWithArray:[ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey]];
         
         accountsMap = [[NSMutableDictionary alloc] init];
         for (NSDictionary *account in accounts) {

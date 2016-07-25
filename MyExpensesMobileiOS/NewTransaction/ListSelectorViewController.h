@@ -16,7 +16,7 @@
 
 @interface ListSelectorViewController : UITableViewController
 
-@property NSArray *list;
+@property NSMutableArray *list;
 @property NSString *selectedKey;
 @property NSString *type;
 @property (nonatomic, weak) id <ListSelectorDelegate> delegate;
