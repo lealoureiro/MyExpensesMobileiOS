@@ -80,6 +80,15 @@
         } else {
             NSLog(@"Failed to delete item %@", value);
         }
+        
+        if ([value isEqualToString:self.selectedKey]) {
+            if (self.list.count > 0) {
+                [self.delegate setSelectedItem:self didSelectKey:[[self.list objectAtIndex:0] objectForKey:@"id"]];
+            } else {
+                [self.delegate setSelectedItem:self didSelectKey:@""];
+            }
+        }
+        
     }
 }
 
