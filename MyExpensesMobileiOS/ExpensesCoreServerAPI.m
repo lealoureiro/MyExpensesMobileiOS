@@ -206,7 +206,7 @@
     NSMutableString *resource = [[NSMutableString alloc] init];
     [resource appendString:WEBSERVICE_ADDRESS];
     [resource appendString:@"categories/"];
-    [resource appendString:category];
+    [resource appendString:[category stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
     
     UNIHTTPResponse *response = [[UNIRest delete:^(UNISimpleRequest *request) {
         [request setUrl:resource];
