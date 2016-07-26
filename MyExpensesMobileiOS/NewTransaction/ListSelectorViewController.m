@@ -21,6 +21,7 @@
 @synthesize type;
 @synthesize delegate;
 @synthesize update;
+@synthesize selectedKeyAux;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,6 +51,11 @@
     if ([self.type isEqualToString:@"category"]) {
         return YES;
     }
+    
+    if ([self.type isEqualToString:@"sub_category"]) {
+        return YES;
+    }
+    
     return NO;
 }
 
@@ -62,17 +68,21 @@
         NSError *error;
         if ([self.type isEqualToString:@"category"]) {
             [ExpensesCoreServerAPI deleteCategory:value andAPIKey:[ApplicationState getInstance].apiKey andError:&error];
-            if (error == nil) {
-                [list removeObjectAtIndex:indexPath.row];
-                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-                NSLog(@"Item %@ deleted", value);
-            } else {
-                NSLog(@"Failed to delete item %@", value);
-            }
+
+        } else if ([self.type isEqualToString:@"sub_category"]) {
+            [ExpensesCoreServerAPI deleteSubCategory:value inCategory:self.selectedKeyAux andAPIKey:[ApplicationState getInstance].apiKey andError:&error];
+        }
+        
+        if (error == nil) {
+            [list removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            NSLog(@"Item %@ deleted", value);
+        } else {
+            NSLog(@"Failed to delete item %@", value);
         }
     }
 }
-    
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -99,9 +109,20 @@
 }
 
 - (void)addNewItem {
+    
+    NSString *description1;
+    NSString *description2;
+    if ([self.type isEqualToString:@"category"]) {
+        description1 = @"Add new category";
+        description2 = @"Please enter the new category name:";
+    } else if ([self.type isEqualToString:@"sub_category"]){
+        description1 = [@"Add new sub category for category " stringByAppendingString:self.selectedKeyAux];
+        description2 = @"Please enter new sub category name:";
+    }
+    
     UIAlertController *alert = [UIAlertController
-                                 alertControllerWithTitle:@"Add new category"
-                                 message:@"Please enter the new category name:"
+                                 alertControllerWithTitle:description1
+                                 message:description2
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
@@ -118,6 +139,8 @@
                                     UITextField *name = textfields[0];
                                     if ([self.type isEqualToString:@"category"]) {
                                         [self addNewCategory:name.text];
+                                    } else if ([self.type isEqualToString:@"sub_category"]) {
+                                        [self addNewSubCategory:name.text];
                                     }
                                 }];
     
@@ -146,6 +169,23 @@
         [self.tableView reloadData];
         *update = YES;
     }
+}
+
+
+- (void)addNewSubCategory:(NSString *)newSubCategory {
+    NSError *error = nil;
+    [ExpensesCoreServerAPI addNewSubCategory:newSubCategory forCategory:self.selectedKeyAux andAPIKey:[ApplicationState getInstance].apiKey andError:&error];
+    if (error == nil) {
+        NSLog(@"Sub category %@ added successfully to category %@!", newSubCategory, self.selectedKeyAux);
+        NSDictionary *subCategory = @{@"name": newSubCategory, @"id": newSubCategory};
+        [self.list addObject:subCategory];
+        NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:nameDescriptor];
+        [self.list sortUsingDescriptors:sortDescriptors];
+        [self.tableView reloadData];
+        *update = YES;
+    }
+    
 }
 
 

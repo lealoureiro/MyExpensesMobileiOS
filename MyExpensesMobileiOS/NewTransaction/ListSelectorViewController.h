@@ -18,6 +18,7 @@
 
 @property NSMutableArray *list;
 @property NSString *selectedKey;
+@property NSString *selectedKeyAux;
 @property NSString *type;
 @property (nonatomic, weak) id <ListSelectorDelegate> delegate;
 @property BOOL *update;

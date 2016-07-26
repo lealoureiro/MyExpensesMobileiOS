@@ -79,9 +79,9 @@ BOOL updateCategories = NO;
         NSDictionary *category = [categoriesList objectAtIndex:0];
         categoryCell.value.text = [category objectForKey:@"name"];
         
-        NSArray *subCategories = [category objectForKey:@"subCategories"];
+        NSArray *subCategories = [categoriesMap objectForKey:[category objectForKey:@"name"]];
         if (subCategories.count > 0) {
-            subCategoryCell.value.text = [subCategories objectAtIndex:0];
+            subCategoryCell.value.text = [[subCategories objectAtIndex:0] objectForKey:@"name"];
         } else {
             subCategoryCell.value.text = @"";
         }
@@ -233,7 +233,9 @@ BOOL updateCategories = NO;
     ListSelectorViewController *vc = [[ListSelectorViewController alloc] init];
     vc.list = [categoriesMap objectForKey:categoryCell.value.text];
     vc.selectedKey = subCategoryCell.value.text;
+    vc.selectedKeyAux = categoryCell.value.text;
     vc.type = @"sub_category";
+    vc.update = &updateCategories;
     vc.delegate = self;
     vc.title = @"Select SubCategory";
     [[self navigationController] pushViewController:vc animated:YES];
