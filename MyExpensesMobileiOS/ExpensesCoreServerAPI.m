@@ -197,6 +197,29 @@
     
 }
 
++ (void)addNewSubCategory:(NSString *)newSubCategory forCategory:(NSString *)category andAPIKey:(NSString *)key andError:(NSError **)error {
+    NSDictionary *headers = @{@"Content-type": @"application/json", @"authkey": key};
+    NSDictionary *parameters = @{@"name": newSubCategory};
+    
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"categories/"];
+    [resource appendString:[category stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+    [resource appendString:@"/subcategories/"];
+    
+    UNIHTTPJsonResponse *response = [[UNIRest postEntity:^(UNIBodyRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+        [request setBody:[NSJSONSerialization dataWithJSONObject:parameters options:0 error:error]];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    if (response.code != 204) {
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
+    }
+}
+
+
 + (void)deleteCategory:(NSString *)category andAPIKey:(NSString *)key andError:(NSError **)error {
     
     NSLog(@"Deleting category %@", category);
@@ -216,10 +239,31 @@
     NSLog(@"Server HTTP response code %ld", (long)response.code);
     if (response.code != 204) {
         *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
-    }
-    
+    }    
 }
 
++ (void)deleteSubCategory:(NSString *)subCategory inCategory:(NSString*) category andAPIKey:(NSString *)key andError:(NSError **)error {
+    NSLog(@"Deleting sub category %@ in category %@", subCategory, category);
+    
+    NSDictionary *headers = @{@"authkey": key};
+    
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"categories/"];
+    [resource appendString:[category stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+    [resource appendString:@"/subcategories/"];
+    [resource appendString:[subCategory stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+    
+    UNIHTTPResponse *response = [[UNIRest delete:^(UNISimpleRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    if (response.code != 204) {
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
+    }
+}
 
 
 
