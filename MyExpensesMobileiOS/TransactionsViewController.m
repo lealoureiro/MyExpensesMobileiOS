@@ -105,6 +105,7 @@ UITableView *transactionsTable;
     
     transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
     [self arrangeTransactions];
+    transactionsTable.allowsMultipleSelectionDuringEditing = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -163,6 +164,34 @@ UITableView *transactionsTable;
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [transactionsDays objectAtIndex:section];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        id key = [transactionsDays objectAtIndex:indexPath.section];
+        NSMutableArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
+        NSDictionary *transaction = [transactionsForSection objectAtIndex:indexPath.row];
+        NSString *transactionId = [transaction objectForKey:@"id"];
+        NSString *accountId = self.account[@"id"];
+        NSNumber *timestamp = [transaction objectForKey:@"timestamp"];
+        NSLog(@"Deleting transaction %@ in account %@", transactionId, accountId);
+        
+        NSError *error;
+        
+        [ExpensesCoreServerAPI deleteTransaction:transactionId inAccount:accountId withTimestamp:timestamp andAPIKey:[ApplicationState getInstance].apiKey andError:&error];
+        
+        if (error == nil) {
+            [transactionsForSection removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            NSLog(@"Transaction %@ deleted", transactionId);
+        } else {
+            NSLog(@"Failed to delete transaction %@", transactionId);
+        }
+    }
 }
 
 - (void)arrangeTransactions {

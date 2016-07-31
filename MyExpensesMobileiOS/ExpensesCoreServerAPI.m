@@ -151,6 +151,32 @@
     return response.body.object[@"id"];
 }
 
++ (void)deleteTransaction:(NSString *)transactionId inAccount:(NSString *)accountId withTimestamp:(NSNumber *)timestamp andAPIKey:(NSString *)apikey andError:(NSError **)error {
+   
+    NSLog(@"Deleting transaction %@ in account %@", transactionId, accountId);
+    
+    NSDictionary *headers = @{@"authkey": apikey, @"Content-type": @"application/json"};
+    NSDictionary *parameters = @{@"timestamp": timestamp};
+    
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"accounts/"];
+    [resource appendString:accountId];
+    [resource appendString:@"/transactions/"];
+    [resource appendString:transactionId];
+    
+    UNIHTTPResponse *response = [[UNIRest deleteEntity:^(UNIBodyRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+        [request setBody:[NSJSONSerialization dataWithJSONObject:parameters options:0 error:error]];
+    }] asString];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    if (response.code != 204) {
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
+    }
+}
+
 
 + (NSArray *)getUserCategories:(NSString *)apiKey {
     
