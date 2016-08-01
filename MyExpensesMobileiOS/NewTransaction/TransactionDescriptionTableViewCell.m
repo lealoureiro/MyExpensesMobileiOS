@@ -32,6 +32,7 @@ UILabel *descriptionLabel;
     self.descriptionBox.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.descriptionBox.font = [UIFont boldSystemFontOfSize:16.0f];
     self.descriptionBox.delegate = self;
+    self.descriptionBox.autocorrectionType = UITextAutocorrectionTypeNo;
     [self.descriptionBox setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.descriptionBox];
     
