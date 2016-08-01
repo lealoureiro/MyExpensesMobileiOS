@@ -272,11 +272,22 @@ BOOL updateCategories = NO;
     }
     
     NSError *error = nil;
+    
+    NSString *category = @"";
+    if (categoryCell.value.text != nil) {
+        category = categoryCell.value.text;
+    }
+    
+    NSString *subCategory = @"";
+    if (subCategoryCell.value.text != nil) {
+        subCategory = subCategoryCell.value.text;
+    }
+    
     NSString *newTransactionId = [ExpensesCoreServerAPI addTransactionToAccount:selectedAcount
                                                                 withDescription:transactionDescriptionCell.descriptionBox.text
                                                                      withAmount:amountInCents
-                                                                   withCategory:categoryCell.value.text
-                                                                withSubCategory:subCategoryCell.value.text
+                                                                   withCategory:category
+                                                                withSubCategory:subCategory
                                                                       andAPIKey:[ApplicationState getInstance].apiKey
                                                                        andError:&error];
     if (error == nil) {
