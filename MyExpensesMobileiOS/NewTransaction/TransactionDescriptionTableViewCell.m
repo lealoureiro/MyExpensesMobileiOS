@@ -33,6 +33,17 @@ UILabel *descriptionLabel;
     self.descriptionBox.font = [UIFont boldSystemFontOfSize:16.0f];
     self.descriptionBox.delegate = self;
     self.descriptionBox.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    UIToolbar* descriptionToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 50)];
+    UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:@"OK" style:UIBarButtonItemStylePlain target:self action:@selector(dissmissKeyboard)];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                      target:nil
+                                      action:nil];
+    descriptionToolbar.items = [NSArray arrayWithObjects:flexibleSpace,okButton, nil];
+    [descriptionToolbar sizeToFit];
+    self.descriptionBox.inputAccessoryView = descriptionToolbar;
+    
     [self.descriptionBox setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.descriptionBox];
     
@@ -79,6 +90,10 @@ UILabel *descriptionLabel;
 - (void)focusDescription {
     NSLog(@"Description box selected");
     [self.descriptionBox becomeFirstResponder];
+}
+
+- (void)dissmissKeyboard {
+    [self.descriptionBox endEditing:YES];
 }
 
 @end

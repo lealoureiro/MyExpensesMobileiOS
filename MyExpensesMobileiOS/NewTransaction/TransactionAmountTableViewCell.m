@@ -40,6 +40,17 @@ NSNumberFormatter *formatter;
     self.amountBox.text = [formatter stringFromNumber:[NSNumber numberWithDouble:0.0]];
     self.amountBox.textColor = [UIColor colorWithRed:200.0/255.0 green:199.0/255.0 blue:205.0/255.0 alpha:1];
     self.amountBox.delegate = self;
+    
+    UIToolbar* descriptionToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 50)];
+    UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:@"OK" style:UIBarButtonItemStylePlain target:self action:@selector(dissmissKeyboard)];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                      target:nil
+                                      action:nil];
+    descriptionToolbar.items = [NSArray arrayWithObjects:flexibleSpace,okButton, nil];
+    [descriptionToolbar sizeToFit];
+    self.amountBox.inputAccessoryView = descriptionToolbar;
+    
     [self.amountBox setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.amountBox];
     
@@ -99,6 +110,10 @@ NSNumberFormatter *formatter;
     double result;
     [scanner scanDouble:&result];
     amountInCents = result * 100.0;
+}
+
+- (void)dissmissKeyboard {
+    [self.amountBox endEditing:YES];
 }
 
 @end
