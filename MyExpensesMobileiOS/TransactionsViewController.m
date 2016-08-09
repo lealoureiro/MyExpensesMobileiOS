@@ -99,8 +99,8 @@ UITableView *transactionsTable;
     NSNumber *startBalance = accountInformation[@"startBalance"];
     NSNumber *balance = accountInformation[@"balance"];
     double total = ([startBalance doubleValue] + [balance doubleValue]) / 100.0;
-    
     amountLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:total]];
+    
     accountTypeLabel.text = account[@"type"];
     
     transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
@@ -188,6 +188,14 @@ UITableView *transactionsTable;
             [transactionsForSection removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
             NSLog(@"Transaction %@ deleted", transactionId);
+            
+            accountInformation = [ExpensesCoreServerAPI getAccountInformation:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
+            
+            NSNumber *startBalance = accountInformation[@"startBalance"];
+            NSNumber *balance = accountInformation[@"balance"];
+            double total = ([startBalance doubleValue] + [balance doubleValue]) / 100.0;
+            amountLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:total]];
+            
         } else {
             NSLog(@"Failed to delete transaction %@", transactionId);
         }
