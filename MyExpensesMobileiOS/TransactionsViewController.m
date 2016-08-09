@@ -20,7 +20,6 @@
 @synthesize account;
 
 
-
 NSDictionary *accountInformation;
 NSArray *transactionsList;
 NSMutableDictionary *cellsGroupedByDays;
@@ -229,6 +228,5 @@ UITableView *transactionsTable;
         [transctionsForSection addObject:transaction];
     }
 }
-
 
 @end

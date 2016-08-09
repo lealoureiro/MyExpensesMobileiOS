@@ -61,7 +61,7 @@ NSArray *tableData;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Row %ld selected", indexPath.row);
+    NSLog(@"Row %ld selected", (long) indexPath.row);
     TransactionsViewController *vc = [[TransactionsViewController alloc] init];
     vc.account = [tableData objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];

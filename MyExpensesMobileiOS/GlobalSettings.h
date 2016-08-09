@@ -6,10 +6,7 @@
 //  Copyright (c) 2015 Leandro Loureiro. All rights reserved.
 //
 
-#ifndef MyExpensesMobileiOS_GlobalSettings_h
-#define MyExpensesMobileiOS_GlobalSettings_h
+#import <Foundation/Foundation.h>
 
+#define WEBSERVICE_ADDRESS [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SERVER_URL"]
 
-#define WEBSERVICE_ADDRESS @"https://expenses-dev.leandroloureiro.com/"
-
-#endif
