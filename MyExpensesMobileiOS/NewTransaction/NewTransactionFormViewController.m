@@ -25,10 +25,15 @@
 TransactionDescriptionTableViewCell *transactionDescriptionCell;
 TransactionAmountTableViewCell *transactionAmountCell;
 TransactionTypeCell *transactionTypeCell;
+THDatePickerViewController *datePicker;
+
 SelectionCell *accountCell;
 SelectionCell *categoryCell;
 SelectionCell *subCategoryCell;
+SelectionCell *dateCell;
 SubmitButtonCell *submitCell;
+
+
 
 NSString *selectedAcount;
 NSMutableArray *accounts;
@@ -37,9 +42,16 @@ NSMutableArray *categoriesList;
 NSMutableDictionary *categoriesMap;
 
 BOOL updateCategories = NO;
+NSDate *currentDate;
+NSDateFormatter *formater;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    currentDate = [NSDate date];
+    formater = [[NSDateFormatter alloc] init];
+    [formater setDateFormat:@"dd/MM/yyyy"];
+    
     self.title = @"New Transaction";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -74,6 +86,10 @@ BOOL updateCategories = NO;
     
     subCategoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     subCategoryCell.option.text = @"Sub Category:";
+    
+    dateCell = [[SelectionCell alloc] initWithIdentifier:@"dateCell"];
+    dateCell.option.text = @"Date:";
+    [self updateDate];
     
     if (categoriesList.count > 0) {
         NSDictionary *category = [categoriesList objectAtIndex:0];
@@ -118,7 +134,7 @@ BOOL updateCategories = NO;
         case 0:
             return 3;
         case 1:
-            return 4;
+            return 5;
         default:
             return 0;
     }
@@ -154,6 +170,9 @@ BOOL updateCategories = NO;
                     cell = subCategoryCell;
                     break;
                 case 3:
+                    cell = dateCell;
+                    break;
+                case 4:
                     cell = submitCell;
                     break;
             }
@@ -181,6 +200,8 @@ BOOL updateCategories = NO;
                 case 2:
                     return 45.0;
                 case 3:
+                    return 45.0;
+                case 4:
                     return 100.0;
             }
         default:
@@ -201,6 +222,9 @@ BOOL updateCategories = NO;
                     break;
                 case 2:
                     [self showSubCategorySelectionList];
+                    break;
+                case 3:
+                    [self showDateSelector];
                     break;
             }
             break;
@@ -352,6 +376,52 @@ BOOL updateCategories = NO;
     
     [categoriesList sortUsingDescriptors:sortDescriptors];
 
+}
+
+
+- (void)showDateSelector {
+
+    NSLog(@"Showing date selector");
+
+    if (!datePicker) {
+        datePicker = [THDatePickerViewController datePicker];
+    }
+    
+    datePicker.date = currentDate;
+    datePicker.delegate = self;
+    
+    [datePicker setAllowClearDate:NO];
+    [datePicker setClearAsToday:YES];
+    [datePicker setAutoCloseOnSelectDate:YES];
+    [datePicker setAllowSelectionOfSelectedDate:YES];
+    [datePicker setDisableYearSwitch:YES];
+    [datePicker setDaysInHistorySelection:0];
+    [datePicker setDaysInFutureSelection:0];
+    
+    [datePicker setSelectedBackgroundColor:[UIColor lightGrayColor]];
+    [datePicker setCurrentDateColor:[UIColor redColor]];
+    
+    [self presentSemiViewController:datePicker withOptions:@{
+                                                             KNSemiModalOptionKeys.pushParentBack: @(NO),
+                                                             KNSemiModalOptionKeys.animationDuration: @(0.5),
+                                                             KNSemiModalOptionKeys.shadowOpacity: @(0.1)
+                                                             }];
+}
+
+- (void)updateDate {
+    if (currentDate) {
+        dateCell.value.text = [formater stringFromDate:currentDate];
+    }
+}
+
+- (void)datePickerDonePressed:(THDatePickerViewController *)datePicker {
+    currentDate = datePicker.date;
+    [self updateDate];
+    [self dismissSemiModalView];
+}
+
+- (void)datePickerCancelPressed:(THDatePickerViewController *)datePicker {
+    [self dismissSemiModalView];
 }
 
 @end
