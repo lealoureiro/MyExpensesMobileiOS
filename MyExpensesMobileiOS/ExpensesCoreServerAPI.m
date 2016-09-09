@@ -117,9 +117,9 @@
     return response.body.object[@"clientId"];
 }
 
-+ (NSString *)addTransactionToAccount:(NSString *)account withDescription:(NSString *)description withAmount:(NSInteger)amountInCents withCategory:(NSString *)category withSubCategory:(NSString *)subCategory andAPIKey:(NSString *)key andError:(NSError **)error {
++ (NSString *)addTransactionToAccount:(NSString *)account withDescription:(NSString *)description withAmount:(NSInteger)amountInCents withCategory:(NSString *)category withSubCategory:(NSString *)subCategory withDate:(NSDate *)date andAPIKey:(NSString *)key andError:(NSError **)error {
     
-    double timetamp = [[NSDate date] timeIntervalSince1970] * 1000;
+    double timetamp = [date timeIntervalSince1970] * 1000;
     
     NSDictionary *headers = @{@"accept": @"application/json", @"Content-type": @"application/json", @"authkey": key};
     NSDictionary *parameters = @{@"description": description,

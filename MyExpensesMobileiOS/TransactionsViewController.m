@@ -107,10 +107,6 @@ UITableView *transactionsTable;
     transactionsTable.allowsMultipleSelectionDuringEditing = NO;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id key = [transactionsDays objectAtIndex:section];
@@ -124,7 +120,7 @@ UITableView *transactionsTable;
     TransactionTableCell *cell = (TransactionTableCell*) [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[TransactionTableCell alloc] init];
+        cell = [[TransactionTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         cell.selectionStyle = UITableViewStylePlain;
     }
     

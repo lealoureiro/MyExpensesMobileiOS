@@ -312,6 +312,7 @@ NSDateFormatter *formater;
                                                                      withAmount:amountInCents
                                                                    withCategory:category
                                                                 withSubCategory:subCategory
+                                                                       withDate:currentDate
                                                                       andAPIKey:[ApplicationState getInstance].apiKey
                                                                        andError:&error];
     if (error == nil) {

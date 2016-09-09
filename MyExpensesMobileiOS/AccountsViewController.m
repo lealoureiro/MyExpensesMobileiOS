@@ -22,16 +22,13 @@ NSArray *tableData;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Accounts";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     tableData = [ExpensesCoreServerAPI getUserAccounts:[ApplicationState getInstance].apiKey];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return tableData.count;

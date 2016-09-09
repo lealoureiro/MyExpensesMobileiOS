@@ -22,10 +22,6 @@
     barItem.image = [UIImage imageNamed:@"new_transaction"];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewDidLoad];
-
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
