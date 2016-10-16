@@ -9,7 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-MyExpensesMobileDev.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MyExpensesMobileProd.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,12 +32,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1DAA5B9234B786F207358DB9D10D58F9</key>
+		<key>4D6D46DBB3CBF572ADEC98373A2F8FF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC11BC886B34A0253F96254854A3775F</key>
+		<key>6EA7478B4C1EC45615EC53CF1C64C402</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B8FE5AE20BF2928C438C31E099EB62F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F784D84E9E8805CDE27D617558F39F2F</key>
+		<key>DECB3764DCB93E17EE7B269B69561C97</key>
 		<dict>
 			<key>primary</key>
 			<true/>

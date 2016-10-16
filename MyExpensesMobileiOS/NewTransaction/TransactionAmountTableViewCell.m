@@ -13,7 +13,7 @@
 @synthesize amountBox;
 @synthesize amountInCents;
 
-UILabel *amountLabel;
+UILabel *transactionAmountLabel;
 NSNumberFormatter *formatter;
 
 - (id)initWithIdentifier:(NSString *)reuseIdentifier {
@@ -24,11 +24,11 @@ NSNumberFormatter *formatter;
     formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     
-    amountLabel = [[UILabel alloc] init];
-    amountLabel.font = [UIFont boldSystemFontOfSize:18.0f];
-    amountLabel.text = @"Amount:";
-    [amountLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView addSubview:amountLabel];
+    transactionAmountLabel = [[UILabel alloc] init];
+    transactionAmountLabel.font = [UIFont boldSystemFontOfSize:18.0f];
+    transactionAmountLabel.text = @"Amount:";
+    [transactionAmountLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.contentView addSubview:transactionAmountLabel];
     
     self.amountBox = [[UITextField alloc] init];
     self.amountBox.keyboardType = UIKeyboardTypeDecimalPad;
@@ -56,10 +56,10 @@ NSNumberFormatter *formatter;
     
     [self.amountBox addTarget:self action:@selector(updateAmountInCents) forControlEvents:UIControlEventEditingChanged];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(amountLabel, amountBox);
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[amountLabel]-15-|" options:0 metrics:nil views:views]];
+    NSDictionary *views = NSDictionaryOfVariableBindings(transactionAmountLabel, amountBox);
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[transactionAmountLabel]-15-|" options:0 metrics:nil views:views]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[amountBox]-15-|" options:0 metrics:nil views:views]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[amountLabel]-10-[amountBox]-10-|" options:0 metrics:nil views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[transactionAmountLabel]-10-[amountBox]-10-|" options:0 metrics:nil views:views]];
     
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focusAmount)];
     [self.contentView addGestureRecognizer:singleFingerTap];
@@ -77,7 +77,7 @@ NSNumberFormatter *formatter;
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     if (textField == amountBox) {
-        amountLabel.textColor = self.contentView.tintColor;
+        transactionAmountLabel.textColor = self.contentView.tintColor;
         amountBox.textColor = [UIColor blackColor];
         amountBox.text = @"";
     }
@@ -85,7 +85,7 @@ NSNumberFormatter *formatter;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if (textField == amountBox) {
-        amountLabel.textColor = [UIColor blackColor];
+        transactionAmountLabel.textColor = [UIColor blackColor];
         if ([amountBox.text isEqualToString:@""]) {
             amountBox.textColor = [UIColor colorWithRed:200.0/255.0 green:199.0/255.0 blue:205.0/255.0 alpha:1];
             amountBox.text = [formatter stringFromNumber:[NSNumber numberWithDouble:0.0]];

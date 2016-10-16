@@ -24,7 +24,7 @@ NSDictionary *accountInformation;
 NSArray *transactionsList;
 NSMutableDictionary *cellsGroupedByDays;
 NSMutableArray *transactionsDays;
-NSNumberFormatter *formatter;
+NSNumberFormatter *numberFormatter;
 
 UILabel *amountLabel;
 UILabel *accountTypeLabel;
@@ -88,8 +88,8 @@ UITableView *transactionsTable;
     transactionsTable.contentInset = adjustedInsets;
     transactionsTable.scrollIndicatorInsets = adjustedInsets;
     
-    formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     
     self.title = @"Account Information";
     
@@ -98,7 +98,7 @@ UITableView *transactionsTable;
     NSNumber *startBalance = accountInformation[@"startBalance"];
     NSNumber *balance = accountInformation[@"balance"];
     double total = ([startBalance doubleValue] + [balance doubleValue]) / 100.0;
-    amountLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:total]];
+    amountLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:total]];
     
     accountTypeLabel.text = account[@"type"];
     
@@ -142,7 +142,7 @@ UITableView *transactionsTable;
     cell.category.text = category;
     NSNumber *transactionAmount = transaction[@"amount"];
     double amount = [transactionAmount doubleValue] / 100.0;
-    cell.amount.text = [formatter stringFromNumber:[NSNumber numberWithDouble:amount]];
+    cell.amount.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:amount]];
     if ([transactionAmount floatValue] > 0) {
         cell.amount.textColor = [UIColor colorWithRed:0.0 green:255.0 blue:0.0 alpha:1.0];
     } else if ([transactionAmount floatValue] < 0){
@@ -189,7 +189,7 @@ UITableView *transactionsTable;
             NSNumber *startBalance = accountInformation[@"startBalance"];
             NSNumber *balance = accountInformation[@"balance"];
             double total = ([startBalance doubleValue] + [balance doubleValue]) / 100.0;
-            amountLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:total]];
+            amountLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:total]];
             
         } else {
             NSLog(@"Failed to delete transaction %@", transactionId);
@@ -202,10 +202,10 @@ UITableView *transactionsTable;
     transactionsDays = [NSMutableArray arrayWithCapacity:0];
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    formater.locale = [NSLocale currentLocale];
-    formater.timeZone = calendar.timeZone;
-    [formater setDateFormat:@"dd MMMM YYYY"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [NSLocale currentLocale];
+    dateFormatter.timeZone = calendar.timeZone;
+    [dateFormatter setDateFormat:@"dd MMMM YYYY"];
     
     NSString *previousGroup = @"";
     NSMutableArray *transctionsForSection = nil;
@@ -214,7 +214,7 @@ UITableView *transactionsTable;
         NSNumber *timestamp = transaction[@"timestamp"];
         long timestampSeconds = [timestamp longValue] / 1000;
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestampSeconds];
-        NSString *currentDay = [formater stringFromDate:date];
+        NSString *currentDay = [dateFormatter stringFromDate:date];
         if (![previousGroup isEqualToString:currentDay]) {
             [transactionsDays addObject:currentDay];
             transctionsForSection = [NSMutableArray arrayWithCapacity:0];

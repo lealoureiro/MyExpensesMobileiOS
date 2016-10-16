@@ -7,25 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F0A40DE1A60552800631D42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40DD1A60552800631D42 /* main.m */; };
-		2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E01A60552800631D42 /* AppDelegate.m */; };
-		2F0A40E41A60552800631D42 /* NewTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E31A60552800631D42 /* NewTransactionViewController.m */; };
-		2F0A40E71A60552800631D42 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E61A60552800631D42 /* TransactionsViewController.m */; };
-		2F0A40EC1A60552800631D42 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40EB1A60552800631D42 /* Images.xcassets */; };
-		2F0A40EF1A60552800631D42 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40ED1A60552800631D42 /* LaunchScreen.xib */; };
+		2F021C601DB407D400455710 /* MyExpensesMobileDev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F021C5F1DB407D400455710 /* MyExpensesMobileDev.plist */; };
+		2F021C631DB40A8F00455710 /* LaunchScreenDev.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F021C611DB40A8F00455710 /* LaunchScreenDev.xib */; };
+		2F021C641DB40D3C00455710 /* LaunchScreenDev.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F021C611DB40A8F00455710 /* LaunchScreenDev.xib */; };
 		2F0A40FB1A60552800631D42 /* MyExpensesMobileiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40FA1A60552800631D42 /* MyExpensesMobileiOSTests.m */; };
-		2F0A41061A6058AB00631D42 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41051A6058AB00631D42 /* AccountsViewController.m */; };
-		2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41081A605C7A00631D42 /* ExpensesCoreServerAPI.m */; };
-		2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A410D1A65A8EB00631D42 /* LoginViewController.m */; };
-		2F0A41111A65A97300631D42 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41101A65A97300631D42 /* MainViewController.m */; };
-		2F1330211CE24FDB001F12DA /* ListSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1330201CE24FDB001F12DA /* ListSelectorViewController.m */; };
-		2F1F41B21CE1041100C0504C /* TransactionTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41B11CE1041100C0504C /* TransactionTypeCell.m */; };
-		2F1F41C81CE1275900C0504C /* NewTransactionFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */; };
-		2F1F41CB1CE13F9C00C0504C /* SelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41CA1CE13F9C00C0504C /* SelectionCell.m */; };
-		2F33919F1CE7827F00221F01 /* SubmitButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */; };
-		2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
-		2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
-		2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */; };
+		2F7BF2BD1DB3EA5F0094BA09 /* SubmitButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */; };
+		2F7BF2BE1DB3EA5F0094BA09 /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
+		2F7BF2BF1DB3EA5F0094BA09 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
+		2F7BF2C01DB3EA5F0094BA09 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E61A60552800631D42 /* TransactionsViewController.m */; };
+		2F7BF2C11DB3EA5F0094BA09 /* TransactionTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41B11CE1041100C0504C /* TransactionTypeCell.m */; };
+		2F7BF2C21DB3EA5F0094BA09 /* ExpensesCoreServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41081A605C7A00631D42 /* ExpensesCoreServerAPI.m */; };
+		2F7BF2C31DB3EA5F0094BA09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E01A60552800631D42 /* AppDelegate.m */; };
+		2F7BF2C41DB3EA5F0094BA09 /* SelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41CA1CE13F9C00C0504C /* SelectionCell.m */; };
+		2F7BF2C51DB3EA5F0094BA09 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41101A65A97300631D42 /* MainViewController.m */; };
+		2F7BF2C61DB3EA5F0094BA09 /* TransactionAmountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */; };
+		2F7BF2C71DB3EA5F0094BA09 /* TransactionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */; };
+		2F7BF2C81DB3EA5F0094BA09 /* NewTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40E31A60552800631D42 /* NewTransactionViewController.m */; };
+		2F7BF2C91DB3EA5F0094BA09 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A410D1A65A8EB00631D42 /* LoginViewController.m */; };
+		2F7BF2CA1DB3EA5F0094BA09 /* ListSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1330201CE24FDB001F12DA /* ListSelectorViewController.m */; };
+		2F7BF2CB1DB3EA5F0094BA09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40DD1A60552800631D42 /* main.m */; };
+		2F7BF2CC1DB3EA5F0094BA09 /* NewTransactionFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */; };
+		2F7BF2CD1DB3EA5F0094BA09 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41051A6058AB00631D42 /* AccountsViewController.m */; };
+		2F7BF2D21DB3EA5F0094BA09 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40EB1A60552800631D42 /* Images.xcassets */; };
 		2FEDE47B1D5A851F00B66591 /* SubmitButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */; };
 		2FEDE47C1D5A851F00B66591 /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 		2FEDE47D1D5A851F00B66591 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
@@ -43,25 +46,27 @@
 		2FEDE4891D5A851F00B66591 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40DD1A60552800631D42 /* main.m */; };
 		2FEDE48A1D5A851F00B66591 /* NewTransactionFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */; };
 		2FEDE48B1D5A851F00B66591 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41051A6058AB00631D42 /* AccountsViewController.m */; };
-		2FEDE48D1D5A851F00B66591 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD73E4CC72294D0961C82936 /* libPods.a */; };
 		2FEDE48F1D5A851F00B66591 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40ED1A60552800631D42 /* LaunchScreen.xib */; };
 		2FEDE4901D5A851F00B66591 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40EB1A60552800631D42 /* Images.xcassets */; };
-		2FFA4A901CDE43A100D1616B /* TransactionAmountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */; };
-		E9C4F9EF6D62109EE5408F48 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD73E4CC72294D0961C82936 /* libPods.a */; };
+		6FD99B61168BD637E587ADC0 /* libPods-MyExpensesMobileProd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8C35DFB47836963728D9CE /* libPods-MyExpensesMobileProd.a */; };
+		D3B1A1BA6D0A7AC306D31B88 /* libPods-MyExpensesMobileDev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876F9A90EDA7992B0B2FC8B /* libPods-MyExpensesMobileDev.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2F0A40F51A60552800631D42 /* PBXContainerItemProxy */ = {
+		2F021C5D1DB4031500455710 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2F0A40D01A60552800631D42 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2F0A40D71A60552800631D42;
-			remoteInfo = MyExpensesMobileiOS;
+			remoteGlobalIDString = 2F7BF2BA1DB3EA5F0094BA09;
+			remoteInfo = MyExpensesMobileDev;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F0A40D81A60552800631D42 /* MyExpensesMobileDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExpensesMobileDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C8C35DFB47836963728D9CE /* libPods-MyExpensesMobileProd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyExpensesMobileProd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2876F9A90EDA7992B0B2FC8B /* libPods-MyExpensesMobileDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyExpensesMobileDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F021C5F1DB407D400455710 /* MyExpensesMobileDev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MyExpensesMobileDev.plist; sourceTree = "<group>"; };
+		2F021C621DB40A8F00455710 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreenDev.xib; sourceTree = "<group>"; };
 		2F0A40DC1A60552800631D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F0A40DD1A60552800631D42 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F0A40DF1A60552800631D42 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 		2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		2F5BD5931A6733C80009401D /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
 		2F5BD5941A6733C80009401D /* ApplicationState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationState.m; sourceTree = "<group>"; };
+		2F7BF2D81DB3EA5F0094BA09 /* MyExpensesMobileDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExpensesMobileDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableCell.h; sourceTree = "<group>"; };
 		2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableCell.m; sourceTree = "<group>"; };
 		2FAA351A1CD2964A00F6F99C /* NewTransactionFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTransactionFormViewController.h; sourceTree = "<group>"; };
@@ -104,20 +110,13 @@
 		2FEDE4971D5A851F00B66591 /* MyExpensesMobileProd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MyExpensesMobileProd.plist; path = /Users/leandroloureiro/Documents/Projects/MyExpensesMobileiOS/MyExpensesMobileProd.plist; sourceTree = "<absolute>"; };
 		2FFA4A8E1CDE43A100D1616B /* TransactionAmountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionAmountTableViewCell.h; sourceTree = "<group>"; };
 		2FFA4A8F1CDE43A100D1616B /* TransactionAmountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionAmountTableViewCell.m; sourceTree = "<group>"; };
-		6EBF0814084613B605612F5C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		C5C7B6A9F50875F68A939167 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		FD73E4CC72294D0961C82936 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3663E74C0A7396F578BE5FEE /* Pods-MyExpensesMobileDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExpensesMobileDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyExpensesMobileDev/Pods-MyExpensesMobileDev.debug.xcconfig"; sourceTree = "<group>"; };
+		795B5A00EBC56ADF4F9545B5 /* Pods-MyExpensesMobileDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExpensesMobileDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyExpensesMobileDev/Pods-MyExpensesMobileDev.release.xcconfig"; sourceTree = "<group>"; };
+		895E930E85BFBADB736A0BD1 /* Pods-MyExpensesMobileProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExpensesMobileProd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyExpensesMobileProd/Pods-MyExpensesMobileProd.debug.xcconfig"; sourceTree = "<group>"; };
+		9706D6F12C08E5C317D4F9AF /* Pods-MyExpensesMobileProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExpensesMobileProd.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyExpensesMobileProd/Pods-MyExpensesMobileProd.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2F0A40D51A60552800631D42 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E9C4F9EF6D62109EE5408F48 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2F0A40F11A60552800631D42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,35 +124,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2F7BF2CE1DB3EA5F0094BA09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B1A1BA6D0A7AC306D31B88 /* libPods-MyExpensesMobileDev.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2FEDE48C1D5A851F00B66591 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FEDE48D1D5A851F00B66591 /* libPods.a in Frameworks */,
+				6FD99B61168BD637E587ADC0 /* libPods-MyExpensesMobileProd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		256A8C7BDF02E306EE0EEF0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3663E74C0A7396F578BE5FEE /* Pods-MyExpensesMobileDev.debug.xcconfig */,
+				795B5A00EBC56ADF4F9545B5 /* Pods-MyExpensesMobileDev.release.xcconfig */,
+				895E930E85BFBADB736A0BD1 /* Pods-MyExpensesMobileProd.debug.xcconfig */,
+				9706D6F12C08E5C317D4F9AF /* Pods-MyExpensesMobileProd.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2F0A40CF1A60552800631D42 = {
 			isa = PBXGroup;
 			children = (
 				2F0A40DA1A60552800631D42 /* MyExpensesMobileiOS */,
 				2F0A40F71A60552800631D42 /* MyExpensesMobileiOSTests */,
 				2F0A40D91A60552800631D42 /* Products */,
-				CECAF7943676BFD01FEE6E39 /* Pods */,
-				42BCBB0340D37180982B4719 /* Frameworks */,
+				2F021C5F1DB407D400455710 /* MyExpensesMobileDev.plist */,
 				2FEDE4971D5A851F00B66591 /* MyExpensesMobileProd.plist */,
+				256A8C7BDF02E306EE0EEF0C /* Pods */,
+				52942567FA3035B9FC2CC35E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		2F0A40D91A60552800631D42 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F0A40D81A60552800631D42 /* MyExpensesMobileDev.app */,
 				2F0A40F41A60552800631D42 /* MyExpensesMobileiOSTests.xctest */,
 				2FEDE4961D5A851F00B66591 /* MyExpensesMobileProd.app */,
+				2F7BF2D81DB3EA5F0094BA09 /* MyExpensesMobileDev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +187,7 @@
 				2F0A40E51A60552800631D42 /* TransactionsViewController.h */,
 				2F0A40E61A60552800631D42 /* TransactionsViewController.m */,
 				2F0A40EB1A60552800631D42 /* Images.xcassets */,
+				2F021C611DB40A8F00455710 /* LaunchScreenDev.xib */,
 				2F0A40ED1A60552800631D42 /* LaunchScreen.xib */,
 				2F0A40DB1A60552800631D42 /* Supporting Files */,
 				2F0A41041A6058AB00631D42 /* AccountsViewController.h */,
@@ -243,46 +263,18 @@
 			path = NewTransaction;
 			sourceTree = "<group>";
 		};
-		42BCBB0340D37180982B4719 /* Frameworks */ = {
+		52942567FA3035B9FC2CC35E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FD73E4CC72294D0961C82936 /* libPods.a */,
+				2876F9A90EDA7992B0B2FC8B /* libPods-MyExpensesMobileDev.a */,
+				0C8C35DFB47836963728D9CE /* libPods-MyExpensesMobileProd.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CECAF7943676BFD01FEE6E39 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C5C7B6A9F50875F68A939167 /* Pods.debug.xcconfig */,
-				6EBF0814084613B605612F5C /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2F0A40D71A60552800631D42 /* MyExpensesMobileDev */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2F0A40FE1A60552800631D42 /* Build configuration list for PBXNativeTarget "MyExpensesMobileDev" */;
-			buildPhases = (
-				CE20417443201C1A040AB33C /* Check Pods Manifest.lock */,
-				2F0A40D41A60552800631D42 /* Sources */,
-				2F0A40D51A60552800631D42 /* Frameworks */,
-				2F0A40D61A60552800631D42 /* Resources */,
-				69AD207FAF3C943D2C318396 /* Embed Pods Frameworks */,
-				0DDCFC9BF7C4CEE5B4E01439 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MyExpensesMobileDev;
-			productName = MyExpensesMobileiOS;
-			productReference = 2F0A40D81A60552800631D42 /* MyExpensesMobileDev.app */;
-			productType = "com.apple.product-type.application";
-		};
 		2F0A40F31A60552800631D42 /* MyExpensesMobileiOSTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F0A41011A60552800631D42 /* Build configuration list for PBXNativeTarget "MyExpensesMobileiOSTests" */;
@@ -294,23 +286,43 @@
 			buildRules = (
 			);
 			dependencies = (
-				2F0A40F61A60552800631D42 /* PBXTargetDependency */,
+				2F021C5E1DB4031500455710 /* PBXTargetDependency */,
 			);
 			name = MyExpensesMobileiOSTests;
 			productName = MyExpensesMobileiOSTests;
 			productReference = 2F0A40F41A60552800631D42 /* MyExpensesMobileiOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2F7BF2BA1DB3EA5F0094BA09 /* MyExpensesMobileDev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F7BF2D51DB3EA5F0094BA09 /* Build configuration list for PBXNativeTarget "MyExpensesMobileDev" */;
+			buildPhases = (
+				1DA909DE96200957A3A09112 /* [CP] Check Pods Manifest.lock */,
+				2F7BF2BC1DB3EA5F0094BA09 /* Sources */,
+				2F7BF2CE1DB3EA5F0094BA09 /* Frameworks */,
+				2F7BF2D01DB3EA5F0094BA09 /* Resources */,
+				46659BFCD1F8C9429BB29301 /* [CP] Embed Pods Frameworks */,
+				9BA31F4C5E95D1A847147A36 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyExpensesMobileDev;
+			productName = MyExpensesMobileiOS;
+			productReference = 2F7BF2D81DB3EA5F0094BA09 /* MyExpensesMobileDev.app */;
+			productType = "com.apple.product-type.application";
+		};
 		2FEDE4781D5A851F00B66591 /* MyExpensesMobileProd */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FEDE4931D5A851F00B66591 /* Build configuration list for PBXNativeTarget "MyExpensesMobileProd" */;
 			buildPhases = (
-				2FEDE4791D5A851F00B66591 /* Check Pods Manifest.lock */,
+				F4CFCA1DC5F5BB1120573977 /* [CP] Check Pods Manifest.lock */,
 				2FEDE47A1D5A851F00B66591 /* Sources */,
 				2FEDE48C1D5A851F00B66591 /* Frameworks */,
 				2FEDE48E1D5A851F00B66591 /* Resources */,
-				2FEDE4911D5A851F00B66591 /* Embed Pods Frameworks */,
-				2FEDE4921D5A851F00B66591 /* Copy Pods Resources */,
+				2A8D0D8E60E90D19F549BB80 /* [CP] Embed Pods Frameworks */,
+				B90A9BB5C9A7258252503E1B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,16 +339,16 @@
 		2F0A40D01A60552800631D42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Leandro Loureiro";
 				TargetAttributes = {
-					2F0A40D71A60552800631D42 = {
-						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 4N358UBW94;
-					};
 					2F0A40F31A60552800631D42 = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 2F0A40D71A60552800631D42;
+						DevelopmentTeam = 4N358UBW94;
+						TestTargetID = 2F7BF2BA1DB3EA5F0094BA09;
+					};
+					2F7BF2BA1DB3EA5F0094BA09 = {
+						DevelopmentTeam = 4N358UBW94;
 					};
 					2FEDE4781D5A851F00B66591 = {
 						DevelopmentTeam = 4N358UBW94;
@@ -356,27 +368,29 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2F0A40D71A60552800631D42 /* MyExpensesMobileDev */,
 				2F0A40F31A60552800631D42 /* MyExpensesMobileiOSTests */,
 				2FEDE4781D5A851F00B66591 /* MyExpensesMobileProd */,
+				2F7BF2BA1DB3EA5F0094BA09 /* MyExpensesMobileDev */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2F0A40D61A60552800631D42 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2F0A40EF1A60552800631D42 /* LaunchScreen.xib in Resources */,
-				2F0A40EC1A60552800631D42 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2F0A40F21A60552800631D42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F021C631DB40A8F00455710 /* LaunchScreenDev.xib in Resources */,
+				2F021C601DB407D400455710 /* MyExpensesMobileDev.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F7BF2D01DB3EA5F0094BA09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F021C641DB40D3C00455710 /* LaunchScreenDev.xib in Resources */,
+				2F7BF2D21DB3EA5F0094BA09 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,128 +406,128 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0DDCFC9BF7C4CEE5B4E01439 /* Copy Pods Resources */ = {
+		1DA909DE96200957A3A09112 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2FEDE4791D5A851F00B66591 /* Check Pods Manifest.lock */ = {
+		2A8D0D8E60E90D19F549BB80 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyExpensesMobileProd/Pods-MyExpensesMobileProd-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2FEDE4911D5A851F00B66591 /* Embed Pods Frameworks */ = {
+		46659BFCD1F8C9429BB29301 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyExpensesMobileDev/Pods-MyExpensesMobileDev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2FEDE4921D5A851F00B66591 /* Copy Pods Resources */ = {
+		9BA31F4C5E95D1A847147A36 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyExpensesMobileDev/Pods-MyExpensesMobileDev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69AD207FAF3C943D2C318396 /* Embed Pods Frameworks */ = {
+		B90A9BB5C9A7258252503E1B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyExpensesMobileProd/Pods-MyExpensesMobileProd-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CE20417443201C1A040AB33C /* Check Pods Manifest.lock */ = {
+		F4CFCA1DC5F5BB1120573977 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2F0A40D41A60552800631D42 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2F33919F1CE7827F00221F01 /* SubmitButtonCell.m in Sources */,
-				2F5BD5951A6733C80009401D /* ApplicationState.m in Sources */,
-				2F4B40AD1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m in Sources */,
-				2F0A40E71A60552800631D42 /* TransactionsViewController.m in Sources */,
-				2F1F41B21CE1041100C0504C /* TransactionTypeCell.m in Sources */,
-				2F0A41091A605C7A00631D42 /* ExpensesCoreServerAPI.m in Sources */,
-				2F0A40E11A60552800631D42 /* AppDelegate.m in Sources */,
-				2F1F41CB1CE13F9C00C0504C /* SelectionCell.m in Sources */,
-				2F0A41111A65A97300631D42 /* MainViewController.m in Sources */,
-				2FFA4A901CDE43A100D1616B /* TransactionAmountTableViewCell.m in Sources */,
-				2F84016D1CC3ECC100D14C02 /* TransactionTableCell.m in Sources */,
-				2F0A40E41A60552800631D42 /* NewTransactionViewController.m in Sources */,
-				2F0A410E1A65A8EB00631D42 /* LoginViewController.m in Sources */,
-				2F1330211CE24FDB001F12DA /* ListSelectorViewController.m in Sources */,
-				2F0A40DE1A60552800631D42 /* main.m in Sources */,
-				2F1F41C81CE1275900C0504C /* NewTransactionFormViewController.m in Sources */,
-				2F0A41061A6058AB00631D42 /* AccountsViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2F0A40F01A60552800631D42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2F0A40FB1A60552800631D42 /* MyExpensesMobileiOSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F7BF2BC1DB3EA5F0094BA09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F7BF2BD1DB3EA5F0094BA09 /* SubmitButtonCell.m in Sources */,
+				2F7BF2BE1DB3EA5F0094BA09 /* ApplicationState.m in Sources */,
+				2F7BF2BF1DB3EA5F0094BA09 /* TransactionDescriptionTableViewCell.m in Sources */,
+				2F7BF2C01DB3EA5F0094BA09 /* TransactionsViewController.m in Sources */,
+				2F7BF2C11DB3EA5F0094BA09 /* TransactionTypeCell.m in Sources */,
+				2F7BF2C21DB3EA5F0094BA09 /* ExpensesCoreServerAPI.m in Sources */,
+				2F7BF2C31DB3EA5F0094BA09 /* AppDelegate.m in Sources */,
+				2F7BF2C41DB3EA5F0094BA09 /* SelectionCell.m in Sources */,
+				2F7BF2C51DB3EA5F0094BA09 /* MainViewController.m in Sources */,
+				2F7BF2C61DB3EA5F0094BA09 /* TransactionAmountTableViewCell.m in Sources */,
+				2F7BF2C71DB3EA5F0094BA09 /* TransactionTableCell.m in Sources */,
+				2F7BF2C81DB3EA5F0094BA09 /* NewTransactionViewController.m in Sources */,
+				2F7BF2C91DB3EA5F0094BA09 /* LoginViewController.m in Sources */,
+				2F7BF2CA1DB3EA5F0094BA09 /* ListSelectorViewController.m in Sources */,
+				2F7BF2CB1DB3EA5F0094BA09 /* main.m in Sources */,
+				2F7BF2CC1DB3EA5F0094BA09 /* NewTransactionFormViewController.m in Sources */,
+				2F7BF2CD1DB3EA5F0094BA09 /* AccountsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,14 +558,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2F0A40F61A60552800631D42 /* PBXTargetDependency */ = {
+		2F021C5E1DB4031500455710 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2F0A40D71A60552800631D42 /* MyExpensesMobileDev */;
-			targetProxy = 2F0A40F51A60552800631D42 /* PBXContainerItemProxy */;
+			target = 2F7BF2BA1DB3EA5F0094BA09 /* MyExpensesMobileDev */;
+			targetProxy = 2F021C5D1DB4031500455710 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2F021C611DB40A8F00455710 /* LaunchScreenDev.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F021C621DB40A8F00455710 /* Base */,
+			);
+			name = LaunchScreenDev.xib;
+			sourceTree = "<group>";
+		};
 		2F0A40ED1A60552800631D42 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -576,8 +598,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -586,6 +610,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -598,9 +623,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -618,8 +645,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -627,60 +656,19 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		2F0A40FF1A60552800631D42 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5C7B6A9F50875F68A939167 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = Unirest;
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = MyExpensesMobileiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = MyExpenseDev;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = Debug;
-		};
-		2F0A41001A60552800631D42 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EBF0814084613B605612F5C /* Pods.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = MyExpensesMobileiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = MyExpenseDev;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -688,10 +676,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = 4N358UBW94;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -700,7 +686,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "LL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyExpensesMobileiOS.app/MyExpensesMobileiOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyExpensesMobileDev.app/MyExpensesMobileDev";
 			};
 			name = Debug;
 		};
@@ -708,34 +694,72 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = 4N358UBW94;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MyExpensesMobileiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "LL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyExpensesMobileiOS.app/MyExpensesMobileiOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyExpensesMobileDev.app/MyExpensesMobileDev";
+			};
+			name = Release;
+		};
+		2F7BF2D61DB3EA5F0094BA09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3663E74C0A7396F578BE5FEE /* Pods-MyExpensesMobileDev.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4N358UBW94;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/MyExpensesMobileDev.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = MyExpenseDev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		2F7BF2D71DB3EA5F0094BA09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 795B5A00EBC56ADF4F9545B5 /* Pods-MyExpensesMobileDev.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4N358UBW94;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/MyExpensesMobileDev.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = MyExpenseDev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 		2FEDE4941D5A851F00B66591 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5C7B6A9F50875F68A939167 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 895E930E85BFBADB736A0BD1 /* Pods-MyExpensesMobileProd.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = Unirest;
-				HEADER_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/MyExpensesMobileProd.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = MyExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -744,20 +768,18 @@
 		};
 		2FEDE4951D5A851F00B66591 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EBF0814084613B605612F5C /* Pods.release.xcconfig */;
+			baseConfigurationReference = 9706D6F12C08E5C317D4F9AF /* Pods-MyExpensesMobileProd.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/MyExpensesMobileProd.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = MyExpense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -776,20 +798,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F0A40FE1A60552800631D42 /* Build configuration list for PBXNativeTarget "MyExpensesMobileDev" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2F0A40FF1A60552800631D42 /* Debug */,
-				2F0A41001A60552800631D42 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2F0A41011A60552800631D42 /* Build configuration list for PBXNativeTarget "MyExpensesMobileiOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F0A41021A60552800631D42 /* Debug */,
 				2F0A41031A60552800631D42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F7BF2D51DB3EA5F0094BA09 /* Build configuration list for PBXNativeTarget "MyExpensesMobileDev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F7BF2D61DB3EA5F0094BA09 /* Debug */,
+				2F7BF2D71DB3EA5F0094BA09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
