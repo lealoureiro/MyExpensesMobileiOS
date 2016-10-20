@@ -29,6 +29,9 @@
 		2F7BF2CC1DB3EA5F0094BA09 /* NewTransactionFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F41C71CE1275900C0504C /* NewTransactionFormViewController.m */; };
 		2F7BF2CD1DB3EA5F0094BA09 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A41051A6058AB00631D42 /* AccountsViewController.m */; };
 		2F7BF2D21DB3EA5F0094BA09 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A40EB1A60552800631D42 /* Images.xcassets */; };
+		2F8D4D201DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8D4D1F1DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m */; };
+		2F8D4D211DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8D4D1F1DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m */; };
+		2F8D4D221DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8D4D1F1DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m */; };
 		2FEDE47B1D5A851F00B66591 /* SubmitButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */; };
 		2FEDE47C1D5A851F00B66591 /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 		2FEDE47D1D5A851F00B66591 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
@@ -105,6 +108,8 @@
 		2F7BF2D81DB3EA5F0094BA09 /* MyExpensesMobileDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExpensesMobileDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableCell.h; sourceTree = "<group>"; };
 		2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableCell.m; sourceTree = "<group>"; };
+		2F8D4D1E1DB97AD400DEBA23 /* RetrieveLastMonthViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RetrieveLastMonthViewCell.h; path = Transactions/RetrieveLastMonthViewCell.h; sourceTree = "<group>"; };
+		2F8D4D1F1DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RetrieveLastMonthViewCell.m; path = Transactions/RetrieveLastMonthViewCell.m; sourceTree = "<group>"; };
 		2FAA351A1CD2964A00F6F99C /* NewTransactionFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTransactionFormViewController.h; sourceTree = "<group>"; };
 		2FEDE4961D5A851F00B66591 /* MyExpensesMobileProd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExpensesMobileProd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEDE4971D5A851F00B66591 /* MyExpensesMobileProd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MyExpensesMobileProd.plist; path = /Users/leandroloureiro/Documents/Projects/MyExpensesMobileiOS/MyExpensesMobileProd.plist; sourceTree = "<absolute>"; };
@@ -180,12 +185,11 @@
 		2F0A40DA1A60552800631D42 /* MyExpensesMobileiOS */ = {
 			isa = PBXGroup;
 			children = (
+				2F8D4D1D1DB97A4700DEBA23 /* Transactions */,
 				2F4B40AA1CDBF735004406F7 /* NewTransaction */,
 				2F0A41071A605C3300631D42 /* Connectors */,
 				2F0A40DF1A60552800631D42 /* AppDelegate.h */,
 				2F0A40E01A60552800631D42 /* AppDelegate.m */,
-				2F0A40E51A60552800631D42 /* TransactionsViewController.h */,
-				2F0A40E61A60552800631D42 /* TransactionsViewController.m */,
 				2F0A40EB1A60552800631D42 /* Images.xcassets */,
 				2F021C611DB40A8F00455710 /* LaunchScreenDev.xib */,
 				2F0A40ED1A60552800631D42 /* LaunchScreen.xib */,
@@ -199,8 +203,6 @@
 				2F0A41101A65A97300631D42 /* MainViewController.m */,
 				2F5BD5931A6733C80009401D /* ApplicationState.h */,
 				2F5BD5941A6733C80009401D /* ApplicationState.m */,
-				2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */,
-				2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */,
 			);
 			path = MyExpensesMobileiOS;
 			sourceTree = "<group>";
@@ -261,6 +263,19 @@
 				2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */,
 			);
 			path = NewTransaction;
+			sourceTree = "<group>";
+		};
+		2F8D4D1D1DB97A4700DEBA23 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				2F0A40E51A60552800631D42 /* TransactionsViewController.h */,
+				2F0A40E61A60552800631D42 /* TransactionsViewController.m */,
+				2F84016B1CC3ECC100D14C02 /* TransactionTableCell.h */,
+				2F84016C1CC3ECC100D14C02 /* TransactionTableCell.m */,
+				2F8D4D1E1DB97AD400DEBA23 /* RetrieveLastMonthViewCell.h */,
+				2F8D4D1F1DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m */,
+			);
+			name = Transactions;
 			sourceTree = "<group>";
 		};
 		52942567FA3035B9FC2CC35E /* Frameworks */ = {
@@ -449,7 +464,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyExpensesMobileDev/Pods-MyExpensesMobileDev-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		9BA31F4C5E95D1A847147A36 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -504,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0A40FB1A60552800631D42 /* MyExpensesMobileiOSTests.m in Sources */,
+				2F8D4D201DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +535,7 @@
 				2F7BF2C31DB3EA5F0094BA09 /* AppDelegate.m in Sources */,
 				2F7BF2C41DB3EA5F0094BA09 /* SelectionCell.m in Sources */,
 				2F7BF2C51DB3EA5F0094BA09 /* MainViewController.m in Sources */,
+				2F8D4D221DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */,
 				2F7BF2C61DB3EA5F0094BA09 /* TransactionAmountTableViewCell.m in Sources */,
 				2F7BF2C71DB3EA5F0094BA09 /* TransactionTableCell.m in Sources */,
 				2F7BF2C81DB3EA5F0094BA09 /* NewTransactionViewController.m in Sources */,
@@ -544,6 +560,7 @@
 				2FEDE4811D5A851F00B66591 /* AppDelegate.m in Sources */,
 				2FEDE4821D5A851F00B66591 /* SelectionCell.m in Sources */,
 				2FEDE4831D5A851F00B66591 /* MainViewController.m in Sources */,
+				2F8D4D211DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */,
 				2FEDE4841D5A851F00B66591 /* TransactionAmountTableViewCell.m in Sources */,
 				2FEDE4851D5A851F00B66591 /* TransactionTableCell.m in Sources */,
 				2FEDE4861D5A851F00B66591 /* NewTransactionViewController.m in Sources */,

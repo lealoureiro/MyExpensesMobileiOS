@@ -54,9 +54,13 @@
     return response.body.object;
 }
 
-+ (NSArray *)getAccountTransactions:(NSString *)account withApiKey:(NSString *)key {
++ (NSArray *)getAccountTransactions:(NSString *)account fromDate:(NSDate *)fromDate withApiKey:(NSString *)key {
     
     NSLog(@"Getting transactions for acount %@", account);
+    
+    double fromTimetamp = ([fromDate timeIntervalSince1970] * 1000) -1;
+
+    NSDictionary *parameters = @{@"start": [[NSNumber numberWithDouble:fromTimetamp] stringValue]};
     
     NSDictionary *headers = @{@"accept": @"application/json", @"authkey": key};
     NSMutableString *resource = [[NSMutableString alloc] init];
@@ -67,6 +71,7 @@
     UNIHTTPJsonResponse *response = [[UNIRest get:^(UNISimpleRequest *request) {
         [request setUrl:resource];
         [request setHeaders:headers];
+        [request setParameters:parameters];
     }] asJson];
     
     NSLog(@"Server HTTP response code %ld", (long)response.code);

@@ -10,41 +10,40 @@
 		04A8CEDBB51DBD427DDDDCB7730CC357 /* UNIBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA9674272501212DB466F414B0D6C21 /* UNIBaseRequest.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0A733B58B349662E8440F0A9E5BF62E6 /* UNIHTTPClientHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CE44B4F34E2812162AD158451631EE /* UNIHTTPClientHelper.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1BC8C1DDCD5A5991A5DDD1531EF7BBDE /* Unirest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34079341E7B5CB86FBFDD0D60A52E9 /* Unirest-dummy.m */; };
-		22FBB07848D770216D401469B73D4C35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		29ABC888E20D48D061A05373E83C9FA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
 		2D3D328E173BF0CA340A97FC662DEF27 /* UNIRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A10AEA0D8E524C811ADDEEE81DEE20D /* UNIRest.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		2E4D1D7D8BE5F433BC04427D5BDF464E /* NSDate+Difference.m in Sources */ = {isa = PBXBuildFile; fileRef = 69311EA7F01A2726D2F03BBC025CF050 /* NSDate+Difference.m */; };
 		38892DF14E52547CA34E0CEF5AD4B48C /* UNIRest.h in Headers */ = {isa = PBXBuildFile; fileRef = DA300B17F3EBB3EF38CBA95A37A3936A /* UNIRest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39C79F58A036F43B37BB53BE279D2E1F /* UNIHTTPStringResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1546D27B14D92C12EAB187B4DCF49307 /* UNIHTTPStringResponse.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4070D9D2026234DEE9A0B3F349773D1E /* UNIJsonNode.h in Headers */ = {isa = PBXBuildFile; fileRef = B554DBEE5D30E18AA90F858A8BEB5BE3 /* UNIJsonNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		433EC7CFC55A6D08AD12E89060A41A53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		46A18AD00033EEFE14289ABB32EEA3C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
 		46C4CA96DB9AE389F907BAA0D2F397FB /* UIViewController+KNSemiModal.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A35A67F041CCF0372A6538CE594657 /* UIViewController+KNSemiModal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		486186975DFDD004665BB8584E6AA78A /* UNIJsonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C516E4785EECB543C8781AEDC52059 /* UNIJsonNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		5B47627548061957278122D113E98FFF /* UNISimpleRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F98E1DFBD64DE54ACFAD2F43964582A /* UNISimpleRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		609FE414A4A53F94CF8473C2F273394C /* UNIUrlConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2519F698E7DB48A59B14B417E13B7EC4 /* UNIUrlConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61F0FE865D397FD7F7F0A2BD1C3B6BC6 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265F558225F2172A00F141280A4407E /* UIViewController+KNSemiModal.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		66369E1FB072BDAB8AF587F96A3CD029 /* UNIBodyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D18648B757A09AB2B255BD9CD55AF2 /* UNIBodyRequest.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6A279F15C27096B1BC7BBD0E9B08D3B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
 		703AD78FAD5C9F40044CDCCA9C3BC2B6 /* UNIHTTPRequestWithBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 2770E9D910E531AF5383EA415D1431B3 /* UNIHTTPRequestWithBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		72C74B51CE0A92EE5C007C905772134B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
 		73D44DE214D3F70E9CF21FA88E3EB8B8 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D6D649943EC0074EEFFA4C57F15DF9 /* Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		753238FB14A06C5F8D2A16F60456FBE1 /* UNIBaseRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 9958FDE785A7497D0426EF2CD017BFC5 /* UNIBaseRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7AE9193F7327F0F5C474489620189794 /* UNIHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 35FA72213B1D0E607B7057BF94A5D312 /* UNIHTTPRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7AEFE20207103714845320EE60CAF0D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
 		7CEF8BBB56C45910F436FF66D1E07ED4 /* THDateDay.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7F4430B035795335F63C48E579EE6B /* THDateDay.m */; };
 		7EBFA5E9CAB02AD6BEF6265F11C63D95 /* Pods-MyExpensesMobileDev-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 03BA656545B6F098F1ADFE58CC1CAEB9 /* Pods-MyExpensesMobileDev-dummy.m */; };
+		81D397F09A840ED88BBAC83A1F401EF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
 		82BDC119908370285D482F660060B185 /* UNIHTTPStringResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C4EFD80E3E22C3C2EDCCF65BD85D2BC /* UNIHTTPStringResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8B7122CE13D0B11D53AE25E340639BB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */; };
 		8D75C00DA7673D3B5853277A79FC38A1 /* UNIUrlConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5B0CBDB94A5F2865F3C758E6B71A17 /* UNIUrlConnection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		92B3EAE5F89D03C704EDA72EF879C695 /* UNIHTTPJsonResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0970161D6699698B812D70C98209B183 /* UNIHTTPJsonResponse.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		93C3F0EAF1C06876ABADB5581458D4AF /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D176B337E174D3DE8674D06237FA362F /* Base64.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		95FB5C946E078EA1750553A9740E2695 /* NSDate+Difference.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1452CC6C4D4471F168B31A4DD4D715 /* NSDate+Difference.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		977A378E2F3647E7849CD1C66D681F38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */; };
+		98A70BD8AAE6BC3DA8D2A431162BA76B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACC64101FAE4862F8806DB02FC71B0E /* QuartzCore.framework */; };
 		9D8C7BBCC4FAC8EA3640A1ABEE9D9AAA /* UNIHTTPResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C82A2DDE0ED12EB52DADB3F91708DC9 /* UNIHTTPResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A24E5240DF0CAD5B80D3F5B3B1A59E43 /* Pods-MyExpensesMobileProd-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E319D6E2B61560DC5F1668ABD5A3E45 /* Pods-MyExpensesMobileProd-dummy.m */; };
 		A8D78EDABF346B6595E5F8F9556A334F /* UNIHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC10FB260DACB7F69358B1B3939EF6B /* UNIHTTPResponse.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		AA850F8BD186A2BB5136C9B5C242261A /* UNIHTTPBinaryResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 695F3BBBF9FBAA0E4A36A2745C503C61 /* UNIHTTPBinaryResponse.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B44DDEEDA335EAC6450C97A8DB6286A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */; };
 		BDEB915FAF0867B40DF0B8CDCD0CC134 /* UNIBodyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D3FF452EB96A39FE5C9290C02C960F0B /* UNIBodyRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE40A5A0A6F10BE5046F7846CBF6D370 /* THCalendarDatePicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59732C037C7EBE6B7B3FEBEEE3B27BD0 /* THCalendarDatePicker-dummy.m */; };
-		BFEF315816D626E5ED214714779F365D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
 		C2629FE426CC3F81F57F69F9251F054C /* THDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341C1B2BD6589EDEE936805925A9B7A4 /* THDatePickerViewController.m */; };
 		C3F27ECC5A388212EF4868F49800FC13 /* UNIHTTPRequestWithBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 153B9F84A911C6E76EB4B4AC2CFB4284 /* UNIHTTPRequestWithBody.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		CAC6EFEA4BCD9177037B4C26FA4E7F17 /* UNIHTTPClientHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = A176890A2EE3623F186C25FB719773C2 /* UNIHTTPClientHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,6 +52,7 @@
 		EC11B1DEB424959C8A0D23E206DDA41B /* KNSemiModalViewController_hons82-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA0EA43349C3929DAFBEF1D697BA6E5 /* KNSemiModalViewController_hons82-dummy.m */; };
 		F163A6BE8F8EF1E7B0CDF0053A9AD1F9 /* UNISimpleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EF30943C0DE0FA606C54C165D11D65 /* UNISimpleRequest.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F49BD5631A1206FBC0B8A855A7F8ECC2 /* UNIHTTPJsonResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FA248EC6AE54CC255102EC7F902BE0 /* UNIHTTPJsonResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8C4E96C86D0BC10B391BA2B91CEEC34 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACC64101FAE4862F8806DB02FC71B0E /* QuartzCore.framework */; };
 		F98D67EEB12966B9615BA77E36FD1266 /* THDateDay.h in Headers */ = {isa = PBXBuildFile; fileRef = 73D0E5F78F8DE91DE5B997700BABB625 /* THDateDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD9D4B544A393A16C70752E3EE8E560A /* THDatePickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DB45B0427981D016AE72100D95A7FC /* THDatePickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -127,6 +127,7 @@
 		35FA72213B1D0E607B7057BF94A5D312 /* UNIHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UNIHTTPRequest.h; path = Unirest/UNIHTTPRequest.h; sourceTree = "<group>"; };
 		37A35A67F041CCF0372A6538CE594657 /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+KNSemiModal.h"; path = "Source/UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
 		3AC10FB260DACB7F69358B1B3939EF6B /* UNIHTTPResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UNIHTTPResponse.m; path = Unirest/HttpResponse/UNIHTTPResponse.m; sourceTree = "<group>"; };
+		3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		43FA248EC6AE54CC255102EC7F902BE0 /* UNIHTTPJsonResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UNIHTTPJsonResponse.h; path = Unirest/HttpResponse/UNIHTTPJsonResponse.h; sourceTree = "<group>"; };
 		4C82A2DDE0ED12EB52DADB3F91708DC9 /* UNIHTTPResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UNIHTTPResponse.h; path = Unirest/HttpResponse/UNIHTTPResponse.h; sourceTree = "<group>"; };
 		4F98E1DFBD64DE54ACFAD2F43964582A /* UNISimpleRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UNISimpleRequest.h; path = Unirest/HttpRequest/UNISimpleRequest.h; sourceTree = "<group>"; };
@@ -145,7 +146,6 @@
 		7B29821CC2AE2DA1F0EE83CCDFB28911 /* THDatePickerViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = THDatePickerViewController.xib; path = THCalendarDatePicker/THDatePickerViewController.xib; sourceTree = "<group>"; };
 		8A10AEA0D8E524C811ADDEEE81DEE20D /* UNIRest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UNIRest.m; path = Unirest/UNIRest.m; sourceTree = "<group>"; };
 		8A32D66C095DEE8ECF34847D7B7E25E8 /* UNIHTTPBinaryResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UNIHTTPBinaryResponse.h; path = Unirest/HttpResponse/UNIHTTPBinaryResponse.h; sourceTree = "<group>"; };
-		90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		974EE2C275136E59735B871A240649AB /* Pods-MyExpensesMobileDev-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyExpensesMobileDev-resources.sh"; sourceTree = "<group>"; };
 		987E160C3DAA03A684E52E410B9894FA /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = THCalendarDatePicker/Images.xcassets; sourceTree = "<group>"; };
@@ -159,6 +159,7 @@
 		B4B278667EDC893680C6B023D4CD000E /* KNSemiModalViewController_hons82.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KNSemiModalViewController_hons82.xcconfig; sourceTree = "<group>"; };
 		B554DBEE5D30E18AA90F858A8BEB5BE3 /* UNIJsonNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UNIJsonNode.h; path = Unirest/HttpResponse/UNIJsonNode.h; sourceTree = "<group>"; };
 		B5F4502D95B6A65EDB0889882126268B /* THCalendarDatePicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "THCalendarDatePicker-prefix.pch"; sourceTree = "<group>"; };
+		BACC64101FAE4862F8806DB02FC71B0E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		BD13AD5BF633EC878667D6B6BD116F1A /* Pods-MyExpensesMobileProd-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyExpensesMobileProd-acknowledgements.plist"; sourceTree = "<group>"; };
 		CD783699656E634C89B42CDEF79D8684 /* libKNSemiModalViewController_hons82.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKNSemiModalViewController_hons82.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176B337E174D3DE8674D06237FA362F /* Base64.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = Unirest/Base64.m; sourceTree = "<group>"; };
@@ -170,7 +171,6 @@
 		E7466F5B9537A0908CAA670991186DEE /* Pods-MyExpensesMobileProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyExpensesMobileProd.release.xcconfig"; sourceTree = "<group>"; };
 		E9D7E98AD53044B399472FD5D90A3304 /* Pods-MyExpensesMobileProd-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyExpensesMobileProd-frameworks.sh"; sourceTree = "<group>"; };
 		EAA9674272501212DB466F414B0D6C21 /* UNIBaseRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UNIBaseRequest.m; path = Unirest/HttpRequest/UNIBaseRequest.m; sourceTree = "<group>"; };
-		EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		ED1452CC6C4D4471F168B31A4DD4D715 /* NSDate+Difference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+Difference.h"; path = "THCalendarDatePicker/NSDate+Difference.h"; sourceTree = "<group>"; };
 		F04BFD9F3BB627EC296E33BF377491D6 /* Unirest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Unirest.xcconfig; sourceTree = "<group>"; };
 		F539477AA16F91788281977355C50A21 /* Pods-MyExpensesMobileDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyExpensesMobileDev.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				433EC7CFC55A6D08AD12E89060A41A53 /* Foundation.framework in Frameworks */,
+				977A378E2F3647E7849CD1C66D681F38 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AEFE20207103714845320EE60CAF0D1 /* Foundation.framework in Frameworks */,
+				6A279F15C27096B1BC7BBD0E9B08D3B2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72C74B51CE0A92EE5C007C905772134B /* Foundation.framework in Frameworks */,
+				81D397F09A840ED88BBAC83A1F401EF2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,8 +211,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22FBB07848D770216D401469B73D4C35 /* Foundation.framework in Frameworks */,
-				B44DDEEDA335EAC6450C97A8DB6286A6 /* QuartzCore.framework in Frameworks */,
+				29ABC888E20D48D061A05373E83C9FA0 /* Foundation.framework in Frameworks */,
+				F8C4E96C86D0BC10B391BA2B91CEEC34 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +220,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFEF315816D626E5ED214714779F365D /* Foundation.framework in Frameworks */,
-				8B7122CE13D0B11D53AE25E340639BB6 /* QuartzCore.framework in Frameworks */,
+				46A18AD00033EEFE14289ABB32EEA3C5 /* Foundation.framework in Frameworks */,
+				98A70BD8AAE6BC3DA8D2A431162BA76B /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +288,7 @@
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				89F803C7E2D77E11F2120CB28FE0B795 /* iOS */,
+				C7AB6F27FF3606F9360547F8F1977A63 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -344,15 +344,6 @@
 			);
 			sourceTree = "<group>";
 		};
-		89F803C7E2D77E11F2120CB28FE0B795 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */,
-				EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		A4BE090D79872B97A30E2D288AF2355A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +353,15 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/KNSemiModalViewController_hons82";
+			sourceTree = "<group>";
+		};
+		C7AB6F27FF3606F9360547F8F1977A63 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3AC5D9C5B838BE747D0154460D02F926 /* Foundation.framework */,
+				BACC64101FAE4862F8806DB02FC71B0E /* QuartzCore.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		CCED1F34AF06D28705D0BD49AD421F5D /* Unirest */ = {

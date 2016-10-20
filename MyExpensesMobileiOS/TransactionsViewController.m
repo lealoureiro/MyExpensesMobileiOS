@@ -10,6 +10,7 @@
 #import "ExpensesCoreServerAPI.h"
 #import "ApplicationState.h"
 #import "TransactionTableCell.h"
+#import "RetrieveLastMonthViewCell.h"
 
 @interface TransactionsViewController ()
 
@@ -30,6 +31,9 @@ UILabel *amountLabel;
 UILabel *accountTypeLabel;
 UILabel *accountNameLabel;
 UITableView *transactionsTable;
+
+NSInteger currentYear;
+NSInteger currentMonth;
 
 
 - (void)loadView {
@@ -102,19 +106,42 @@ UITableView *transactionsTable;
     
     accountTypeLabel.text = account[@"type"];
     
-    transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] withApiKey:[ApplicationState getInstance].apiKey];
+    NSDate *currentDate = [NSDate date];
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [currentCalendar components:NSCalendarUnitYear | NSCalendarUnitMonth fromDate:currentDate];
+    
+    currentYear = [dateComponents year];
+    currentMonth = [dateComponents month];
+    NSDateComponents *fromDateComponents = [[NSDateComponents alloc] init];
+    [fromDateComponents setMonth:currentMonth];
+    [fromDateComponents setYear:currentYear];
+    NSDate *fromDate = [[NSCalendar currentCalendar] dateFromComponents:fromDateComponents];
+    
+    transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] fromDate:fromDate withApiKey:[ApplicationState getInstance].apiKey];
     [self arrangeTransactions];
     transactionsTable.allowsMultipleSelectionDuringEditing = NO;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == transactionsDays.count) {
+        return 1;
+    }
     id key = [transactionsDays objectAtIndex:section];
     NSArray *transactionsForSection = [cellsGroupedByDays objectForKey:key];
     return transactionsForSection.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == transactionsDays.count) {
+        RetrieveLastMonthViewCell *lastCell = [tableView dequeueReusableCellWithIdentifier:@"lastMonth"];
+        if (lastCell == nil) {
+            lastCell = [[RetrieveLastMonthViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"lastMonth"];
+        }
+        return lastCell;
+    }
+    
     static NSString *simpleTableIdentifier = @"transactionCell";
     
     TransactionTableCell *cell = (TransactionTableCell*) [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -154,10 +181,13 @@ UITableView *transactionsTable;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return transactionsDays.count;
+    return transactionsDays.count + 1;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == transactionsDays.count) {
+        return @"";
+    }
     return [transactionsDays objectAtIndex:section];
 }
 
@@ -195,6 +225,15 @@ UITableView *transactionsTable;
             NSLog(@"Failed to delete transaction %@", transactionId);
         }
     }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    if(transactionsTable.contentOffset.y >= (transactionsTable.contentSize.height - transactionsTable.bounds.size.height)) {
+        
+        NSLog(@" scroll to bottom!");
+    }
+    
 }
 
 - (void)arrangeTransactions {
