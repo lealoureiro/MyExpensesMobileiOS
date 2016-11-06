@@ -117,11 +117,10 @@ NSInteger currentMonth;
     [fromDateComponents setYear:currentYear];
     NSDate *fromDate = [[NSCalendar currentCalendar] dateFromComponents:fromDateComponents];
     
-    transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] fromDate:fromDate withApiKey:[ApplicationState getInstance].apiKey];
+    transactionsList = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] fromDate:fromDate toDate:[NSDate date] withApiKey:[ApplicationState getInstance].apiKey];
     [self arrangeTransactions];
     transactionsTable.allowsMultipleSelectionDuringEditing = NO;
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == transactionsDays.count) {
@@ -138,6 +137,8 @@ NSInteger currentMonth;
         RetrieveLastMonthViewCell *lastCell = [tableView dequeueReusableCellWithIdentifier:@"lastMonth"];
         if (lastCell == nil) {
             lastCell = [[RetrieveLastMonthViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"lastMonth"];
+            [lastCell.retrieveButton addTarget:self action:@selector(fetchNextMonth) forControlEvents:UIControlEventTouchUpInside];
+
         }
         return lastCell;
     }
@@ -227,14 +228,6 @@ NSInteger currentMonth;
     }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    if(transactionsTable.contentOffset.y >= (transactionsTable.contentSize.height - transactionsTable.bounds.size.height)) {
-        
-        NSLog(@" scroll to bottom!");
-    }
-    
-}
 
 - (void)arrangeTransactions {
     cellsGroupedByDays = [NSMutableDictionary dictionaryWithCapacity:0];
@@ -262,6 +255,33 @@ NSInteger currentMonth;
         }
         [transctionsForSection addObject:transaction];
     }
+}
+
+- (void)fetchNextMonth {
+    NSLog(@"Fetching next month");
+    
+    NSDateComponents *toDateComponents = [[NSDateComponents alloc] init];
+    [toDateComponents setMonth:currentMonth];
+    [toDateComponents setYear:currentYear];
+    NSDate *toDate = [[NSCalendar currentCalendar] dateFromComponents:toDateComponents];
+    
+    currentMonth -= 1;
+    if (currentMonth == 0) {
+        currentMonth = 12;
+        currentYear -= 1;
+    }
+    
+    NSDateComponents *fromDateComponents = [[NSDateComponents alloc] init];
+    [fromDateComponents setMonth:currentMonth];
+    [fromDateComponents setYear:currentYear];
+    NSDate *fromDate = [[NSCalendar currentCalendar] dateFromComponents:fromDateComponents];
+    
+    NSArray *nextMonthTransactions = [ExpensesCoreServerAPI getAccountTransactions:self.account[@"id"] fromDate:fromDate toDate:toDate withApiKey:[ApplicationState getInstance].apiKey];
+    
+    transactionsList = [transactionsList arrayByAddingObjectsFromArray:nextMonthTransactions];
+    
+    [self arrangeTransactions];
+    [transactionsTable reloadData];
 }
 
 @end

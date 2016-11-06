@@ -10,18 +10,21 @@
 
 @implementation RetrieveLastMonthViewCell
 
+@synthesize retrieveButton;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
-    UILabel *description = [[UILabel alloc] init];
-    description.font = [UIFont boldSystemFontOfSize:18.0f];
-    description.text = @"Retrieve last month";
-    [description setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView addSubview:description];
+    self.retrieveButton = [[UIButton alloc] init];
+    self.retrieveButton.titleLabel.font = [UIFont boldSystemFontOfSize:22.0f];
+    [self.retrieveButton setTitle:@"Retrieve last month" forState:UIControlStateNormal];
+    [self.retrieveButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.retrieveButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.contentView addSubview:self.retrieveButton];
     
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:description attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:description attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.retrieveButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.retrieveButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
 
     return self;
 }

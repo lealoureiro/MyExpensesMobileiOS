@@ -10,4 +10,6 @@
 
 @interface RetrieveLastMonthViewCell : UITableViewCell
 
+@property (strong, nonatomic) UIButton *retrieveButton;
+
 @end

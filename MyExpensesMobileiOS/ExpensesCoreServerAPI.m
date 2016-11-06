@@ -54,13 +54,17 @@
     return response.body.object;
 }
 
-+ (NSArray *)getAccountTransactions:(NSString *)account fromDate:(NSDate *)fromDate withApiKey:(NSString *)key {
++ (NSArray *)getAccountTransactions:(NSString *)account fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate withApiKey:(NSString *)key {
     
     NSLog(@"Getting transactions for acount %@", account);
     
-    double fromTimetamp = ([fromDate timeIntervalSince1970] * 1000) -1;
+    double fromTimetamp = ([fromDate timeIntervalSince1970] * 1000);
+    double toTimestamp = ([toDate timeIntervalSince1970] * 1000) - 1;
 
-    NSDictionary *parameters = @{@"start": [[NSNumber numberWithDouble:fromTimetamp] stringValue]};
+    NSDictionary *parameters = @{
+                                 @"start": [[NSNumber numberWithDouble:fromTimetamp] stringValue],
+                                 @"end":[[NSNumber numberWithDouble:toTimestamp] stringValue]
+                                 };
     
     NSDictionary *headers = @{@"accept": @"application/json", @"authkey": key};
     NSMutableString *resource = [[NSMutableString alloc] init];
