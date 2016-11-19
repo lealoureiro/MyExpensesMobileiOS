@@ -31,7 +31,6 @@
     
     NSLog(@"Server HTTP response code %ld", (long)response.code);
     
-    
     return response.body.array;
 }
 
@@ -49,7 +48,6 @@
     }] asJson];
     
     NSLog(@"Server HTTP response code %ld", (long)response.code);
-    
     
     return response.body.object;
 }
@@ -137,7 +135,7 @@
                                  @"timestamp": [NSNumber numberWithDouble:timetamp],
                                  @"amount": [NSNumber numberWithInteger:amountInCents],
                                  @"externalReference": @"",
-                                 @"tags": @""
+                                 @"tags": [[NSArray alloc] init]
                                  };
     
     NSMutableString *resource = [[NSMutableString alloc] init];
@@ -299,7 +297,6 @@
         *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
     }
 }
-
 
 
 @end
