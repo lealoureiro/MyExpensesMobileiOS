@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ListSelectorViewController.h"
+#import "TagsViewController.h"
 #import <THDatePickerViewController.h>
 
 
-@interface NewTransactionFormViewController : UITableViewController <ListSelectorDelegate, THDatePickerDelegate>
+@interface NewTransactionFormViewController : UITableViewController <ListSelectorDelegate, TagsSelectorDelegate, THDatePickerDelegate>
 
 @end

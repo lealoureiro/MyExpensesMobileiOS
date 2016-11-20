@@ -15,8 +15,10 @@
 + (NSDictionary *)getAccountInformation:(NSString *)account withApiKey:(NSString *)key;
 + (NSString *)checkApiKey:(NSString *)apiKey andError:(NSError **) error;
 + (NSArray *)getUserAccounts:(NSString *)apiKey;
++ (NSArray *)getUserTags:(NSString *)apiKey;
++ (void)addNewTag:(NSString *)newTag withAPIKey:(NSString *)key andError:(NSError **) error;;
 + (NSArray *)getAccountTransactions:(NSString *)account fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate withApiKey:(NSString *)key;
-+ (NSString *)addTransactionToAccount:(NSString *)account withDescription:(NSString *)description withAmount:(NSInteger)amountInCents withCategory:(NSString *)category withSubCategory:(NSString *)subCategory withDate:(NSDate *)date andAPIKey:(NSString *)key andError:(NSError **)error;
++ (NSString *)addTransactionToAccount:(NSString *)account withDescription:(NSString *)description withAmount:(NSInteger)amountInCents withCategory:(NSString *)category withSubCategory:(NSString *)subCategory withDate:(NSDate *)date withTags:(NSArray *)tags andAPIKey:(NSString *)key andError:(NSError **)error;
 + (void)deleteTransaction:(NSString *)transactionId inAccount:(NSString *)accountId withTimestamp:(NSNumber *)timestamp andAPIKey:(NSString *)apikey andError:(NSError **)error;
 + (NSArray *)getUserCategories:(NSString *)apiKey;
 + (void)addNewCategory:(NSString *)newCategory andAPIKey:(NSString *)key andError:(NSError **)error;

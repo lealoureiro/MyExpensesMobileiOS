@@ -15,6 +15,7 @@
 #import "ListSelectorViewController.h"
 #import "ExpensesCoreServerAPI.h"
 #import "ApplicationState.h"
+#import "TagsViewController.h"
 
 @interface NewTransactionFormViewController ()
 
@@ -30,6 +31,7 @@ THDatePickerViewController *datePicker;
 SelectionCell *accountCell;
 SelectionCell *categoryCell;
 SelectionCell *subCategoryCell;
+SelectionCell *tagsCell;
 SelectionCell *dateCell;
 SubmitButtonCell *submitCell;
 
@@ -40,8 +42,12 @@ NSMutableArray *accounts;
 NSMutableDictionary *accountsMap;
 NSMutableArray *categoriesList;
 NSMutableDictionary *categoriesMap;
+NSMutableArray *tagsList;
+NSMutableSet *tagsSelected;
+
 
 BOOL updateCategories = NO;
+BOOL updateTags = NO;
 NSDate *currentDate;
 NSDateFormatter *formater;
 
@@ -69,6 +75,10 @@ NSDateFormatter *formater;
             [accountsMap setObject:account[@"name"] forKey:account[@"id"]];
         }
         
+        tagsList = [[NSMutableArray alloc] initWithArray:[ExpensesCoreServerAPI getUserTags:[ApplicationState getInstance].apiKey]];
+        tagsSelected = [[NSMutableSet alloc] init];
+        
+        
         [self refreshCategories];
     }
     
@@ -86,6 +96,9 @@ NSDateFormatter *formater;
     
     subCategoryCell = [[SelectionCell alloc] initWithIdentifier:@"categoryCell"];
     subCategoryCell.option.text = @"Sub Category:";
+    
+    tagsCell = [[SelectionCell alloc] initWithIdentifier:@"tagsCell"];
+    tagsCell.option.text = @"Tags:";
     
     dateCell = [[SelectionCell alloc] initWithIdentifier:@"dateCell"];
     dateCell.option.text = @"Date:";
@@ -134,7 +147,7 @@ NSDateFormatter *formater;
         case 0:
             return 3;
         case 1:
-            return 5;
+            return 6;
         default:
             return 0;
     }
@@ -170,9 +183,12 @@ NSDateFormatter *formater;
                     cell = subCategoryCell;
                     break;
                 case 3:
-                    cell = dateCell;
+                    cell = tagsCell;
                     break;
                 case 4:
+                    cell = dateCell;
+                    break;
+                case 5:
                     cell = submitCell;
                     break;
             }
@@ -202,6 +218,8 @@ NSDateFormatter *formater;
                 case 3:
                     return 45.0;
                 case 4:
+                    return 45.0;
+                case 5:
                     return 100.0;
             }
         default:
@@ -224,6 +242,9 @@ NSDateFormatter *formater;
                     [self showSubCategorySelectionList];
                     break;
                 case 3:
+                    [self showTagsSelectionList];
+                    break;
+                case 4:
                     [self showDateSelector];
                     break;
             }
@@ -265,6 +286,16 @@ NSDateFormatter *formater;
     [[self navigationController] pushViewController:vc animated:YES];
 }
 
+- (void)showTagsSelectionList {
+    TagsViewController *vc = [[TagsViewController alloc] init];
+    vc.list = tagsList;
+    vc.update = &updateTags;
+    vc.delegate = self;
+    vc.selectedTags = tagsSelected;
+    vc.title = @"Select Tags";
+    [[self navigationController] pushViewController:vc animated:YES];
+}
+
 - (void)setSelectedItem:(ListSelectorViewController *)selector didSelectKey:(NSString *)key {
     NSLog(@"Selected %@ from the list of %@", key, selector.type);
     
@@ -283,6 +314,23 @@ NSDateFormatter *formater;
         subCategoryCell.value.text = key;
     }
     
+}
+
+- (void)setSelectedTags:(TagsViewController *)selector{
+    
+    NSLog(@"Tags:");
+    NSMutableString *tags = [[NSMutableString alloc] init];
+    for (NSString *key in selector.selectedTags) {
+        [tags appendString:key];
+        [tags appendString:@", "];
+    }
+    
+    NSInteger length = (tags.length - 2);
+    if (length > 0) {
+        tagsCell.value.text = [tags substringToIndex:length];
+    } else {
+        tagsCell.value.text = @"";
+    }
 }
 
 - (void)addTransaction {
@@ -307,12 +355,18 @@ NSDateFormatter *formater;
         subCategory = subCategoryCell.value.text;
     }
     
+    NSMutableArray *tags = [[NSMutableArray alloc] initWithCapacity:tagsSelected.count];
+    for (NSString *key in tagsSelected) {
+        [tags addObject:key];
+    }
+    
     NSString *newTransactionId = [ExpensesCoreServerAPI addTransactionToAccount:selectedAcount
                                                                 withDescription:transactionDescriptionCell.descriptionBox.text
                                                                      withAmount:amountInCents
                                                                    withCategory:category
                                                                 withSubCategory:subCategory
                                                                        withDate:currentDate
+                                                                       withTags:tags
                                                                       andAPIKey:[ApplicationState getInstance].apiKey
                                                                        andError:&error];
     if (error == nil) {

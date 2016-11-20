@@ -34,6 +34,54 @@
     return response.body.array;
 }
 
++ (NSArray *)getUserTags:(NSString *)apiKey {
+    
+    NSLog(@"Fetching user tags");
+    
+    if (apiKey == nil) {
+        NSLog(@"Trying to call API with invalid key!");
+        return [[NSArray alloc] init];
+    }
+    
+    NSDictionary *headers = @{@"accept": @"application/json", @"authkey": apiKey};
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"tags/"];
+    UNIHTTPJsonResponse *response = [[UNIRest get:^(UNISimpleRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    
+    return response.body.array;
+}
+
++ (void)addNewTag:(NSString *)newTag withAPIKey:(NSString *)key andError:(NSError **) error{
+    
+    NSLog(@"Adding new tag");
+    
+    NSDictionary *headers = @{@"accept": @"application/json", @"Content-type": @"application/json", @"authkey": key};
+    NSDictionary *parameters = @{@"name": newTag,
+                                 @"defaultSelected": @YES
+                                 };
+    
+    NSMutableString *resource = [[NSMutableString alloc] init];
+    [resource appendString:WEBSERVICE_ADDRESS];
+    [resource appendString:@"tags/"];
+    
+    UNIHTTPJsonResponse *response = [[UNIRest putEntity:^(UNIBodyRequest *request) {
+        [request setUrl:resource];
+        [request setHeaders:headers];
+        [request setBody:[NSJSONSerialization dataWithJSONObject:parameters options:0 error:error]];
+    }] asJson];
+    
+    NSLog(@"Server HTTP response code %ld", (long)response.code);
+    if (response.code != 204) {
+        *error = [[NSError alloc] initWithDomain:@"network" code:response.code userInfo:nil];
+    }
+}
+
 + (NSDictionary *)getAccountInformation:(NSString *)account withApiKey:(NSString *)key {
     
     NSLog(@"Getting information for account %@", account);
@@ -124,7 +172,7 @@
     return response.body.object[@"clientId"];
 }
 
-+ (NSString *)addTransactionToAccount:(NSString *)account withDescription:(NSString *)description withAmount:(NSInteger)amountInCents withCategory:(NSString *)category withSubCategory:(NSString *)subCategory withDate:(NSDate *)date andAPIKey:(NSString *)key andError:(NSError **)error {
++ (NSString *)addTransactionToAccount:(NSString *)account withDescription:(NSString *)description withAmount:(NSInteger)amountInCents withCategory:(NSString *)category withSubCategory:(NSString *)subCategory withDate:(NSDate *)date withTags:(NSArray *)tags andAPIKey:(NSString *)key andError:(NSError **)error {
     
     double timetamp = [date timeIntervalSince1970] * 1000;
     
@@ -135,7 +183,7 @@
                                  @"timestamp": [NSNumber numberWithDouble:timetamp],
                                  @"amount": [NSNumber numberWithInteger:amountInCents],
                                  @"externalReference": @"",
-                                 @"tags": [[NSArray alloc] init]
+                                 @"tags": tags
                                  };
     
     NSMutableString *resource = [[NSMutableString alloc] init];

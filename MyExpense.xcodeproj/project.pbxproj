@@ -11,6 +11,9 @@
 		2F021C631DB40A8F00455710 /* LaunchScreenDev.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F021C611DB40A8F00455710 /* LaunchScreenDev.xib */; };
 		2F021C641DB40D3C00455710 /* LaunchScreenDev.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F021C611DB40A8F00455710 /* LaunchScreenDev.xib */; };
 		2F0A40FB1A60552800631D42 /* MyExpensesMobileiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A40FA1A60552800631D42 /* MyExpensesMobileiOSTests.m */; };
+		2F36A2521DE120CB00ECA3FF /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A2511DE120CB00ECA3FF /* TagsViewController.m */; };
+		2F36A2531DE120CB00ECA3FF /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A2511DE120CB00ECA3FF /* TagsViewController.m */; };
+		2F36A2541DE120CB00ECA3FF /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A2511DE120CB00ECA3FF /* TagsViewController.m */; };
 		2F7BF2BD1DB3EA5F0094BA09 /* SubmitButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */; };
 		2F7BF2BE1DB3EA5F0094BA09 /* ApplicationState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD5941A6733C80009401D /* ApplicationState.m */; };
 		2F7BF2BF1DB3EA5F0094BA09 /* TransactionDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */; };
@@ -101,6 +104,8 @@
 		2F1F41CA1CE13F9C00C0504C /* SelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionCell.m; sourceTree = "<group>"; };
 		2F33919D1CE7827F00221F01 /* SubmitButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitButtonCell.h; sourceTree = "<group>"; };
 		2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitButtonCell.m; sourceTree = "<group>"; };
+		2F36A2501DE120CB00ECA3FF /* TagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
+		2F36A2511DE120CB00ECA3FF /* TagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsViewController.m; sourceTree = "<group>"; };
 		2F4B40AB1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDescriptionTableViewCell.h; sourceTree = "<group>"; };
 		2F4B40AC1CDBF85B004406F7 /* TransactionDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		2F5BD5931A6733C80009401D /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
@@ -261,6 +266,8 @@
 				2F1330201CE24FDB001F12DA /* ListSelectorViewController.m */,
 				2F33919D1CE7827F00221F01 /* SubmitButtonCell.h */,
 				2F33919E1CE7827F00221F01 /* SubmitButtonCell.m */,
+				2F36A2501DE120CB00ECA3FF /* TagsViewController.h */,
+				2F36A2511DE120CB00ECA3FF /* TagsViewController.m */,
 			);
 			path = NewTransaction;
 			sourceTree = "<group>";
@@ -517,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F36A2521DE120CB00ECA3FF /* TagsViewController.m in Sources */,
 				2F0A40FB1A60552800631D42 /* MyExpensesMobileiOSTests.m in Sources */,
 				2F8D4D201DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */,
 			);
@@ -533,6 +541,7 @@
 				2F7BF2C11DB3EA5F0094BA09 /* TransactionTypeCell.m in Sources */,
 				2F7BF2C21DB3EA5F0094BA09 /* ExpensesCoreServerAPI.m in Sources */,
 				2F7BF2C31DB3EA5F0094BA09 /* AppDelegate.m in Sources */,
+				2F36A2541DE120CB00ECA3FF /* TagsViewController.m in Sources */,
 				2F7BF2C41DB3EA5F0094BA09 /* SelectionCell.m in Sources */,
 				2F7BF2C51DB3EA5F0094BA09 /* MainViewController.m in Sources */,
 				2F8D4D221DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */,
@@ -558,6 +567,7 @@
 				2FEDE47F1D5A851F00B66591 /* TransactionTypeCell.m in Sources */,
 				2FEDE4801D5A851F00B66591 /* ExpensesCoreServerAPI.m in Sources */,
 				2FEDE4811D5A851F00B66591 /* AppDelegate.m in Sources */,
+				2F36A2531DE120CB00ECA3FF /* TagsViewController.m in Sources */,
 				2FEDE4821D5A851F00B66591 /* SelectionCell.m in Sources */,
 				2FEDE4831D5A851F00B66591 /* MainViewController.m in Sources */,
 				2F8D4D211DB97AD400DEBA23 /* RetrieveLastMonthViewCell.m in Sources */,
