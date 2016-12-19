@@ -6,6 +6,7 @@
 //  Copyright © 2016 Leandro Loureiro. All rights reserved.
 //
 
+#import <math.h>
 #import "TransactionAmountTableViewCell.h"
 
 @implementation TransactionAmountTableViewCell
@@ -94,7 +95,7 @@ NSNumberFormatter *formatter;
             NSScanner *scanner = [NSScanner localizedScannerWithString:amountBox.text];
             double result;
             [scanner scanDouble:&result];
-            amountInCents = result * 100.0;
+            amountInCents = ceil(result * 100.0);
             amountBox.text = [formatter stringFromNumber:[NSNumber numberWithDouble:result]];
         }
     }
